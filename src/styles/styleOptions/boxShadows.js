@@ -1,7 +1,7 @@
+// filter: drop - shadow(offset - x offset - y blur - radius spread - radius color);
+
 const boxShadows = {
-  normal: "0 3px 8px 0 rgb(0 0 0 / 10%)",
-  purple: "0 3px 8px 0 #d6c9ff",
-  blue: "0 3px 8px 0 #b3e2e6",
+  elevate: "0 0 6px 0 rgb(84 184 119 / 25%)",
 };
 
 export default boxShadows;
