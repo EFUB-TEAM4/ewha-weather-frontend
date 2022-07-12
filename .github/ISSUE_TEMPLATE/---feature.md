@@ -1,11 +1,4 @@
----
-name: "✔️ Feature"
-about: Feature 작업 사항 입력
-title: ''
-labels: ''
-assignees: ''
-
----
+## ✔️ Feature
 
 ## ✏️ Description
 > 작업하는 단위에 대한 설명
