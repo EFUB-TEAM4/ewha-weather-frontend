@@ -1,9 +1,14 @@
 /* eslint-disable import/no-unresolved */
-import React from "react";
-import AppRouter from "AppRouter";
+import React from 'react';
+import AppRouter from 'AppRouter';
 
 function App() {
-  return <AppRouter />;
+  return (
+    <>
+      <div>App</div>
+      <AppRouter />
+    </>
+  );
 }
 
 export default App;
