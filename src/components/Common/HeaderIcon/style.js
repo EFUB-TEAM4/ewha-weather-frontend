@@ -52,6 +52,7 @@ const Image = styled.img`
 
 const StyledLink = styled(NavLink)`
   color: #3b3829;
+  font-family: 'Cafe24Ssurround';
   font-size: ${({ theme: { font } }) => font.size.small};
   font-weight: ${({ theme: { font } }) => font.weight.bold};
   margin-top: 0.2rem;
@@ -71,6 +72,7 @@ const LogoutButton = styled.button`
   border-radius: 2rem;
   background-color: #3b3829;
   color: ${({ theme: { color } }) => color.white};
+  font-family: 'Cafe24Ssurround';
   font-size: ${({ theme: { font } }) => font.size.micro};
   font-weight: ${({ theme: { font } }) => font.weight.bold};
 `;
