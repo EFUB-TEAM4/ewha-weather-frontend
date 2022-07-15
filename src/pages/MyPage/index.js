@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { RecSun } from 'assets';
-import { PublicButton } from 'components/Common';
+import { PublicButton } from 'components';
 import { StyledRoot, Text } from './style';
 
 function MyPage() {
