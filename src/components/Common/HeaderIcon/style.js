@@ -36,8 +36,7 @@ const ToolTip = styled.div`
   padding: 0.5rem 0;
   box-sizing: content-box;
   background-color: ${({ theme: { color } }) => color.white};
-  box-shadow: 0.3rem 0.3rem 0.3rem
-    ${({ theme: { color } }) => color.greyLighter};
+  box-shadow: 0 0 6px 0 rgb(84 184 119 / 25%);
 `;
 
 const IconButton = styled.button`
