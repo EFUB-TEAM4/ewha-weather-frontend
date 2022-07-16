@@ -1,17 +1,36 @@
 /* eslint-disable import/no-unresolved */
 import styled from 'styled-components';
+import { applyMediaQuery } from 'styles/mediaQuery';
 
 const StyledRoot = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme: { color } }) => color.greenDarker};
+
+  ${applyMediaQuery('mobile')} {
+    header {
+      img {
+        width: 30rem;
+      }
+    }
+    article {
+      section {
+        button {
+          width: 30rem;
+        }
+      }
+    }
+  }
 `;
 const Header = styled.header`
   padding: 5rem;
+  ${applyMediaQuery('mobile')} {
+    padding: 0 2.8rem;
+  }
 `;
 
 const Article = styled.article`
@@ -23,12 +42,16 @@ const Article = styled.article`
 
 const BtnSection = styled.section`
   padding: 2.7rem;
+
+  ${applyMediaQuery('mobile')} {
+    padding: 1.5rem;
+  }
 `;
 
 const LoginBtn = styled.button`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1.6rem 23rem;
   border-radius: 0.6rem;
@@ -38,6 +61,12 @@ const LoginBtn = styled.button`
   font-family: 'Noto Sans';
   font-weight: ${({ theme: { font } }) => font.weight.bold};
   font-size: ${({ theme: { font } }) => font.size.semiSmall};
+
+  ${applyMediaQuery('mobile')} {
+    padding: 1.3rem 6rem;
+    font-weight: ${({ theme: { font } }) => font.weight.semiBold};
+  }
+  font-size: ${({ theme: { font } }) => font.size.small};
 `;
 
 const CheckSection = styled.section``;
