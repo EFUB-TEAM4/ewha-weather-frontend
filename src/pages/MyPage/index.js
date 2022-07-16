@@ -1,15 +1,50 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { RecSun } from 'assets';
-import { PublicButton } from 'components';
-import { StyledRoot, Text } from './style';
+import { useNavigate } from 'react-router-dom';
+import { CustomCalendar } from 'components';
+import { User, WhiteLeft } from 'assets';
+import {
+  StyledRoot,
+  DesktopHeader,
+  LogoutButton,
+  MobileHeader,
+  BackButton,
+  UserWrapper,
+  UserTextWrapper,
+  UserIcon,
+  NameText,
+  EmailText,
+  MobileFooter,
+} from './style';
 
 function MyPage() {
+  const navigate = useNavigate();
   return (
     <StyledRoot>
-      <PublicButton text="투표 만들기" onClick={() => {}} isDisabled={0} />
-      <Text>MyPage</Text>
-      <img src={RecSun} alt="RecSunny" />
+      <DesktopHeader>
+        <LogoutButton>로그아웃</LogoutButton>
+      </DesktopHeader>
+      <MobileHeader>
+        <button
+          type="button"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <BackButton src={WhiteLeft} alt="BackButton" />
+        </button>
+      </MobileHeader>
+      <UserWrapper>
+        <UserIcon src={User} alt="UserIcon" />
+        <UserTextWrapper>
+          <NameText>이름</NameText>
+          <EmailText>이메일</EmailText>
+        </UserTextWrapper>
+      </UserWrapper>
+      <CustomCalendar />
+      <MobileFooter>
+        <LogoutButton>로그아웃</LogoutButton>
+      </MobileFooter>
     </StyledRoot>
   );
 }
