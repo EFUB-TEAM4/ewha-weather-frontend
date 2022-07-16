@@ -6,6 +6,7 @@ import { StyledRoot, Text } from "./style";
 function Login() {
   return (
     <StyledRoot>
+      {/* 로그인 */}
       <Text>Login</Text>
       <img src={RecSun} alt="RecSunny" />
     </StyledRoot>
