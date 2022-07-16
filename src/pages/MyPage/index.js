@@ -1,15 +1,14 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { RecSun } from 'assets';
-import { PublicButton } from 'components';
+import { HeaderIcon, PublicButton } from 'components';
 import { StyledRoot, Text } from './style';
 
 function MyPage() {
   return (
     <StyledRoot>
-      <PublicButton text="투표 만들기" onClick={() => {}} isDisabled={0} />
+      <HeaderIcon />
       <Text>MyPage</Text>
-      <img src={RecSun} alt="RecSunny" />
+      <PublicButton text="투표 만들기" onClick={() => {}} isDisabled={0} />
     </StyledRoot>
   );
 }
