@@ -4,10 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 const StyledRoot = styled.div`
   position: relative;
-  width: 18rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-bottom: 3rem;
 `;
 
 const ToolTipArrow = styled.div`
@@ -19,13 +20,13 @@ const ToolTipArrow = styled.div`
   border-left: 0.6rem solid transparent;
   border-right: 0.6rem solid transparent;
   top: 4rem;
-  left: 15.4rem;
+  right: 0.4rem;
 `;
 
 const ToolTip = styled.div`
   position: absolute;
   top: 5.5rem;
-  left: 0;
+  right: 0;
   width: 18rem;
   height: 8rem;
   display: flex;
