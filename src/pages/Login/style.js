@@ -51,7 +51,7 @@ const BtnSection = styled.section`
 const LoginBtn = styled.button`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1.6rem 23rem;
   border-radius: 0.6rem;
@@ -61,7 +61,9 @@ const LoginBtn = styled.button`
   font-family: 'Noto Sans';
   font-weight: ${({ theme: { font } }) => font.weight.bold};
   font-size: ${({ theme: { font } }) => font.size.semiSmall};
-
+img {
+  margin-right: 0.5rem;
+}
   ${applyMediaQuery('mobile')} {
     padding: 1.3rem 6rem;
     font-weight: ${({ theme: { font } }) => font.weight.semiBold};
@@ -80,6 +82,7 @@ const LoginLabel = styled.label`
 
 const LoginCheck = styled.input`
   color: ${({ theme: { color } }) => color.white};
+  margin-right: 0.5rem;
 `;
 
 export {
