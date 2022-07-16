@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
-import { createGlobalStyle } from "styled-components";
-import { reset } from "styled-reset";
-import { applyMediaQuery } from "./mediaQuery";
+import { createGlobalStyle } from 'styled-components';
+import { reset } from 'styled-reset';
+import { applyMediaQuery } from './mediaQuery';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -60,19 +60,19 @@ const GlobalStyle = createGlobalStyle`
     }
     .pc-tablet-only {
         display: block;
-       ${applyMediaQuery("mobile")} {
+       ${applyMediaQuery('mobile')} {
             display: none;
         }
     }
     .tablet-mobile-only{
         display: none;
-     ${applyMediaQuery("tablet")}{
+     ${applyMediaQuery('tablet')}{
             display:block;
         }
     }
     .mobile-only {
         display: none;
-       ${applyMediaQuery("mobile")} {
+       ${applyMediaQuery('mobile')} {
             display: block;
         }
     }

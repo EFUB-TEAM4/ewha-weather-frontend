@@ -1,5 +1,5 @@
-import { colors, fonts, boxShadows } from "./styleOptions";
-import { deviceMediaQuery } from "./mediaQuery";
+import { colors, fonts, boxShadows } from './styleOptions';
+import { deviceMediaQuery } from './mediaQuery';
 
 const theme = {
   color: colors,

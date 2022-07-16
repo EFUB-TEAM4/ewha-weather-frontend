@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 /* https://noonnu.cc/font_page/670 */
 
 const GlobalFonts = createGlobalStyle`
