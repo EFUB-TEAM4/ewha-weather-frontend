@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
-import React from "react";
-import { RecSun } from "assets";
-import { StyledRoot, Text } from "./style";
+import React from 'react';
+import { RecSun } from 'assets';
+import { StyledRoot, Text } from './style';
 
 function Main() {
   return (
