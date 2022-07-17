@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { applyMediaQuery } from 'styles/mediaQuery';
 
 const StyledRoot = styled.div`
+  padding: 5rem;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,18 +21,50 @@ const StyledRoot = styled.div`
     }
 
     .mainbox {
-      width: 85%;
+      width: 80vw;
       height: 90%;
     }
   }
 `;
 
+const HeaderIconBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  ${applyMediaQuery('mobile')} {
+    display: none;
+  }
+`;
+
+const BackButton = styled.img`
+  width: 3rem;
+  height: 3rem;
+`;
+
 const Text = styled.p`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 3rem;
+  background-color: ${({ theme: { color } }) => color.greenDarker};
+  .backbutton {
+    display: none;
+  }
+  ${applyMediaQuery('mobile')} {
+    top: 0;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    position: fixed;
+    flex-direction: row;
+    .backbutton {
+      display: flex;
+      position: absolute;
+      left: 10vw;
+    }
+  }
 `;
 
 const SubText = styled.p`
@@ -49,30 +82,45 @@ const MainText = styled.p`
 
 const MainBox = styled.div`
   width: 100rem;
-  height: 54rem;
+  height: 55rem;
   background-color: ${({ theme: { color } }) => color.white};
   border-radius: 1.4rem;
-
-  p {
-    padding: 3.5rem 0rem 2.7rem 10rem;
-    font-family: 'Cafe24Ssurround';
-    font-size: ${({ theme: { font } }) => font.size.semiMedium};
-    color: ${({ theme: { color } }) => color.greenDarker};
-  }
-
   ${applyMediaQuery('mobile')} {
-    p {
-      font-family: 'Noto';
-      font-size: ${({ theme: { font } }) => font.size.regular};
-      font-weight: ${({ theme: { font } }) => font.weight.semiBold};
-      padding: 2.6rem 0rem 2rem 2rem;
-    }
+    margin-top: 4rem;
+  }
+`;
+
+const DateText = styled.p`
+  padding: 3.5rem 0rem 2.7rem 10rem;
+  font-family: 'Cafe24Ssurround';
+  font-size: ${({ theme: { font } }) => font.size.semiMedium};
+  color: ${({ theme: { color } }) => color.greenDarker};
+  ${applyMediaQuery('mobile')} {
+    font-family: 'Noto';
+    font-size: ${({ theme: { font } }) => font.size.regular};
+    font-weight: ${({ theme: { font } }) => font.weight.semiBold};
+    padding: 2.6rem 0rem 2rem 2rem;
   }
 `;
 
 const HorizonLine = styled.hr`
   width: ${props => props.width};
-  border: solid 0.1rem ${({ theme: { color } }) => color.greenLighter};
+  height: 0.2rem;
+  border: 0;
+  background: ${({ theme: { color } }) => color.greenLighter};
+  ${applyMediaQuery('mobile')} {
+    width: ${props => (props.isShorter ? '75vw' : props.width)};
+  }
+`;
+
+const HorizonLineBottom = styled.hr`
+  width: ${props => props.width};
+  height: 0.2rem;
+  border: 0;
+  background: ${({ theme: { color } }) => color.greenLighter};
+  ${applyMediaQuery('mobile')} {
+    display: none;
+  }
 `;
 
 const ContentBox = styled.div`
@@ -86,12 +134,21 @@ const ContentBox = styled.div`
     height: 25rem;
     display: block;
   }
+  ${applyMediaQuery('mobile')} {
+    padding: 1rem;
+    align-items: center;
+    flex-direction: column;
+    .bear {
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 const RecordBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-left: 5rem;
 
   .weather {
@@ -115,15 +172,101 @@ const RecordBox = styled.div`
     font-weight: ${({ theme: font }) => font.light};
     color: ${({ theme: { color } }) => color.grey};
   }
+  ${applyMediaQuery('mobile')} {
+    padding-left: 0;
+    textarea {
+      width: 75vw;
+      height: 30rem;
+    }
+  }
+`;
+
+const DeskTopWeatherBox = styled.div`
+  width: 42rem;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ${applyMediaQuery('mobile')} {
+    display: none;
+  }
+`;
+
+const MobileWeatherBox = styled.div`
+  width: 70vw;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  .div {
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  ${applyMediaQuery('desktop')} {
+    display: none;
+  }
+`;
+
+const TemBox = styled.div`
+  display: flex;
+`;
+
+const Temperature = styled.p`
+  font-size: ${props =>
+    props.isSmall
+      ? ({ theme: { font } }) => font.size.small
+      : ({ theme: { font } }) => font.size.large};
+  font-weight: ${({ theme: font }) => font.bold};
+  font-family: 'Noto Sans';
+  color: ${({ theme: { color } }) => color.greenDarker};
+  margin: 0;
+  ${applyMediaQuery('mobile')} {
+    font-size: ${props =>
+      props.isSmall
+        ? ({ theme: { font } }) => font.size.micro
+        : ({ theme: { font } }) => font.size.large};
+  }
+`;
+
+const VerticalLine = styled.hr`
+  border: 0;
+  border-left: 0.2rem solid ${({ theme: { color } }) => color.greenLighter};
+  height: 70%;
+  width: 0.05rem;
+  margin: 0;
+  background: ${({ theme: { color } }) => color.greenLighter};
+`;
+
+const ButtonBox = styled.div`
+  width: 100rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  ${applyMediaQuery('mobile')} {
+    width: 80vw;
+  }
 `;
 
 export {
   StyledRoot,
+  HeaderIconBox,
+  BackButton,
   Text,
   SubText,
   MainText,
   MainBox,
+  DateText,
   HorizonLine,
+  HorizonLineBottom,
+  DeskTopWeatherBox,
+  MobileWeatherBox,
   ContentBox,
   RecordBox,
+  ButtonBox,
+  TemBox,
+  Temperature,
+  VerticalLine,
 };
