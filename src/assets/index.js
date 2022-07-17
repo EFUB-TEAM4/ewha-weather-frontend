@@ -70,5 +70,6 @@ export { default as TSun } from './Weather/Time/Sun.svg';
 export { default as TSunCloud } from './Weather/Time/SunCloud.svg';
 /* Login Page Bear */
 export { default as LoginBear } from './Bear/LoginBear.svg';
+export { default as MainBear } from './Bear/MainBear.svg';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';

@@ -14,6 +14,7 @@ const size = {
   medium: '3.2rem',
   semiLarge: '3.2rem',
   large: '4.8rem',
+  extralarge: '8rem',
 };
 
 const fonts = {
