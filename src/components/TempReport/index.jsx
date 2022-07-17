@@ -1,14 +1,12 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-unresolved */
 
 import React from 'react';
 import { BoxLeft, BoxRight } from 'assets';
-import TimeCard from './TimeTemp/TimeCard';
+import TimeCard from './TimeCard';
 import { StyledRoot, StyledSlider } from './style';
-
 
 function TempReport() {
   const settings = {
@@ -17,17 +15,8 @@ function TempReport() {
     speed: 500, // 넘기는 속도
     slidesToShow: 4, // 스크린에 보여지는 슬라이드 개수
     slidesToScroll: 1, // n장씩 뒤로 넘어가게 함
-    nextArrow: (
-      
-        <SampleNexrArrow />
-      
-    ),
-    prevArrow: (
-  
-        <SamplePrevArrow />
-    
-    ),
-    
+    nextArrow: <SampleNexrArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   return (
@@ -52,34 +41,18 @@ function TempReport() {
 
 export default TempReport;
 
-
-function SamplePrevArrow  ({className, onClick}){
-
+function SamplePrevArrow({ className, onClick }) {
   return (
-      <button 
-          className={className}
-          onClick={onClick}
-      >
-          <img src={BoxLeft} alt="BoxLeft"/>
-          
-      </button>
+    <button className={className} onClick={onClick}>
+      <img src={BoxLeft} alt="BoxLeft" />
+    </button>
   );
 }
 
-
-function SampleNexrArrow  ({className, onClick}){
-
+function SampleNexrArrow({ className, onClick }) {
   return (
-      <button 
-          className={className}
-          onClick={onClick}
-      >
-          <img src={BoxRight} alt="BoxRight"/>
-          
-      </button>
+    <button className={className} onClick={onClick}>
+      <img src={BoxRight} alt="BoxRight" />
+    </button>
   );
 }
-
-
-
-

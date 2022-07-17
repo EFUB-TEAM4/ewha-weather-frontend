@@ -8,40 +8,37 @@ import 'slick-carousel/slick/slick-theme.css';
 const StyledRoot = styled.section`
   width: 98%;
   padding-top: 1.2rem;
-  .slick-slider{
+  .slick-slider {
     height: fit-content;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: content-box;
-    
   }
 `;
 
 const StyledSlider = styled(Slider)`
   .slick-prev {
-   display: block;
+    display: block;
     z-index: 1000;
     top: 1rem;
-  left: 0;
+    left: 0;
   }
 
   .slick-next {
-   display: block;
+    display: block;
     z-index: 1000;
-    top:1rem;
+    top: 1rem;
     right: 2rem;
-  
   }
-
 
   .slick-list {
     position: relative;
-left: 0px;
+    left: 0px;
     display: block;
     width: 70%;
-    margin:0 auto;
+    margin: 0 auto;
     overflow: hidden;
     border-radius: 0.6rem;
   }
@@ -68,7 +65,6 @@ left: 0px;
     align-items: center;
     justify-content: center;
     background-color: ${({ theme: { color } }) => color.white};
-   
   }
   .slick-prev::before,
   .slick-next::before {

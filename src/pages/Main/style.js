@@ -36,19 +36,11 @@ const MainContainer = styled.section`
   }
 `;
 
-const BearSection = styled.section`
-  img {
-    width: 31.9rem;
-    height: 31.9rem;
-  }
-  margin-right: 3rem;
-  ${applyMediaQuery('mobile')} {
-    margin-right: 0;
-    margin-bottom: 3rem;
-  }
-`;
-
 const TitleSection = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   ${applyMediaQuery('mobile')} {
     span:nth-child(1) {
       display: none;
@@ -65,34 +57,11 @@ const ContentSection = styled.section`
   }
 `;
 
-const WeatherSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 31.9rem;
-`;
-
-const WeatherArticle = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  ${applyMediaQuery('mobile')} {
-    flex-direction: column;
-  }
-`;
-const VoteArticle = styled.article``;
-
 export {
   StyledRoot,
   MainRoot,
   Title,
   MainContainer,
-  WeatherArticle,
   TitleSection,
-  VoteArticle,
-  BearSection,
   ContentSection,
-  WeatherSection,
 };
