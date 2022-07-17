@@ -4,6 +4,7 @@ function handleCallbackResponse(response) {
 }
 
 function handleGoogleBtn() {
+  /* 로그인 client ID 출력 확인 */
   console.log(
     'handleGoogleBtn',
     `${process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}`,
