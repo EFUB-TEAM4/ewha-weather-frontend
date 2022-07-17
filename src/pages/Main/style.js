@@ -2,10 +2,9 @@
 import styled from 'styled-components';
 import { applyMediaQuery } from 'styles/mediaQuery';
 
-
-const StyledRoot=styled.div`
-height: 100vh;
-padding: 5rem;
+const StyledRoot = styled.div`
+  height: 100vh;
+  padding: 5rem;
   background-color: ${({ theme: { color } }) => color.greenLightest};
   ${applyMediaQuery('mobile')} {
     padding: 0.5rem 2.8rem;
@@ -13,19 +12,12 @@ padding: 5rem;
   }
 `;
 
-
 const MainRoot = styled.main`
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
-
 `;
-
-
 
 const Title = styled.span`
   color: ${({ theme: { color } }) => color.greenDarker};
@@ -76,7 +68,7 @@ const ContentSection = styled.section`
 const WeatherSection = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 31.9rem;
 `;

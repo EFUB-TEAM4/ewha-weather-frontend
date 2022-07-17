@@ -4,7 +4,10 @@ const StyledRoot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1.2rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 1.2rem;
+  background-color: ${({ theme: { color } }) => color.white};
   img {
     padding: 0.2rem 0;
   }
