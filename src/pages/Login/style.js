@@ -42,6 +42,10 @@ const Article = styled.article`
 
 const BtnSection = styled.section`
   padding: 2.7rem;
+  #SignIn {
+    opacity: 0%;
+    position: absolute;
+  }
 
   ${applyMediaQuery('mobile')} {
     padding: 1.5rem;
@@ -64,6 +68,7 @@ const LoginBtn = styled.button`
   img {
     margin-right: 0.5rem;
   }
+
   ${applyMediaQuery('mobile')} {
     padding: 1.3rem 6rem;
     font-weight: ${({ theme: { font } }) => font.weight.semiBold};

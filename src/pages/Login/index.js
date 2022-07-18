@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
 import {
   StyledRoot,
@@ -11,8 +11,13 @@ import {
   LoginLabel,
   LoginCheck,
 } from './style';
+import handleGoogleBtn from './handleGoogleBtn';
 
 function Login() {
+  useEffect(() => {
+    handleGoogleBtn();
+  }, []);
+
   return (
     <StyledRoot>
       <Header>
@@ -23,6 +28,8 @@ function Login() {
           <LoginBtn>
             <img src={GoogleBtn} alt="GoogleBtn" />
             <span>구글 계정으로 로그인</span>
+
+            <div id="SignIn" />
           </LoginBtn>
         </BtnSection>
 
