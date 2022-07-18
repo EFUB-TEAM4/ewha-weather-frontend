@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import AppRouter from 'AppRouter';
@@ -5,7 +6,6 @@ import AppRouter from 'AppRouter';
 function App() {
   return (
     <>
-      <div>App</div>
       <AppRouter />
     </>
   );
