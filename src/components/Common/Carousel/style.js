@@ -9,12 +9,12 @@ const StyledRoot = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 3.2rem;
+  width: 100%;
 `;
 
 const StyledSlider = styled(Slider)`
-  width: 75%;
-  padding: 1.5rem;
+  width: ${props => props.width};
+  padding: ${props => props.padding};
   display: block;
 
   .slick-list {

@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-// import { TempReport } from 'components';
-import { StyledRoot, Button } from './style';
-import { Title, TitleSection, ContentSection } from '../style';
+import { PCPollReport, MobilePollReport } from 'components';
+import { StyledRoot, Button, VoteSection, PC, Mobile } from './style';
+import { TitleSection, Title } from '../style';
 
 function handleBtnClick() {
   console.log('Vote handleBtnclick');
@@ -18,7 +18,14 @@ function Vote() {
         </div>
         <Button onClick={handleBtnClick}>+</Button>
       </TitleSection>
-      <ContentSection> 콘텐츠 </ContentSection>
+      <VoteSection>
+        <PC>
+          <PCPollReport />{' '}
+        </PC>
+        <Mobile>
+          <MobilePollReport />
+        </Mobile>
+      </VoteSection>
     </StyledRoot>
   );
 }
