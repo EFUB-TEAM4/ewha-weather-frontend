@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const StyledRoot = styled.section`
-  width: 98%;
+  width: 100%;
   padding-top: 1.2rem;
   .slick-slider {
     height: fit-content;
