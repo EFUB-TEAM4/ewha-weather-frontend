@@ -4,7 +4,6 @@ import React from 'react';
 import { StyledRoot, Button } from './style';
 import { Title, TitleSection, ContentSection } from '../style';
 
-
 function handleBtnClick() {
   console.log('Vote handleBtnclick');
 }

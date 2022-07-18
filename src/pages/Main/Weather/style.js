@@ -12,10 +12,10 @@ const StyledRoot = styled.article`
   }
 `;
 const BearSection = styled.section`
-img{
-  width: 32rem;
- height: 32rem;
-}
+  img {
+    width: 32rem;
+    height: 32rem;
+  }
   // margin-right: 3rem;
   ${applyMediaQuery('mobile')} {
     margin-right: 0;

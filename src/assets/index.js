@@ -24,6 +24,7 @@ export { default as BoxLeft } from './Arrow/BoxLeft.svg';
 export { default as BoxRight } from './Arrow/BoxRight.svg';
 export { default as NormalLeft } from './Arrow/NormalLeft.svg';
 export { default as NormalRight } from './Arrow/NormalRight.svg';
+export { default as WhiteLeft } from './Arrow/WhiteLeft.svg';
 /* Weather / Calender */
 export { default as CalCloud } from './Weather/Calender/Cloud.svg';
 export { default as CalDoubleCloud } from './Weather/Calender/DoubleCloud.svg';
@@ -73,3 +74,6 @@ export { default as LoginBear } from './Bear/LoginBear.svg';
 export { default as MainBear } from './Bear/MainBear.svg';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';
+/* Save Page tmp icon - Bear / WeatherInfo */
+export { default as SaveBear } from './Tmp/SaveBear.svg';
+export { default as WeatherInfo } from './Tmp/WeatherInfo.svg';
