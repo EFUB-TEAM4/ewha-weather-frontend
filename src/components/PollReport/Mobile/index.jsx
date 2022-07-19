@@ -6,7 +6,7 @@ function MobilePollReport() {
   return (
     <StyledRoot>
       {data.map(d => (
-       <div> Mobile {d}</div>
+        <div> Mobile {d}</div>
       ))}
     </StyledRoot>
   );

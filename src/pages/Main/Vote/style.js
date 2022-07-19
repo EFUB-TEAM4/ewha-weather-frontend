@@ -15,7 +15,6 @@ const VoteSection = styled.section`
   width: 68rem;
   ${applyMediaQuery('mobile')} {
     width: 100%;
-
   }
 `;
 

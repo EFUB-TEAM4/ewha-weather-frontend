@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledRoot = styled.div`
-width: 100%;
+  width: 100%;
 `;
 
 const Text = styled.p``;

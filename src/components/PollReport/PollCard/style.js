@@ -12,7 +12,6 @@ const StyledRoot = styled.section`
   filter: drop-shadow(${({ theme: { boxShadow } }) => boxShadow.elevate});
   background-color: ${({ theme: { color } }) => color.greenLighter};
   border-radius: 0.6rem;
-
 `;
 
 const AskSection = styled.div`

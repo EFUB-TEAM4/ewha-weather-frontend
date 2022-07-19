@@ -1,14 +1,19 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { PCPollReport, MobilePollReport } from 'components';
+import {useWindowWidth} from 'hooks';
 import { StyledRoot, Button, VoteSection, PC, Mobile } from './style';
 import { TitleSection, Title } from '../style';
+
 
 function handleBtnClick() {
   console.log('Vote handleBtnclick');
 }
 
 function Vote() {
+  const width=useWindowWidth();
+  console.log(width);
+
   return (
     <StyledRoot>
       <TitleSection>
