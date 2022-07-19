@@ -1,7 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { MainBear } from 'assets';
-import { WeatherReport, TempReport } from 'components';
+import TempReport from './TempReport';
+import WeatherReport from './WeatherReport';
 import { StyledRoot, BearSection, WeatherSection } from './style';
 import { Title, ContentSection } from '../style';
 
@@ -14,7 +15,7 @@ function Weather() {
           <img src={MainBear} alt="MainBear" />
         </BearSection>
         <WeatherSection>
-          <WeatherReport />
+         <WeatherReport/>
           <TempReport />
         </WeatherSection>
       </ContentSection>

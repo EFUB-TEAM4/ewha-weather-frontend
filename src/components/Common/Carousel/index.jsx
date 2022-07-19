@@ -10,9 +10,9 @@ import {
   VoteLeftArrow,
   VoteRightArrow,
 } from 'constants/arrow';
+import {TimeCard,PollCard} from "components";
 import { StyledRoot, StyledSlider } from './style';
-import TimeCard from '../../TempReport/TimeCard';
-import PollCard from '../../PollReport/PollCard';
+
 
 function Carousel({ data, type, slideCount, setting }) {
   console.log(type, data, setting);

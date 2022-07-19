@@ -1,11 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { PCPollReport, MobilePollReport } from 'components';
 import { useWindowWidth } from 'hooks';
-import {deviceBreakPoints} from "constants/deviceInfo";
+import { deviceBreakPoints } from 'constants/deviceInfo';
+import { PCPollReport, MobilePollReport } from './PollReport';
 import { StyledRoot, Button, VoteSection } from './style';
 import { TitleSection, Title } from '../style';
-
 
 function handleBtnClick() {
   console.log('Vote handleBtnclick');
@@ -25,9 +24,11 @@ function Vote() {
         <Button onClick={handleBtnClick}>+</Button>
       </TitleSection>
       <VoteSection>
-        {width<=deviceBreakPoints.mobile ? <MobilePollReport />:<PCPollReport />}
-     
-      
+        {width <= deviceBreakPoints.mobile ? (
+          <MobilePollReport />
+        ) : (
+          <PCPollReport />
+        )}
       </VoteSection>
     </StyledRoot>
   );

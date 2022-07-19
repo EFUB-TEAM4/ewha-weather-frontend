@@ -18,5 +18,4 @@ const VoteSection = styled.section`
   }
 `;
 
-
-export { StyledRoot, Button, VoteSection,  };
+export { StyledRoot, Button, VoteSection };
