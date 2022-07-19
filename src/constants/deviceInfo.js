@@ -1,8 +1,8 @@
-const deviceBreakPoints={
-  mobile:767,
-  tablet:{min:768,max:1023 },
-  desktop:1024
-}
+const deviceBreakPoints = {
+  mobile: 767,
+  tablet: { min: 768, max: 1023 },
+  desktop: 1024,
+};
 
 const deviceQuery = {
   mobile: `(max-width:${deviceBreakPoints.mobile}px)`,
@@ -10,4 +10,4 @@ const deviceQuery = {
   desktop: `(min-width:${deviceBreakPoints.desktop}px)`,
 };
 
-export {deviceQuery,deviceBreakPoints};
+export { deviceQuery, deviceBreakPoints };

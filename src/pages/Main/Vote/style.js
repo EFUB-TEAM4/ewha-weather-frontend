@@ -18,17 +18,5 @@ const VoteSection = styled.section`
   }
 `;
 
-const PC = styled.div`
-  ${applyMediaQuery('mobile')} {
-    display: none;
-    width: fit-content;
-  }
-`;
 
-const Mobile = styled.div`
-  display: none;
-  ${applyMediaQuery('mobile')} {
-    display: block;
-  }
-`;
-export { StyledRoot, Button, VoteSection, PC, Mobile };
+export { StyledRoot, Button, VoteSection,  };
