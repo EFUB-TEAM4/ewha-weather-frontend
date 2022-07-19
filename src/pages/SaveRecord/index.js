@@ -1,6 +1,10 @@
 /* eslint-disable import/no-unresolved */
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import {
+  useNavigate,
+  useParams,
+  UNSAFE_NavigationContext as NavigationContext,
+} from 'react-router-dom';
 import moment from 'moment';
 import {
   WhiteLeft,
@@ -10,7 +14,6 @@ import {
   NormalTrash,
 } from 'assets';
 import { HeaderIcon, PublicButton, EditModal } from 'components';
-import { usePrompt } from '../../utils/Blocker';
 import {
   StyledRoot,
   HeaderIconBox,
@@ -38,8 +41,24 @@ function SaveRecord() {
   const params = useParams();
   const date = new Date(params.date);
   const [isEditMode, setIsEditMode] = useState(0);
+  const [isSaveVisible, setIsSaveVisible] = useState(0);
   const [isDeleteVisible, setIsDeleteVisible] = useState(0);
-  usePrompt('아직 기록이 저장되지 않았어요.\n기록을 저장하실래요?', isEditMode);
+  function useBlocker(when = true) {
+    const { navigator } = useContext(NavigationContext);
+    useEffect(() => {
+      if (!when) return;
+
+      const unblock = navigator.block(() => {
+        setIsSaveVisible(1);
+      });
+      // eslint-disable-next-line
+      return unblock;
+    }, [navigator, when]);
+  }
+  function usePrompt(when = true) {
+    useBlocker(when);
+  }
+  usePrompt(isEditMode);
   return (
     <StyledRoot>
       <HeaderIconBox>
@@ -118,6 +137,22 @@ function SaveRecord() {
           ) : null}
         </ButtonBox>
       </MainBox>
+      {isSaveVisible ? (
+        <EditModal
+          ctext1="아직 기록이 저장되지 않았어요."
+          ctext2="기록을 저장하실래요?"
+          btext1="나가기"
+          btext2="저장하기"
+          onClick1={() => {
+            setIsEditMode(0);
+            navigate(-1);
+          }}
+          onClick2={() => {
+            setIsSaveVisible(0);
+            setIsEditMode(0);
+          }}
+        />
+      ) : null}
       {isDeleteVisible ? (
         <EditModal
           ctext1="내년의 나를 위한 기록이에요!"
