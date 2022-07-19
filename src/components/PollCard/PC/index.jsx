@@ -1,7 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { UpGreen, DownGreen, UpWhite, DownWhite } from 'assets';
-import { StyledRoot, AskSection, Text, PollBtnSection, PollBtn } from './style';
+import { StyledRoot, AskSection, PollBtnSection, PollBtn } from './style';
+import { Text } from '../style';
 
 function PollCard() {
   const [isUpHovered, setIsUpHovered] = useState(0);

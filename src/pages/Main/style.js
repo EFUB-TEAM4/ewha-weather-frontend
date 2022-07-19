@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { applyMediaQuery } from 'styles/mediaQuery';
 
 const StyledRoot = styled.div`
-  min-height: fit-content;
+  min-height: 100vh;
   padding: 5rem;
   background-color: ${({ theme: { color } }) => color.greenLightest};
   ${applyMediaQuery('mobile')} {

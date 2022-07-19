@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -10,9 +11,8 @@ import {
   VoteLeftArrow,
   VoteRightArrow,
 } from 'constants/arrow';
-import {TimeCard,PollCard} from "components";
+import { TimeCard, PCPollCard } from 'components';
 import { StyledRoot, StyledSlider } from './style';
-
 
 function Carousel({ data, type, slideCount, setting }) {
   console.log(type, data, setting);
@@ -36,8 +36,10 @@ function Carousel({ data, type, slideCount, setting }) {
           padding={setting.padding}
           backgroundColor={setting.backgroundColor}
         >
-          {type === 'time' ? data.map(d => <TimeCard data={d} />) : null}
-          {type === 'vote' ? data.map(d => <PollCard data={d} />) : null}
+          {type === 'time' &&
+            data.map((d, idx) => <TimeCard data={d} key={idx} />)}
+          {type === 'vote' &&
+            data.map((d, idx) => <PCPollCard data={d} key={idx} />)}
         </StyledSlider>
       )}
     </StyledRoot>

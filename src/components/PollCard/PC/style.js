@@ -21,17 +21,6 @@ const AskSection = styled.div`
   align-items: center;
 `;
 
-const Text = styled.p`
-  font-family: 'Nato Sans';
-  color: ${({ theme: { color } }) => color.greenDarker};
-  font-weight: ${({ theme: { font } }) => font.weight.medium};
-  font-size: ${({ theme: { font } }) => font.size.semiSmall};
-  padding: 0.5rem 0;
-  span {
-    font-weight: ${({ theme: { font } }) => font.weight.bold};
-  }
-`;
-
 const PollBtnSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,4 +43,4 @@ const PollBtn = styled.button`
   }
 `;
 
-export { StyledRoot, AskSection, Text, PollBtnSection, PollBtn };
+export { StyledRoot, AskSection, PollBtnSection, PollBtn };

@@ -15,7 +15,7 @@ function Weather() {
           <img src={MainBear} alt="MainBear" />
         </BearSection>
         <WeatherSection>
-         <WeatherReport/>
+          <WeatherReport />
           <TempReport />
         </WeatherSection>
       </ContentSection>
