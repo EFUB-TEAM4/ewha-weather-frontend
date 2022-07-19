@@ -7,10 +7,8 @@ import Vote from './Vote';
 
 import { StyledRoot, MainRoot, MainContainer } from './style';
 
-
 function Main() {
- 
-const width=useWindowWidth();
+  const width = useWindowWidth();
 
   return (
     <StyledRoot>

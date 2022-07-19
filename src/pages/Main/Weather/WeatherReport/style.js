@@ -44,7 +44,6 @@ const Section = styled.div`
   align-items: center;
   padding: 2rem;
   padding-bottom: 0;
-  font-family: 'Nato Sans Display';
   color: ${({ theme: { color } }) => color.greenDarker};
   font-weight: ${({ theme: { font } }) => font.weight.semiBold};
   font-size: ${({ theme: { font } }) => font.size.small};

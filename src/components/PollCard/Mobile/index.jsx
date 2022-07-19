@@ -36,7 +36,7 @@ function MobilePollCard() {
 
   const onControlledDrag = (e, position) => {
     const { x, y } = position;
-    console.log(position)
+    console.log(position);
     setState({ ...state, controlledPosition: { x, y } });
     if (x < -10) DownDragged();
     else if (x > 10) UpDragged();

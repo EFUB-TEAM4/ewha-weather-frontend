@@ -21,8 +21,9 @@ const GlobalStyle = createGlobalStyle`
 
      /* font-size 1em = 10px on default browser settings */
     font-size: 62.5%;
-    font-family: 'Noto Sans', sans-serif;
-    font-family: 'Noto Sans Display', sans-serif;
+    // font-family: 'Apple SD Gothic Neo',sans-serif;
+    // font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans Display', 'AppleSDGothicNeo', 'Noto Sans KR',sans-serif;
   }
    * {
   

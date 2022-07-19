@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const Text = styled.p`
-  font-family: 'Nato Sans';
+  // font-family: 'Nato Sans';
   color: ${({ theme: { color } }) => color.greenDarker};
   font-weight: ${({ theme: { font } }) => font.weight.medium};
   font-size: ${({ theme: { font } }) => font.size.semiSmall};

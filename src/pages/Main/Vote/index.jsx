@@ -7,17 +7,17 @@ import { PCPollReport, MobilePollReport } from './PollReport';
 import { StyledRoot, Button, VoteSection } from './style';
 import { TitleSection, Title } from '../style';
 
-
 function handleBtnClick() {
   console.log('Vote handleBtnclick');
 }
 
-function Vote({width}) {
+function Vote({ width }) {
   // const width = useWindowWidth();
   // const [width,setWidth]=useState(useWindowWidth())
-  
 
-  useEffect(() => {console.log("Vote",width);}, [width]);
+  useEffect(() => {
+    console.log('Vote', width);
+  }, [width]);
 
   return (
     <StyledRoot>
@@ -38,7 +38,5 @@ function Vote({width}) {
     </StyledRoot>
   );
 }
-
-
 
 export default Vote;
