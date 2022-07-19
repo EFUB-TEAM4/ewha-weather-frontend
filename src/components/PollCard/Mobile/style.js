@@ -4,10 +4,10 @@ const StyledRoot = styled.section`
   width: 100%;
   height: 12.1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => (!props.isVoted ? 'row' : 'column')};
   justify-content: space-between;
   align-items: center;
-  padding: 3.3rem 1.5rem;
+  padding: 1.5rem;
   border-radius: 1rem;
   margin-bottom: 1.6rem;
   background-color: ${({ theme: { color } }) => color.greenLighter};

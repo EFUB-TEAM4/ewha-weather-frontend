@@ -6,9 +6,12 @@ import Draggable from 'react-draggable';
 import { UpWhite, DownWhite, DownGreen, UpGreen } from 'assets';
 import { StyledRoot, AskSection, PollBtnSection, PollBtn } from './style';
 import { Text } from '../style';
+import ProgressBar from './bar';
 
 function MobilePollCard() {
   const [isDragged, setIsDragged] = useState({ up: false, down: false });
+  const [isVoted, setIsVoted] = useState(false);
+
   const [state, setState] = useState({
     activeDrags: 0,
     deltaPosition: {
@@ -21,8 +24,11 @@ function MobilePollCard() {
     },
   });
   const onStop = () => {
+    // 가장 마지막으로 실행되는 함수임
     const { activeDrags } = state;
     setState({ ...state, activeDrags: activeDrags - 1 });
+    console.log('onStop');
+    setIsVoted(true);
   };
 
   const DownDragged = () => {
@@ -32,6 +38,7 @@ function MobilePollCard() {
   const UpDragged = () => {
     console.log('up');
     setIsDragged({ up: true, down: false });
+    console.log('UP');
   };
 
   const onControlledDrag = (e, position) => {
@@ -69,16 +76,19 @@ function MobilePollCard() {
       onStop={onControlledDragStop}
     >
       <div className="box cursor-x">
-        <StyledRoot>
-          <PollBtnSection>
-            <PollBtn>
-              {isDragged.down ? (
-                <img src={DownGreen} alt="DownGreen" />
-              ) : (
-                <img src={DownWhite} alt="DownWhite" />
-              )}
-            </PollBtn>
-          </PollBtnSection>
+        <StyledRoot isVoted={isVoted}>
+          {!isVoted && (
+            <PollBtnSection>
+              <PollBtn>
+                {isDragged.down ? (
+                  <img src={DownGreen} alt="DownGreen" />
+                ) : (
+                  <img src={DownWhite} alt="DownWhite" />
+                )}
+              </PollBtn>
+            </PollBtnSection>
+          )}
+
           <AskSection>
             <Text>
               오늘 <span>롱코트</span>
@@ -87,15 +97,19 @@ function MobilePollCard() {
               <span>ECC</span>에서 허, 불허?
             </Text>
           </AskSection>
-          <PollBtnSection>
-            <PollBtn>
-              {isDragged.up ? (
-                <img src={UpGreen} alt="UpGreen" />
-              ) : (
-                <img src={UpWhite} alt="UpWhite" />
-              )}
-            </PollBtn>
-          </PollBtnSection>
+
+          {!isVoted && (
+            <PollBtnSection>
+              <PollBtn>
+                {isDragged.up ? (
+                  <img src={UpGreen} alt="UpGreen" />
+                ) : (
+                  <img src={UpWhite} alt="UpWhite" />
+                )}
+              </PollBtn>
+            </PollBtnSection>
+          )}
+          {isVoted && <ProgressBar />}
         </StyledRoot>
       </div>
     </Draggable>
