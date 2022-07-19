@@ -1,25 +1,23 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect } from 'react';
-import PropTypes from "prop-types";
+// import { useWindowWidth } from 'hooks';
 import { deviceBreakPoints } from 'constants/deviceInfo';
 import { PCPollReport, MobilePollReport } from './PollReport';
 import { StyledRoot, Button, VoteSection } from './style';
 import { TitleSection, Title } from '../style';
 
+
 function handleBtnClick() {
   console.log('Vote handleBtnclick');
 }
 
-
-
 function Vote({width}) {
   // const width = useWindowWidth();
   // const [width,setWidth]=useState(useWindowWidth())
-  console.log(width);
+  
 
-  useEffect(()=>{
-
-  },[width])
+  useEffect(() => {console.log("Vote",width);}, [width]);
 
   return (
     <StyledRoot>
@@ -41,8 +39,6 @@ function Vote({width}) {
   );
 }
 
-Vote.propTypes = {
-  width: PropTypes.number.isRequired
-}
+
 
 export default Vote;

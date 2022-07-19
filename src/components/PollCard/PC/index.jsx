@@ -5,9 +5,7 @@ import { StyledRoot, AskSection, PollBtnSection, PollBtn } from './style';
 import { Text } from '../style';
 
 function PollCard() {
-  const [isUpHovered, setIsUpHovered] = useState(0);
-  const [isDownHovered, setIsDownHovered] = useState(0);
-
+  const [isHovered, setIsHovered] = useState({ up: 0, down: 0 });
   const handleUpBtn = () => {
     console.log('handleUpBtn');
   };
@@ -30,25 +28,25 @@ function PollCard() {
 
       <PollBtnSection>
         <PollBtn
-          onMouseOver={() => setIsUpHovered(1)}
-          onMouseOut={() => setIsUpHovered(0)}
-          onClick={handleUpBtn}
-        >
-          {isUpHovered ? (
-            <img src={UpWhite} alt="UpWhite" />
-          ) : (
-            <img src={UpGreen} alt="UpGreen" />
-          )}
-        </PollBtn>
-        <PollBtn
-          onMouseOver={() => setIsDownHovered(1)}
-          onMouseOut={() => setIsDownHovered(0)}
+          onMouseOver={() => setIsHovered({ ...isHovered, down: 1 })}
+          onMouseOut={() => setIsHovered({ ...isHovered, down: 0 })}
           onClick={handleDownBtn}
         >
-          {isDownHovered ? (
+          {isHovered.down ? (
             <img src={DownWhite} alt="DownWhite" />
           ) : (
             <img src={DownGreen} alt="DownGreen" />
+          )}
+        </PollBtn>
+        <PollBtn
+          onMouseOver={() => setIsHovered({ ...isHovered, up: 1 })}
+          onMouseOut={() => setIsHovered({ ...isHovered, up: 0 })}
+          onClick={handleUpBtn}
+        >
+          {isHovered.up ? (
+            <img src={UpWhite} alt="UpWhite" />
+          ) : (
+            <img src={UpGreen} alt="UpGreen" />
           )}
         </PollBtn>
       </PollBtnSection>

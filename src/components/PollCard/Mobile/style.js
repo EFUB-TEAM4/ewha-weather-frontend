@@ -8,6 +8,7 @@ const StyledRoot = styled.section`
   justify-content: space-between;
   align-items: center;
   padding: 3.3rem 1.5rem;
+  border-radius: 1rem;
   margin-bottom: 1.6rem;
   background-color: ${({ theme: { color } }) => color.greenLighter};
 `;
@@ -21,6 +22,6 @@ const AskSection = styled.div`
 
 const PollBtnSection = styled.div``;
 
-const PollBtn = styled.button``;
+const PollBtn = styled.div``;
 
 export { StyledRoot, AskSection, PollBtnSection, PollBtn };

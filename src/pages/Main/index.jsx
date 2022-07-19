@@ -9,14 +9,16 @@ import { StyledRoot, MainRoot, MainContainer } from './style';
 
 
 function Main() {
-  const width = useWindowWidth();
+ 
+const width=useWindowWidth();
+
   return (
     <StyledRoot>
       <UserIcon />
       <MainRoot>
         <MainContainer>
           <Weather />
-          <Vote width={width}/>
+          <Vote width={width} />
         </MainContainer>
       </MainRoot>
     </StyledRoot>
