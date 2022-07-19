@@ -10,6 +10,7 @@ import {
   NormalTrash,
 } from 'assets';
 import { HeaderIcon, PublicButton, EditModal } from 'components';
+import { usePrompt } from '../../utils/Blocker';
 import {
   StyledRoot,
   HeaderIconBox,
@@ -32,13 +33,13 @@ import {
   VerticalLine,
 } from './style';
 
-function Save() {
+function SaveRecord() {
   const navigate = useNavigate();
   const params = useParams();
   const date = new Date(params.date);
   const [isEditMode, setIsEditMode] = useState(0);
-  const [isSaveVisible, setIsSaveVisible] = useState(0);
   const [isDeleteVisible, setIsDeleteVisible] = useState(0);
+  usePrompt('아직 기록이 저장되지 않았어요.\n기록을 저장하실래요?', isEditMode);
   return (
     <StyledRoot>
       <HeaderIconBox>
@@ -112,21 +113,11 @@ function Save() {
             <PublicButton
               text="저장하기"
               isDisabled={0}
-              onClick={() => setIsSaveVisible(1)}
+              onClick={() => setIsEditMode(0)}
             />
           ) : null}
         </ButtonBox>
       </MainBox>
-      {isSaveVisible ? (
-        <EditModal
-          ctext1="아직 기록이 저장되지 않았어요."
-          ctext2="기록을 저장하실래요?"
-          btext1="나가기"
-          btext2="저장하기"
-          onClick1={() => setIsSaveVisible(0)}
-          onClick2={() => setIsSaveVisible(0)}
-        />
-      ) : null}
       {isDeleteVisible ? (
         <EditModal
           ctext1="내년의 나를 위한 기록이에요!"
@@ -141,4 +132,4 @@ function Save() {
   );
 }
 
-export default Save;
+export default SaveRecord;
