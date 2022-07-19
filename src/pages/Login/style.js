@@ -62,7 +62,7 @@ const LoginBtn = styled.button`
   background-color: ${({ theme: { color } }) => color.white};
   color: ${({ theme: { color } }) => color.greenDarker};
   filter: drop-shadow(${({ theme: { boxShadow } }) => boxShadow.elevate});
-  font-family: 'Noto Sans';
+  // font-family: 'Noto Sans';
   font-weight: ${({ theme: { font } }) => font.weight.bold};
   font-size: ${({ theme: { font } }) => font.size.semiSmall};
   img {
@@ -79,7 +79,7 @@ const LoginBtn = styled.button`
 const CheckSection = styled.section``;
 
 const LoginLabel = styled.label`
-  font-family: 'Nato Sans Display';
+  // font-family: 'Nato Sans Display';
   color: ${({ theme: { color } }) => color.white};
   font-weight: ${({ theme: { font } }) => font.weight.medium};
   font-size: ${({ theme: { font } }) => font.size.small};
