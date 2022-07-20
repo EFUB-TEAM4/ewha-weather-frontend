@@ -22,11 +22,10 @@ const ButtonBox = styled.div`
 `;
 
 const ExitButton = styled.img`
-  ${applyMediaQuery('desktop')} {
-    display: none;
-  }
+  display: none;
 
   ${applyMediaQuery('mobile')} {
+    display: block;
     width: 3rem;
     height: 3rem;
   }
@@ -36,7 +35,7 @@ const MainText = styled.p`
   font-family: 'Cafe24Ssurround';
   font-size: ${({ theme: { font } }) => font.size.large};
   color: ${({ theme: { color } }) => color.white};
-  /* margin-top: 7rem; */
+
   margin-bottom: 5rem;
 
   ${applyMediaQuery('mobile')} {

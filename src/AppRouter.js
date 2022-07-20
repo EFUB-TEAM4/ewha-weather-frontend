@@ -22,7 +22,7 @@ function AppRouter() {
         {/* 추후 로그인 여부 확인 로직 필요 */}
 
         <Route path="/save" element={<Save />} />
-        <Route path="/complete" element={<SaveComplete />} />
+        <Route path="/savecomplete" element={<SaveComplete />} />
         <Route path="/vote" element={<Vote />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypage/save/:date" element={<SaveRecord />} />
