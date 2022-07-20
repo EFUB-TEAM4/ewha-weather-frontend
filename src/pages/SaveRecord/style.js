@@ -184,11 +184,11 @@ const RecordBox = styled.div`
     overflow: visible;
     border: 0px solid ${({ theme: color }) => color.grey};
     word-wrap: break-word;
+    background: transparent;
   }
   textarea::placeholder {
     font-family: 'Noto';
     font-weight: ${({ theme: font }) => font.light};
-    color: ${({ theme: { color } }) => color.grey};
   }
   ${applyMediaQuery('mobile')} {
     padding-left: 0;
