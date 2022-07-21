@@ -6,7 +6,6 @@ const StyledRoot = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   ${applyMediaQuery('mobile')} {
     flex-direction: column;
   }

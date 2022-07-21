@@ -72,6 +72,10 @@ export { default as TSunCloud } from './Weather/Time/SunCloud.svg';
 /* Login Page Bear */
 export { default as LoginBear } from './Bear/LoginBear.svg';
 export { default as MainBear } from './Bear/MainBear.svg';
+export { default as School } from './Bear/School.png';
+export { default as SkyDark } from './Bear/SkyDark.png';
+export { default as Snow } from './Bear/Snow.png';
+export { default as Bear } from './Bear/Bear.png';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';
 /* Save Page tmp icon - Bear / WeatherInfo */

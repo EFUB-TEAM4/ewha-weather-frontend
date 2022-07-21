@@ -56,6 +56,8 @@ const ContentSection = styled.section`
   width: 68rem;
   ${applyMediaQuery('mobile')} {
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     width: fit-content;
   }
 `;
