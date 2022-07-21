@@ -5,7 +5,7 @@ import { StyledRoot, SkyImg, SchoolImg, WeatherImg, BearImg } from './style';
 
 function BearAvater() {
   return (
-    <StyledRoot>
+    <StyledRoot id="BearAvater">
       <SkyImg src={SkyDark} alt="sky" />
       <SchoolImg src={School} alt="school" />
 
