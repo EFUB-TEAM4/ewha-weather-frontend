@@ -5,3 +5,4 @@ export { default as CustomCalendar } from './CustomCalendar';
 export { default as PCPollCard } from './PollCard/PC';
 export { default as MobilePollCard } from './PollCard/Mobile';
 export { default as TimeCard } from './TimeCard';
+export { default as EditModal } from './EditModal';
