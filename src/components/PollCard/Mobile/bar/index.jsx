@@ -12,7 +12,6 @@ function ProgressBar() {
       barGround: `${theme.color.greenDarker}`,
     },
     no: {
-
       percent: `${theme.color.greenDarker}`,
       barGround: `${theme.color.greenLightest}`,
     },
@@ -21,7 +20,7 @@ function ProgressBar() {
   return (
     <StyledRoot>
       <Container>
-        <Inner color={IsAllowed.no.percent}>불허 {100-voted}%</Inner>
+        <Inner color={IsAllowed.no.percent}>불허 {100 - voted}%</Inner>
 
         <Filler voted={voted} barGround={IsAllowed.yes.barGround}>
           <Inner color={IsAllowed.yes.allow}>허 {voted}%</Inner>
