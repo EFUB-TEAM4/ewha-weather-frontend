@@ -1,5 +1,6 @@
+/* eslint-disable import/no-unresolved */
 import styled from 'styled-components';
-// import { applyMediaQuery } from "styles/mediaQuery";
+import { applyMediaQuery } from 'styles/mediaQuery';
 
 const StyledRoot = styled.article``;
 const Button = styled.button`
@@ -9,4 +10,12 @@ const Button = styled.button`
   background-color: ${({ theme: { color } }) => color.greenDarker};
   border-radius: 0.6rem;
 `;
-export { StyledRoot, Button };
+
+const VoteSection = styled.section`
+  width: 68rem;
+  ${applyMediaQuery('mobile')} {
+    width: 100%;
+  }
+`;
+
+export { StyledRoot, Button, VoteSection };

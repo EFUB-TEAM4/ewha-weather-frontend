@@ -14,14 +14,14 @@ const StyledRoot = styled.div`
 `;
 
 const Time = styled.span`
-  font-family: 'Nato Sans';
+  // font-family: 'Nato Sans';
   color: ${({ theme: { color } }) => color.greenDarker};
   font-weight: ${({ theme: { font } }) => font.weight.micro};
   font-size: ${({ theme: { font } }) => font.size.small};
 `;
 
 const Temp = styled.span`
-  font-family: 'Nato Sans Display';
+  // font-family: 'Nato Sans Display';
   color: ${({ theme: { color } }) => color.greenDarker};
   font-weight: ${({ theme: { font } }) => font.weight.semiBold};
   font-size: ${({ theme: { font } }) => font.size.small};

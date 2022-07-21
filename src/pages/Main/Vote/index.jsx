@@ -1,14 +1,24 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
-import React from 'react';
-// import { TempReport } from 'components';
-import { StyledRoot, Button } from './style';
-import { Title, TitleSection, ContentSection } from '../style';
+import React, { useEffect } from 'react';
+// import { useWindowWidth } from 'hooks';
+import { deviceBreakPoints } from 'constants/deviceInfo';
+import { PCPollReport, MobilePollReport } from './PollReport';
+import { StyledRoot, Button, VoteSection } from './style';
+import { TitleSection, Title } from '../style';
 
 function handleBtnClick() {
   console.log('Vote handleBtnclick');
 }
 
-function Vote() {
+function Vote({ width }) {
+  // const width = useWindowWidth();
+  // const [width,setWidth]=useState(useWindowWidth())
+
+  useEffect(() => {
+    console.log('Vote', width);
+  }, [width]);
+
   return (
     <StyledRoot>
       <TitleSection>
@@ -18,7 +28,13 @@ function Vote() {
         </div>
         <Button onClick={handleBtnClick}>+</Button>
       </TitleSection>
-      <ContentSection> 콘텐츠 </ContentSection>
+      <VoteSection>
+        {width <= deviceBreakPoints.mobile ? (
+          <MobilePollReport />
+        ) : (
+          <PCPollReport />
+        )}
+      </VoteSection>
     </StyledRoot>
   );
 }
