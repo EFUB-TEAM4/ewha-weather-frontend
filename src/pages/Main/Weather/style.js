@@ -12,9 +12,11 @@ const StyledRoot = styled.article`
 `;
 const BearSection = styled.section`
   img {
-    width: 32rem;
-    height: 32rem;
+    width: 31.9rem;
+    height: 31.9rem;
+    border-radius: 0.6rem;
   }
+
   // margin-right: 3rem;
   ${applyMediaQuery('mobile')} {
     margin-right: 0;
