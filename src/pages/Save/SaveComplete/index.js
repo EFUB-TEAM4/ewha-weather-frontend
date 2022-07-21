@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SaveBear, WhiteClose } from 'assets';
 import {
   StyledRoot,
@@ -12,10 +13,16 @@ import {
 } from './style';
 
 function SaveComplete() {
+  const navigate = useNavigate();
   return (
     <StyledRoot>
       <ButtonBox>
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
           <ExitButton src={WhiteClose} alt="창 닫기 버튼" />
         </button>
       </ButtonBox>
