@@ -16,6 +16,8 @@ export { default as UpWhite } from './Prefer/UpWhite.svg';
 /* Pencil */
 export { default as NormalPencil } from './Pencil/NormalPencil.svg';
 export { default as OutlinePencil } from './Pencil/OutlinePencil.svg';
+export { default as WhiteNormalPencil } from './Pencil/WhiteNormalPencil.svg';
+export { default as WhiteOutlinePencil } from './Pencil/WhiteOutlinePencil.svg';
 /* Close */
 export { default as BlackClose } from './Close/BlackClose.svg';
 export { default as WhiteClose } from './Close/WhiteClose.svg';

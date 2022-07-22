@@ -1,8 +1,9 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useInput } from 'hooks';
 import { CustomCalendar } from 'components';
-import { User, WhiteLeft } from 'assets';
+import { User, WhiteLeft, WhiteNormalPencil, WhiteOutlinePencil } from 'assets';
 import {
   StyledRoot,
   DesktopHeader,
@@ -19,6 +20,7 @@ import {
 
 function MyPage() {
   const navigate = useNavigate();
+  const [isEditMode, setIsEditMode] = useState(1);
   return (
     <StyledRoot>
       <DesktopHeader>
@@ -35,11 +37,31 @@ function MyPage() {
         </button>
       </MobileHeader>
       <UserWrapper>
-        <UserIcon src={User} alt="UserIcon" />
-        <UserTextWrapper>
-          <NameText>이름</NameText>
-          <EmailText>이메일</EmailText>
-        </UserTextWrapper>
+        <div className="UserInfoWrapper">
+          <UserIcon src={User} alt="UserIcon" />
+          <UserTextWrapper>
+            <NameText
+              placeholder="이름"
+              value={useInput.value}
+              disabled={isEditMode}
+              onChange={useInput.onChange}
+            />
+            <EmailText>이메일</EmailText>
+          </UserTextWrapper>
+        </div>
+        <button
+          type="button"
+          className="EditButton"
+          onClick={() => {
+            setIsEditMode(current => !current);
+          }}
+        >
+          {isEditMode ? (
+            <img src={WhiteNormalPencil} alt="EditButton" />
+          ) : (
+            <img src={WhiteOutlinePencil} alt="EditButton" />
+          )}
+        </button>
       </UserWrapper>
       <CustomCalendar />
       <MobileFooter>

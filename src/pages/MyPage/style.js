@@ -56,11 +56,23 @@ const UserWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin: 3rem 0;
+  .UserInfoWrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .EditButton {
+    width: 3rem;
+    height: 3rem;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
   ${applyMediaQuery('mobile')} {
+    justify-content: space-between;
     margin: 5rem 0;
   }
 `;
-
 const UserTextWrapper = styled.div`
   height: 5rem;
   display: flex;
@@ -74,14 +86,20 @@ const UserIcon = styled.img`
   height: 5rem;
 `;
 
-const NameText = styled.p`
+const NameText = styled.input`
   color: ${({ theme: { color } }) => color.white};
   font-family: 'Cafe24Ssurround';
   font-size: ${({ theme: { font } }) => font.size.small};
+  font-weight: ${({ theme: { font } }) => font.weight.medium};
+  background: transparent;
+  border: none;
+  ::placeholder {
+    color: ${({ theme: { color } }) => color.white};
+  }
   ${applyMediaQuery('mobile')} {
     font-size: ${({ theme: { font } }) => font.size.semiMedium};
+    width: 50vw;
   }
-  font-weight: ${({ theme: { font } }) => font.weight.medium};
 `;
 
 const EmailText = styled.p`
