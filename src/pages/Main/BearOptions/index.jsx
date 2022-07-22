@@ -25,6 +25,8 @@ function getLocalImgBtn() {
   });
 }
 
+// sns 공유기능
+
 function getShareBtn() {
   console.log('getShareBtn');
 }
@@ -79,7 +81,7 @@ const OverBear=styled.div`
 width: 31.9rem;
 height:31.9rem;
 background-color:${({ theme: { color } }) => color.yellowDark};
-// color:black;
+// gitcolor:black;
 position: absolute;
 border-radius: 0.6rem;
 opacity: 0.6;

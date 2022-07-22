@@ -3,7 +3,7 @@ const colors = {
   red: '#F25022',
   /* yellow */
   yellow: '#FFDB7D',
-  yellowDark:"#3B3829",
+  yellowDark: '#3B3829',
   /* Blue */
   blueLight: '#E9EDF6',
   blue: '#C2D5E6',
@@ -21,7 +21,6 @@ const colors = {
   greenDarker: '#54B877',
   greenDarkest: '#44AB68',
   /* Yellow */
-
 };
 
 export default colors;
