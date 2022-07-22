@@ -3,12 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import html2canvas from 'html2canvas';
-import { OverBear } from 'assets';
 import { colors } from 'styles/styleOptions';
-
-
-
-
 
 // 곰돌이 아바타 로컬에 저장하는 함수
 function onSaveAs(uri, filename) {
@@ -30,9 +25,8 @@ function getLocalImgBtn() {
   });
 }
 
-
 function getShareBtn() {
-  console.log('getShareBtn'); 
+  console.log('getShareBtn');
 }
 
 function getClothBtn() {
@@ -42,7 +36,7 @@ function getClothBtn() {
 function BearOptions() {
   return (
     <StyledRoot>
-      <img src={OverBear} alt="OverBear" />
+     <OverBear/>
       <Options onClick={getLocalImgBtn} color={colors.greenDarker}>
         {' '}
         저장
@@ -65,7 +59,7 @@ const StyledRoot = styled.div`
   left: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
+
   button {
     left: 1.3rem;
   }
@@ -80,6 +74,17 @@ const StyledRoot = styled.div`
   }
 `;
 
+
+const OverBear=styled.div`
+width: 31.9rem;
+height:31.9rem;
+background-color:${({ theme: { color } }) => color.yellowDark};
+// color:black;
+position: absolute;
+border-radius: 0.6rem;
+opacity: 0.6;
+
+`
 const Options = styled.button`
   z-index: 100;
   border-radius: 0.6rem;

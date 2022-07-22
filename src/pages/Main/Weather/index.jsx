@@ -70,11 +70,10 @@ function Weather() {
     html2canvas(document.getElementById('BearAvater')).then(async canvas => {
       const ImgUrl = await postImgur(canvas.toDataURL('image/jpg', 1.0));
       console.log(ImgUrl);
-    
     });
   }
 
- /*  async function shareTwitter() {
+  /*  async function shareTwitter() {
     const sendText = '트위터 날씨공유'; // 전달할 텍스트
     console.log(sendText);
     const shareURL = `http://twitter.com/share?url=${encodeURI(
