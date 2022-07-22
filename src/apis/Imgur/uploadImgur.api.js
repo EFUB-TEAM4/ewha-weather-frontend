@@ -20,10 +20,10 @@ export default async function uploadImgur(data) {
         },
       },
     );
-    console.log('uploadImgur success', response);
+    // console.log('uploadImgur success', response);
     return response;
   } catch (error) {
-    console.log('uploadImgur error', error);
+    // console.log('uploadImgur error', error);
     return error;
   }
 }

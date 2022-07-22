@@ -57,18 +57,32 @@ async function postImgur(base64url) {
       data: { link },
     },
   } = await uploadImgur(formData);
-  console.log(link);
-}
-
-// 곰돌이 아바타 링크 받는 함수 : 곰돌이 아바타 공유 버튼 클릭
-async function postImgurBtn() {
-  window.scrollTo(0, 0);
-  html2canvas(document.getElementById('BearAvater')).then(canvas => {
-    postImgur(canvas.toDataURL('image/jpg', 1.0));
-  });
+  return link;
 }
 
 function Weather() {
+  // const [ImgURL, setUrl] = useState('');
+
+  // 곰돌이 아바타 링크 받는 함수 : 곰돌이 아바타 공유 버튼 클릭
+  async function postImgurBtn() {
+    window.scrollTo(0, 0);
+
+    html2canvas(document.getElementById('BearAvater')).then(async canvas => {
+      const ImgUrl = await postImgur(canvas.toDataURL('image/jpg', 1.0));
+      console.log(ImgUrl);
+    
+    });
+  }
+
+ /*  async function shareTwitter() {
+    const sendText = '트위터 날씨공유'; // 전달할 텍스트
+    console.log(sendText);
+    const shareURL = `http://twitter.com/share?url=${encodeURI(
+      ImgURL,
+    )}&text=${sendText}`;
+    window.open(shareURL, 'tweetPop', 'width=486, height=286,scrollbars=yes');
+  } */
+
   return (
     <StyledRoot>
       <Title>오늘의 이화 날씨</Title>
@@ -81,11 +95,11 @@ function Weather() {
           <WeatherReport />
           <TempReport />
         </WeatherSection>
-        <button type="button" onClick={getLocalPngBtn}>
-          로컬 이미지 저장
-        </button>
         <button type="button" onClick={postImgurBtn}>
           이미지 url 저장
+        </button>
+        <button type="button" onClick={getLocalPngBtn}>
+          트위터 공유
         </button>
       </ContentSection>
     </StyledRoot>
