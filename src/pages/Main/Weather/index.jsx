@@ -87,7 +87,8 @@ function Weather() {
       <Title>오늘의 이화 날씨</Title>
       <ContentSection>
         <BearSection>
-          <BearAvater />
+          <BearAvater showOptions />
+          {/* <BearAvater showOptions={false} /> */}
         </BearSection>
 
         <WeatherSection>

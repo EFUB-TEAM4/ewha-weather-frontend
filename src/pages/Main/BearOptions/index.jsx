@@ -5,7 +5,10 @@ import styled from 'styled-components';
 import html2canvas from 'html2canvas';
 import { colors } from 'styles/styleOptions';
 
-// 곰돌이 아바타 로컬에 저장하는 함수
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
+
+// 곰돌이 아바타 로컬에 저장하는 함수 : canvas
 function onSaveAs(uri, filename) {
   console.log('onSaveAs');
   const link = document.createElement('a');
@@ -16,7 +19,7 @@ function onSaveAs(uri, filename) {
   document.body.removeChild(link);
 }
 
-// 곰돌이 아바타 캡쳐하는 함수 : 곰돌이 아바타 로컬 저장 버튼 클릭
+// 곰돌이 아바타 캡쳐하는 함수 : 곰돌이 아바타 로컬 저장 버튼 클릭 :canvas
 function getLocalImgBtn() {
   window.scrollTo(0, 0);
   const date = new Date(); // 현재 시간 이용해 파일명 지정
@@ -35,11 +38,23 @@ function getClothBtn() {
   console.log('getCloth');
 }
 
+
+const onDownloadBtn = () => {
+  console.log("onDownload")
+  domtoimage
+    .toBlob(document.getElementById('BearAvater'))
+    .then((blob) => {
+      saveAs(blob, 'card.png');
+    });
+};
+
+
+
 function BearOptions() {
   return (
     <StyledRoot>
-     <OverBear/>
-      <Options onClick={getLocalImgBtn} color={colors.greenDarker}>
+      <OverBear />
+      <Options onClick={onDownloadBtn} color={colors.greenDarker}>
         {' '}
         저장
       </Options>
@@ -76,17 +91,15 @@ const StyledRoot = styled.div`
   }
 `;
 
-
-const OverBear=styled.div`
-width: 31.9rem;
-height:31.9rem;
-background-color:${({ theme: { color } }) => color.yellowDark};
-// gitcolor:black;
-position: absolute;
-border-radius: 0.6rem;
-opacity: 0.6;
-
-`
+const OverBear = styled.div`
+  width: 31.9rem;
+  height: 31.9rem;
+  background-color: ${({ theme: { color } }) => color.yellowDark};
+  // gitcolor:black;
+  position: absolute;
+  border-radius: 0.6rem;
+  opacity: 0.6;
+`;
 const Options = styled.button`
   z-index: 100;
   border-radius: 0.6rem;

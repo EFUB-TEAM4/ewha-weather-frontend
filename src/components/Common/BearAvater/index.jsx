@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { colors } from 'styles/styleOptions';
 import BearOptions from 'pages/Main/BearOptions';
-import { School, SkyDark, Snow, Bear, CancelBear } from 'assets';
+// import { School, SkyDark, Snow, Bear, CancelBear } from 'assets';
+import {  Snow,CancelBear} from 'assets';
 import {
   StyledRoot,
   Options,
@@ -13,19 +14,26 @@ import {
   CancelBtn,
 } from './style';
 
-function BearAvater() {
+function BearAvater({showOptions}) {
   const [bearOption, setBearOption] = useState(false);
 
   console.log(bearOption);
   return (
-    <StyledRoot id="BearAvater">
-      <SkyImg src={SkyDark} alt="sky" />
-      <SchoolImg src={School} alt="school" />
+    <StyledRoot >
+      <div id="BearAvater">
+
+      <SkyImg src="https://eweather-bucket.s3.ap-northeast-2.amazonaws.com/bear/sky/3night.png" alt="sky" />
+      <SchoolImg src="https://eweather-bucket.s3.ap-northeast-2.amazonaws.com/bear/season/summer.png" alt="school" />
 
       <WeatherImg src={Snow} alt="snow" />
-      <BearImg src={Bear} alt="bear" />
+      <BearImg src="https://eweather-bucket.s3.ap-northeast-2.amazonaws.com/bear/tmp/23.png" alt="bear" />
 
-      {!bearOption && (
+
+      </div>
+
+      {
+        showOptions && <>
+             {!bearOption && (
         <Options
           onClick={() => setBearOption(!bearOption)}
           color={colors.greenLighter}
@@ -36,11 +44,15 @@ function BearAvater() {
       {bearOption && (
         <>
           <CancelBtn onClick={() => setBearOption(!bearOption)}>
-            <img src={CancelBear} alt="closeBearOption" />
+        <img src={CancelBear} alt="closeBearOption" /> 
           </CancelBtn>
           <BearOptions />
         </>
       )}
+        </>
+      }
+
+ 
     </StyledRoot>
   );
 }
