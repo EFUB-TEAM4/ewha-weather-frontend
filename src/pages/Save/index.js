@@ -78,7 +78,12 @@ function Save() {
           </RecordBox>
         </ContentBox>
         <ButtonBox>
-          <PublicButton text="저장하기" />
+          <PublicButton
+            onClick={() => {
+              navigate('/savecomplete');
+            }}
+            text="저장하기"
+          />
         </ButtonBox>
       </MainBox>
     </StyledRoot>
