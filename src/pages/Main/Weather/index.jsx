@@ -96,12 +96,12 @@ function Weather() {
           <WeatherReport />
           <TempReport />
         </WeatherSection>
-        <button type="button" onClick={postImgurBtn}>
+        {/* <button type="button" onClick={postImgurBtn}>
           이미지 url 저장
         </button>
         <button type="button" onClick={getLocalPngBtn}>
           트위터 공유
-        </button>
+        </button> */}
       </ContentSection>
     </StyledRoot>
   );

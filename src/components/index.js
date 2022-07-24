@@ -7,3 +7,4 @@ export { default as PCPollCard } from './PollCard/PC';
 export { default as MobilePollCard } from './PollCard/Mobile';
 export { default as TimeCard } from './TimeCard';
 export { default as EditModal } from './EditModal';
+export { default as ShareModal } from './ShareModal';

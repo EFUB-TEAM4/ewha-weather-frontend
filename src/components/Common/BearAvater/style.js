@@ -6,7 +6,15 @@ const StyledRoot = styled.section`
   position: relative;
 `;
 
-const BearAvaterSection = styled.div``;
+const BearAvaterSection = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+    // width: 31.9rem;
+    // height: 31.9rem;
+    border-radius: 0.6rem;
+  }
+`;
 
 const SkyImg = styled.img``;
 
@@ -31,30 +39,28 @@ const BearImg = styled.img`
 const Options = styled.button`
   z-index: 100;
   border-radius: 0.6rem;
-  width: 5.2rem;
-  height: 3.2rem;
+  width: 4rem;
+  height: 2.4rem;
+
   background-color: ${props => props.color};
   position: absolute;
   left: 1.3rem;
   top: 1.3rem;
   font-weight: ${({ theme: { font } }) => font.weight.bold};
   font-size: ${({ theme: { font } }) => font.size.semiSmall};
-  color: ${({ theme: { color } }) => color.white};
+  color: ${({ theme: { color } }) => color.greenDarker};
 `;
 
-const CancelBtn = styled.button`
+const Cancel = styled.button`
   position: absolute;
-  top: 1.3rem;
-  left: 1.3rem;
-  z-index: 100;
+  border-radius: 0.6rem;
 
-  img {
-    width: 2.4rem !important;
-    height: 2.4rem !important;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+  top: 1.6rem;
+  left: 1.6rem;
+  z-index: 100;
+  width: 4rem;
+  height: 4rem;
+  background-color: ${({ theme: { color } }) => color.white};
 `;
 
 export {
@@ -65,5 +71,5 @@ export {
   WeatherImg,
   BearImg,
   Options,
-  CancelBtn,
+  Cancel,
 };

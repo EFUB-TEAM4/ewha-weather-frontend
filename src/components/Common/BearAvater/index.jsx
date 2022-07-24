@@ -2,10 +2,10 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable array-callback-return */
 /* eslint-disable import/no-unresolved */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { colors } from 'styles/styleOptions';
 import BearOptions from 'pages/Main/BearOptions';
-import { School, SkyDark, Snow, Bear, CancelLogo } from 'assets';
+import { School, SkyDark, Snow, Bear, MoreBtn, CancelBtn } from 'assets';
 
 import {
   StyledRoot,
@@ -15,7 +15,7 @@ import {
   SchoolImg,
   WeatherImg,
   BearImg,
-  CancelBtn,
+  Cancel,
 } from './style';
 
 /* const urls=[
@@ -93,9 +93,7 @@ function BearAvater({ showOptions }) {
     <StyledRoot>
       <BearAvaterSection id="BearAvater">
         <SkyImg src={SkyDark} alt="sky" />
-
         <SchoolImg src={School} alt="school" />
-
         <WeatherImg src={Snow} alt="snow" crossorigin="anonymous" />
         <BearImg src={Bear} alt="bear" crossorigin="anonymous" />
       </BearAvaterSection>
@@ -105,16 +103,16 @@ function BearAvater({ showOptions }) {
           {!bearOption && (
             <Options
               onClick={() => setBearOption(!bearOption)}
-              color={colors.greenLighter}
+              color={colors.white}
             >
-              · · ·
+              <img src={MoreBtn} alt="more Options" />
             </Options>
           )}
           {bearOption && (
             <>
-              <CancelBtn onClick={() => setBearOption(!bearOption)}>
-                <img src={CancelLogo} alt="closeBearOption" />
-              </CancelBtn>
+              <Cancel onClick={() => setBearOption(!bearOption)}>
+                <img src={CancelBtn} alt="closeBearOption" />
+              </Cancel>
               <BearOptions />
             </>
           )}

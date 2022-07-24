@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledRoot, Title, Content } from "./style";
+import { StyledRoot, Title, Content } from './style';
 
 function ClothRec() {
   return (
@@ -14,4 +14,3 @@ function ClothRec() {
 }
 
 export default ClothRec;
-

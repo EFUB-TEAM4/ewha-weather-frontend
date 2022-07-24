@@ -8,6 +8,7 @@ export { default as Kakao } from './Share/Kakao.svg';
 export { default as Insta } from './Share/Insta.svg';
 export { default as Local } from './Share/Local.svg';
 export { default as Twitter } from './Share/Twitter.svg';
+export { default as CloseShare } from './Share/CloseShare.svg';
 /* Prefer */
 export { default as DownGreen } from './Prefer/DownGreen.svg';
 export { default as UpGreen } from './Prefer/UpGreen.svg';
@@ -78,6 +79,11 @@ export { default as Snow } from './Bear/Snow.png';
 export { default as Bear } from './Bear/Bear.png';
 export { default as OverBear } from './Bear/OverBear.svg';
 export { default as CancelLogo } from './Bear/CancelLogo.svg';
+export { default as CancelBtn } from './Bear/options/CancelBtn.svg';
+export { default as LocalBtn } from './Bear/options/LocalBtn.svg';
+export { default as MoreBtn } from './Bear/options/MoreBtn.svg';
+export { default as RecBtn } from './Bear/options/RecBtn.svg';
+export { default as ShareBtn } from './Bear/options/ShareBtn.svg';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';
 /* Save Page tmp icon - Bear / WeatherInfo */
