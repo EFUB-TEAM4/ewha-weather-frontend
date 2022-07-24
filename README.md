@@ -118,7 +118,6 @@
     └── index.js #모든 페이지 export 
 ```
 
-```jsx
-/.env : 예시
-REACT_APP__API_KEY=218798379872
-```
+## Architecture
+![이상청 001](https://user-images.githubusercontent.com/67853616/180640201-612d713c-0ce4-4eff-87c9-d34c45659675.jpeg)
+
