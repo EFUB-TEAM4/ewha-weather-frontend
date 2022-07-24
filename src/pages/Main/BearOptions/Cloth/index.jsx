@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StyledRoot, Title, Content } from "./style";
 
 function ClothRec() {
   return (
@@ -15,32 +15,3 @@ function ClothRec() {
 
 export default ClothRec;
 
-const StyledRoot = styled.div`
-  position: relative;
-  font-family: 'Cafe24Ssurround';
-  font-size: ${({ theme: { font } }) => font.size.semiSmall};
-  font-weight: ${({ theme: { font } }) => font.weight.Bold};
-  color: ${({ theme: { color } }) => color.white};
-  z-index: 100;
-  left: 8.7rem;
-  top: 5.7rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-
-const Title=styled.p`
-padding-bottom: 5.7rem;
-`;
-
-const Content=styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  p{
-    padding: 0.3rem 0;
-  }
-
-`;

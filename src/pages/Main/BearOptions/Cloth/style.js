@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 const StyledRoot = styled.div`
   position: relative;
@@ -16,19 +15,17 @@ const StyledRoot = styled.div`
   align-items: center;
 `;
 
-
-const Title=styled.p`
-padding-bottom: 5.7rem;
+const Title = styled.p`
+  padding-bottom: 5.7rem;
 `;
 
-const Content=styled.div`
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  p{
+  p {
     padding: 0.3rem 0;
   }
-
 `;
 
-export {StyledRoot,Title,Content}
+export { StyledRoot, Title, Content };
