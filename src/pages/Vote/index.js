@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { WhiteLeft } from 'assets';
 import { HeaderIcon, PublicButton } from 'components';
@@ -20,6 +20,25 @@ import {
 
 function Vote() {
   const navigate = useNavigate();
+
+  const [clothesText, setClothesText] = useState(true);
+
+  const changeHandler = () => {
+    setClothesText(false);
+  };
+
+  // const [content, setContent] = useState({
+  //   clothes: '',
+  //   place: '',
+  // });
+
+  // const onChangeContent = e => {
+  //   setContent({
+  //     ...content,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
   return (
     <StyledRoot>
       <HeaderIconBox>
@@ -51,6 +70,8 @@ function Vote() {
               name="clothes"
               placeholder="입고싶은 옷을 적어주세요"
               required="required"
+              // onChange={(changeHandler, onChangeContent)}
+              onChange={changeHandler}
             />
           </Form>
         </FormBox>
@@ -61,13 +82,20 @@ function Vote() {
               type="text"
               name="place"
               placeholder="옷을 입고 갈 장소를 적어주세요"
+              // onChange={onChangeContent}
             />
           </Form>
         </FormBox>
         <SubjectText>허, 불허?</SubjectText>
       </ContentBox>
       <ButtonBox>
-        <PublicButton text="투표 만들기" />
+        <PublicButton
+          onClick={() => {
+            navigate('/votecomplete');
+          }}
+          text="투표 만들기"
+          isDisabled={clothesText}
+        />
       </ButtonBox>
     </StyledRoot>
   );
