@@ -127,19 +127,25 @@ const ContentBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 7.8rem;
+  margin-top: 7.8rem;
+  margin-bottom: 4.5rem;
 
   .bear {
     width: 25rem;
     height: 25rem;
     display: block;
   }
+
   ${applyMediaQuery('mobile')} {
+    margin: 0rem;
     padding: 1rem;
     align-items: center;
     flex-direction: column;
     .bear {
+      margin-top: 1rem;
       margin-bottom: 2rem;
+      width: 32rem;
+      height: 32rem;
     }
   }
 `;
@@ -193,20 +199,21 @@ const DeskTopWeatherBox = styled.div`
 `;
 
 const MobileWeatherBox = styled.div`
-  width: 70vw;
-  height: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  .div {
-    height: 3rem;
+  display: none;
+
+  ${applyMediaQuery('mobile')} {
+    width: 70vw;
+    height: 6rem;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-  }
-  ${applyMediaQuery('desktop')} {
-    display: none;
+    align-items: center;
+    margin-bottom: 1rem;
+    .div {
+      height: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 `;
 
@@ -244,7 +251,7 @@ const ButtonBox = styled.div`
   width: 100rem;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   ${applyMediaQuery('mobile')} {
     width: 80vw;
   }
