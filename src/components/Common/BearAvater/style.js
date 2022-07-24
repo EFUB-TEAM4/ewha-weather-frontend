@@ -6,6 +6,8 @@ const StyledRoot = styled.section`
   position: relative;
 `;
 
+const BearAvaterSection = styled.div``;
+
 const SkyImg = styled.img``;
 
 const SchoolImg = styled.img`
@@ -57,6 +59,7 @@ const CancelBtn = styled.button`
 
 export {
   StyledRoot,
+  BearAvaterSection,
   SkyImg,
   SchoolImg,
   WeatherImg,

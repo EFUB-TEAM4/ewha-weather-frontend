@@ -77,7 +77,7 @@ export { default as SkyDark } from './Bear/SkyDark.png';
 export { default as Snow } from './Bear/Snow.png';
 export { default as Bear } from './Bear/Bear.png';
 export { default as OverBear } from './Bear/OverBear.svg';
-export { default as CancelBear } from './Bear/CancelBear.svg';
+export { default as CancelLogo } from './Bear/CancelLogo.svg';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';
 /* Save Page tmp icon - Bear / WeatherInfo */

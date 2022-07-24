@@ -1,12 +1,14 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import html2canvas from 'html2canvas';
 import { colors } from 'styles/styleOptions';
 
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
+
+import ClothRec from './Cloth';
 
 // 곰돌이 아바타 로컬에 저장하는 함수 : canvas
 function onSaveAs(uri, filename) {
@@ -34,38 +36,41 @@ function getShareBtn() {
   console.log('getShareBtn');
 }
 
-function getClothBtn() {
-  console.log('getCloth');
-}
-
-
 const onDownloadBtn = () => {
-  console.log("onDownload")
-  domtoimage
-    .toBlob(document.getElementById('BearAvater'))
-    .then((blob) => {
-      saveAs(blob, 'card.png');
-    });
+  console.log('onDownload');
+  domtoimage.toBlob(document.getElementById('BearAvater')).then(blob => {
+    console.log(blob);
+    saveAs(blob, 'card.png');
+  });
 };
 
-
-
 function BearOptions() {
+  const [showCloth, setShowCloth] = useState(false);
+
+  const getClothRec = () => {
+    setShowCloth(!showCloth);
+  };
+
   return (
     <StyledRoot>
       <OverBear />
-      <Options onClick={onDownloadBtn} color={colors.greenDarker}>
-        {' '}
-        저장
-      </Options>
-      <Options onClick={getShareBtn} color={colors.blue}>
-        {' '}
-        공유
-      </Options>
-      <Options onClick={getClothBtn} color={colors.greenLighter}>
-        {' '}
-        착장
-      </Options>
+      {!showCloth && (
+        <>
+          <Options onClick={onDownloadBtn} color={colors.greenDarker}>
+            {' '}
+            저장
+          </Options>
+          <Options onClick={getShareBtn} color={colors.blue}>
+            {' '}
+            공유
+          </Options>
+          <Options onClick={getClothRec} color={colors.greenLighter}>
+            {' '}
+            착장
+          </Options>
+        </>
+      )}
+      {showCloth && <ClothRec />}
     </StyledRoot>
   );
 }

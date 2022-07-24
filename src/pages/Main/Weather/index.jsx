@@ -32,6 +32,7 @@ function getLocalPngBtn() {
 
 // canvas로 얻은 dataURI -> Blob으로 전환
 function dataURLtoBlob(dataurl) {
+  // console.log(dataurl)
   const arr = dataurl.split(',');
   const mime = arr[0].match(/:(.*?);/)[1];
   const bstr = atob(arr[1]);
@@ -51,7 +52,7 @@ async function postImgur(base64url) {
   const formData = new FormData();
   formData.append('image', blob);
 
-  // console.log(fd);
+  // console.log(formData);
   const {
     data: {
       data: { link },
