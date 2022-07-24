@@ -26,10 +26,10 @@ import {
 
 function Save() {
   const navigate = useNavigate();
-  const [text, setText] = useState(true);
+  const [text, setText] = useState('');
 
-  const changeHandler = () => {
-    setText(false);
+  const changeHandler = e => {
+    setText(e.target.value);
   };
 
   return (
@@ -92,7 +92,7 @@ function Save() {
               navigate('/savecomplete');
             }}
             text="저장하기"
-            isDisabled={text}
+            isDisabled={text.length > 0 ? 0 : 1}
           />
         </ButtonBox>
       </MainBox>
