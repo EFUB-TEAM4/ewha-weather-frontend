@@ -8,7 +8,7 @@ const StyledRoot = styled.div`
   color: ${({ theme: { color } }) => color.white};
   z-index: 100;
   left: 8.7rem;
-  top: 5.7rem;
+  top: 6.8rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,7 +16,7 @@ const StyledRoot = styled.div`
 `;
 
 const Title = styled.p`
-  padding-bottom: 5.7rem;
+  padding-bottom: 2.4rem;
 `;
 
 const Content = styled.div`

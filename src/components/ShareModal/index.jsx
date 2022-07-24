@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { CloseShare } from 'assets';
+import { CloseModal } from 'assets';
 import {
   StyledRoot,
   Background,
@@ -16,7 +16,7 @@ function ShareModal({ handle, children, ...rest }) {
     <StyledRoot>
       <Background onClick={handle} />
       <ModalContainer {...rest}>
-        <Close onClick={handle} src={CloseShare} />
+        <Close onClick={handle} src={CloseModal} />
         <Content>{children}</Content>
       </ModalContainer>
     </StyledRoot>

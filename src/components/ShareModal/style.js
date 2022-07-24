@@ -41,16 +41,16 @@ const ModalContainer = styled.div`
 
   border-radius: 1rem;
   background-color: ${({ theme: { color } }) => color.white};
-  min-height: 30.5rem;
-  min-width: 54.8rem;
+  width: 40.57rem;
+  height: 40.042rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   ${applyMediaQuery('mobile')} {
-    min-height: 35rem;
-    min-width: 35rem;
+    width: 26.9rem;
+    height: 26.5rem;
   }
   animation: modal-show 0.3s;
   @keyframes modal-show {
@@ -68,21 +68,29 @@ const ModalContainer = styled.div`
 const Close = styled.img`
   z-index: 1000;
   position: absolute;
-  top: 1.7rem;
-  right: 1.7rem;
-  width: 2.4rem;
-  height: 2.4rem;
+  top: 2.9rem;
+  right: 3.167rem;
+  width: 3.62rem;
+  height: 3.62rem;
   cursor: pointer;
+  ${applyMediaQuery('mobile')} {
+    width: 2.4rem;
+    height: 2.4rem;
+    top:2.0rem;
+    right:2.1rem;
+  }
 `;
 
 const Content = styled.div`
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  // top: 4.1rem;
-  top: 0rem;
+
+  left: 3.167rem;
+  top: 3.318rem;
+
+  ${applyMediaQuery('mobile')} {
+    top:2.2rem;
+    left: 2.2rem;
+  }
 `;
 
 export { StyledRoot, Background, ModalContainer, Close, Content };

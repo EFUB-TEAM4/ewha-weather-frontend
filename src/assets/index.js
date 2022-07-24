@@ -5,7 +5,7 @@ export { default as NormalTrash } from './Trash/NormalTrash.svg';
 export { default as OutlineTrash } from './Trash/OutlineTrash.svg';
 /* Share */
 export { default as Kakao } from './Share/Kakao.svg';
-export { default as Insta } from './Share/Insta.svg';
+export { default as Link } from './Share/Link.svg';
 export { default as Local } from './Share/Local.svg';
 export { default as Twitter } from './Share/Twitter.svg';
 export { default as CloseShare } from './Share/CloseShare.svg';
@@ -79,13 +79,14 @@ export { default as Snow } from './Bear/Snow.png';
 export { default as Bear } from './Bear/Bear.png';
 export { default as OverBear } from './Bear/OverBear.svg';
 export { default as CancelLogo } from './Bear/CancelLogo.svg';
-export { default as CancelBtn } from './Bear/options/CancelBtn.svg';
+export { default as CloseModal } from './Bear/options/CloseModal.svg';
 export { default as LocalBtn } from './Bear/options/LocalBtn.svg';
 export { default as MoreBtn } from './Bear/options/MoreBtn.svg';
 export { default as RecBtn } from './Bear/options/RecBtn.svg';
 export { default as ShareBtn } from './Bear/options/ShareBtn.svg';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';
+
 /* Save Page tmp icon - Bear / WeatherInfo */
 export { default as SaveBear } from './Tmp/SaveBear.svg';
 export { default as WeatherInfo } from './Tmp/WeatherInfo.svg';

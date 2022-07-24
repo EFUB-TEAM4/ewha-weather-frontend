@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { colors } from 'styles/styleOptions';
 import BearOptions from 'pages/Main/BearOptions';
-import { School, SkyDark, Snow, Bear, MoreBtn, CancelBtn } from 'assets';
+import { School, SkyDark, Snow, Bear, MoreBtn, CloseModal } from 'assets';
 
 import {
   StyledRoot,
@@ -111,7 +111,7 @@ function BearAvater({ showOptions }) {
           {bearOption && (
             <>
               <Cancel onClick={() => setBearOption(!bearOption)}>
-                <img src={CancelBtn} alt="closeBearOption" />
+                <img src={CloseModal} alt="closeBearOption" />
               </Cancel>
               <BearOptions />
             </>

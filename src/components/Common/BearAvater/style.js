@@ -44,8 +44,8 @@ const Options = styled.button`
 
   background-color: ${props => props.color};
   position: absolute;
-  left: 1.3rem;
-  top: 1.3rem;
+  left: 1.6rem;
+  top: 1.6rem;
   font-weight: ${({ theme: { font } }) => font.weight.bold};
   font-size: ${({ theme: { font } }) => font.size.semiSmall};
   color: ${({ theme: { color } }) => color.greenDarker};
@@ -61,6 +61,10 @@ const Cancel = styled.button`
   width: 4rem;
   height: 4rem;
   background-color: ${({ theme: { color } }) => color.white};
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 `;
 
 export {
