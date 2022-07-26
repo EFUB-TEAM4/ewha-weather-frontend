@@ -25,7 +25,10 @@ function AppRouter() {
         <Route path="/save" element={<Save />} />
         <Route path="/complete" element={<SaveComplete />} />
         <Route path="/vote" element={<Vote />} />
-        <Route path="/votecomplete" element={<VoteComplete />} />
+        <Route
+          path="/votecomplete/:clothes/:place"
+          element={<VoteComplete />}
+        />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypage/save/:date" element={<SaveRecord />} />
         <Route path="/" element={<Main />} />

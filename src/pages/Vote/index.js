@@ -1,5 +1,5 @@
-/* eslint-disable import/no-unresolved */
-import React, { useState } from 'react';
+/* eslint-disable */
+import React, { useState, useParams } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { WhiteLeft } from 'assets';
 import { HeaderIcon, PublicButton } from 'components';
@@ -21,23 +21,20 @@ import {
 function Vote() {
   const navigate = useNavigate();
 
-  const [clothesText, setClothesText] = useState(true);
+  const [clothes, setClothes] = useState('');
+  const [place, setPlace] = useState('');
 
-  const changeHandler = () => {
-    setClothesText(false);
+  const cChangeHandler = e => {
+    setClothes(e.target.value);
   };
 
-  // const [content, setContent] = useState({
-  //   clothes: '',
-  //   place: '',
-  // });
+  const pChangeHandler = e => {
+    setPlace(e.target.value);
+  };
 
-  // const onChangeContent = e => {
-  //   setContent({
-  //     ...content,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
 
   return (
     <StyledRoot>
@@ -64,14 +61,14 @@ function Vote() {
           <SubjectText>
             오늘 이 옷<span>*</span>
           </SubjectText>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <input
               type="text"
               name="clothes"
               placeholder="입고싶은 옷을 적어주세요"
               required="required"
-              // onChange={(changeHandler, onChangeContent)}
-              onChange={changeHandler}
+              value={clothes}
+              onChange={cChangeHandler}
             />
           </Form>
         </FormBox>
@@ -82,7 +79,8 @@ function Vote() {
               type="text"
               name="place"
               placeholder="옷을 입고 갈 장소를 적어주세요"
-              // onChange={onChangeContent}
+              value={place}
+              onChange={pChangeHandler}
             />
           </Form>
         </FormBox>
@@ -91,10 +89,10 @@ function Vote() {
       <ButtonBox>
         <PublicButton
           onClick={() => {
-            navigate('/votecomplete');
+            navigate(`/votecomplete/${clothes}/${place}`);
           }}
           text="투표 만들기"
-          isDisabled={clothesText}
+          isDisabled={clothes.length > 0 ? 0 : 1}
         />
       </ButtonBox>
     </StyledRoot>

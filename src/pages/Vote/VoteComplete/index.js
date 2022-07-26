@@ -1,25 +1,32 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   StyledRoot,
   MainText,
   ContentBox,
   Clothes,
   Place,
+  Params,
   HomeButton,
   Text,
 } from './style';
 
 function VoteComplete() {
   const navigate = useNavigate();
+  const { clothes } = useParams();
+  const { place } = useParams();
 
   return (
     <StyledRoot>
       <MainText>투표가 등록되었어요</MainText>
       <ContentBox>
-        <Clothes>오늘 주경바막</Clothes>
-        <Place>조형예술관에서 허, 불허?</Place>
+        <Clothes>
+          오늘 <Params>{clothes}</Params>
+        </Clothes>
+        <Place>
+          <Params>{place}</Params>에서 허, 불허?
+        </Place>
       </ContentBox>
       <HomeButton
         onClick={() => {
