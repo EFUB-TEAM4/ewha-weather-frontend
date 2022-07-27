@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const serverAxios = axios.create({
   baseURL: `${process.env.REACT_APP_SERVER_URL}`,
+  headers: { 'Access-Control-Allow-Origin': '*' },
+  withCredentials: false,
 });
 
 // "https://api.imgur.com/3"
