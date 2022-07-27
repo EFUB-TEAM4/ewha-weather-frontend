@@ -57,6 +57,14 @@ const Place = styled.p`
   }
 `;
 
+const Params = styled.b`
+  font-weight: ${({ theme: { font } }) => font.weight.bold};
+
+  ${applyMediaQuery('mobile')} {
+    font-weight: ${({ theme: { font } }) => font.weight.bold};
+  }
+`;
+
 const HomeButton = styled.button`
   width: 20rem;
   height: 5rem;
@@ -83,4 +91,13 @@ const Text = styled.p`
   }
 `;
 
-export { StyledRoot, MainText, ContentBox, Clothes, Place, HomeButton, Text };
+export {
+  StyledRoot,
+  MainText,
+  ContentBox,
+  Clothes,
+  Place,
+  Params,
+  HomeButton,
+  Text,
+};

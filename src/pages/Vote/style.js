@@ -47,7 +47,7 @@ const BackButton = styled.img`
   height: 3rem;
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;

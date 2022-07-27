@@ -6,16 +6,13 @@ const StyledRoot = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   ${applyMediaQuery('mobile')} {
     flex-direction: column;
   }
 `;
 const BearSection = styled.section`
-  img {
-    width: 32rem;
-    height: 32rem;
-  }
+  width: 31.9rem;
+  height: 31.9rem;
   // margin-right: 3rem;
   ${applyMediaQuery('mobile')} {
     margin-right: 0;
@@ -28,8 +25,8 @@ const WeatherSection = styled.section`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 32rem;
-  height: 32rem;
+  width: 31.9rem;
+  height: 31.9rem;
 `;
 
 export { StyledRoot, BearSection, WeatherSection };

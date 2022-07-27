@@ -6,7 +6,7 @@ function useWindowWidth() {
   useEffect(() => {
     const onResize = () => {
       setWidth(window.innerWidth);
-      window.location.reload(true);
+      // window.location.reload(true);
       // console.log('reload');
     };
 

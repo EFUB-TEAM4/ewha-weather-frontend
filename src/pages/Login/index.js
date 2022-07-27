@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
+// import PostLogin from 'apis/auth.api';
 import {
   StyledRoot,
   Header,
@@ -11,12 +12,19 @@ import {
   LoginLabel,
   LoginCheck,
 } from './style';
-import handleGoogleBtn from './handleGoogleBtn';
+
+// import handleGoogleBtn from './handleGoogleBtn';
 
 function Login() {
-  useEffect(() => {
+  /* useEffect(() => {
     handleGoogleBtn();
-  }, []);
+  }, []); */
+
+  const handleLoginBtn = async () => {
+    // console.log('hadleLoginBtn');
+    // const response = await PostLogin();
+    // console.log(response);
+  };
 
   return (
     <StyledRoot>
@@ -25,11 +33,11 @@ function Login() {
       </Header>
       <Article>
         <BtnSection>
-          <LoginBtn>
+          <LoginBtn onClick={handleLoginBtn}>
             <img src={GoogleBtn} alt="GoogleBtn" />
             <span>구글 계정으로 로그인</span>
 
-            <div id="SignIn" />
+            {/* <div id="SignIn" /> */}
           </LoginBtn>
         </BtnSection>
 
