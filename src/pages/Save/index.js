@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { WhiteLeft, SaveBear, RecSun } from 'assets';
 import { HeaderIcon, PublicButton } from 'components';
@@ -26,6 +26,12 @@ import {
 
 function Save() {
   const navigate = useNavigate();
+  const [text, setText] = useState('');
+
+  const changeHandler = e => {
+    setText(e.target.value);
+  };
+
   return (
     <StyledRoot>
       <HeaderIconBox>
@@ -73,12 +79,21 @@ function Save() {
               <Temperature isSmall={1}>강수확률: 0%</Temperature>
             </DeskTopWeatherBox>
             <HorizonLine width="100%" isShorter={1} />
-            <textarea placeholder="내년의 나를 위해, 오늘 하루의 날씨 기록을 남겨보세요." />
+            <textarea
+              onChange={changeHandler}
+              placeholder="내년의 나를 위해, 오늘 하루의 날씨 기록을 남겨보세요."
+            />
             <HorizonLineBottom width="100%" />
           </RecordBox>
         </ContentBox>
         <ButtonBox>
-          <PublicButton text="저장하기" />
+          <PublicButton
+            onClick={() => {
+              navigate('/savecomplete');
+            }}
+            text="저장하기"
+            isDisabled={text.length > 0 ? 0 : 1}
+          />
         </ButtonBox>
       </MainBox>
     </StyledRoot>

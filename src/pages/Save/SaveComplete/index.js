@@ -30,7 +30,11 @@ function SaveComplete() {
       <ImgBox>
         <img src={SaveBear} alt="저장하는 곰돌이 이미지" />
       </ImgBox>
-      <HomeButton>
+      <HomeButton
+        onClick={() => {
+          navigate('/');
+        }}
+      >
         <Text>홈으로 돌아가기</Text>
       </HomeButton>
     </StyledRoot>
