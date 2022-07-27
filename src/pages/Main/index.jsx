@@ -4,7 +4,6 @@ import { HeaderIcon as UserIcon } from 'components';
 import { useWindowWidth } from 'hooks';
 import Weather from './Weather';
 import Vote from './Vote';
-
 import { StyledRoot, MainRoot, MainContainer } from './style';
 
 function Main() {

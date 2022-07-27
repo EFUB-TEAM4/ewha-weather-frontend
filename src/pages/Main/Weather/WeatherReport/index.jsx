@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { CurSun } from 'assets';
 import {
   StyledRoot,
   Header,
@@ -10,19 +10,29 @@ import {
   RainInfo,
 } from './style';
 
-function WeatherReport() {
+function WeatherReport({
+  weather: {
+    minTemperature,
+    currentTemperature,
+    maxTemperature,
+    rainfallPercentage,
+    iconResponseDto: { iconUrl, iconName },
+  },
+}) {
   return (
     <StyledRoot>
       <Header>
-        <img src={CurSun} alt="CurrentSun" />
+        <img src={iconUrl} alt={iconName} />
         <CurrentTemp>
-          <span>20</span>
+          <span>{currentTemperature}</span>
           <span>°C</span>
         </CurrentTemp>
       </Header>
       <Section>
-        <TempInfo>최고: 24° / 최저: 24°</TempInfo>
-        <RainInfo>강수확률: 0%</RainInfo>
+        <TempInfo>
+          최고: {maxTemperature}° / 최저: {minTemperature}°
+        </TempInfo>
+        <RainInfo>강수확률: {rainfallPercentage}%</RainInfo>
       </Section>
     </StyledRoot>
   );

@@ -18,7 +18,7 @@ const BearAvaterSection = styled.div`
 
 const SkyImg = styled.img``;
 
-const SchoolImg = styled.img`
+const SeasonImg = styled.img`
   position: absolute;
   left: 0;
   top: 0;
@@ -71,7 +71,7 @@ export {
   StyledRoot,
   BearAvaterSection,
   SkyImg,
-  SchoolImg,
+  SeasonImg,
   WeatherImg,
   BearImg,
   Options,

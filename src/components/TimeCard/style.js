@@ -10,6 +10,8 @@ const StyledRoot = styled.div`
   background-color: ${({ theme: { color } }) => color.white};
   img {
     padding: 0.2rem 0;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 `;
 

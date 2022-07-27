@@ -1,7 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
-// import PostLogin from 'apis/auth.api';
 import {
   StyledRoot,
   Header,
@@ -16,14 +15,9 @@ import {
 // import handleGoogleBtn from './handleGoogleBtn';
 
 function Login() {
-  /* useEffect(() => {
-    handleGoogleBtn();
-  }, []); */
-
-  const handleLoginBtn = async () => {
+  const handleLoginBtn = () => {
     // console.log('hadleLoginBtn');
-    // const response = await PostLogin();
-    // console.log(response);
+    window.location.href = `${process.env.REACT_APP_GOOGLE_OAUTH_SERVER}`;
   };
 
   return (
