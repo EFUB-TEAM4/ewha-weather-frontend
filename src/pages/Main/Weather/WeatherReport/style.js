@@ -13,7 +13,7 @@ const Header = styled.div`
   justify-content: center;
   padding: 1rem 0;
   border-bottom: 0.1rem solid ${({ theme: { color } }) => color.greenLightest};
-  font-family: 'Nato Sans Display';
+  // font-family: 'Nato Sans Display';
   color: ${({ theme: { color } }) => color.greenDarker};
   img {
     width: 9.7rem;
