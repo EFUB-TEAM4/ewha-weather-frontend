@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-loop-func */
 /* eslint-disable no-plusplus */
 /* eslint-disable array-callback-return */
@@ -5,8 +6,9 @@
 import React, { useState } from 'react';
 import { colors } from 'styles/styleOptions';
 import BearOptions from 'pages/Main/BearOptions';
-import { School, SkyDark, Snow, Bear, MoreBtn, CloseModal } from 'assets';
-
+import { Snow, Bear, MoreBtn, CloseModal } from 'assets';
+// import { PTY, Season, Sky, NoneBear, RainBear } from "constants/bearImg";
+import { Pty, Season, Sky, NoneBear, RainBear } from 'constants/bearImg';
 import {
   StyledRoot,
   Options,
@@ -85,17 +87,44 @@ function drawCanvas() {
   }
 }; */
 
-function BearAvater({ showOptions }) {
+function BearAvater({
+  showOptions,
+  avater: {
+    skyResponseDto,
+    ptyResponseDto,
+    seasonResponseDto,
+    bearResponseDto,
+  },
+}) {
   const [bearOption, setBearOption] = useState(false);
 
-  console.log(bearOption);
   return (
     <StyledRoot>
       <BearAvaterSection id="BearAvater">
-        <SkyImg src={SkyDark} alt="sky" />
-        <SchoolImg src={School} alt="school" />
-        <WeatherImg src={Snow} alt="snow" crossorigin="anonymous" />
-        <BearImg src={Bear} alt="bear" crossorigin="anonymous" />
+        <SkyImg src={Sky[skyResponseDto.skyName].img} alt="sky" />
+        <SchoolImg
+          src={Season[seasonResponseDto.seasonName].img}
+          alt="school"
+        />
+        {ptyResponseDto.ptyName !== '없음' && (
+          <WeatherImg src={Pty[ptyResponseDto.ptyName].img} alt="snow" />
+        )}
+        <BearImg
+          src={
+            bearResponseDto.clothName.split('_')[0] === '없음'
+              ? NoneBear[
+                  `${bearResponseDto.clothName.split('_')[1]}_${
+                    bearResponseDto.clothName.split('_')[2]
+                  }`
+                ].img
+              : RainBear[
+                  `${bearResponseDto.clothName.split('_')[1]}_${
+                    bearResponseDto.clothName.split('_')[2]
+                  }`
+                ].img
+          }
+          alt="bear"
+        />
       </BearAvaterSection>
 
       {showOptions && (

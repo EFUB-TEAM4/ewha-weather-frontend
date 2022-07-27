@@ -80,12 +80,47 @@ export { default as SkyDark } from './Bear/SkyDark.png';
 export { default as Snow } from './Bear/Snow.png';
 export { default as Bear } from './Bear/Bear.png';
 export { default as OverBear } from './Bear/OverBear.svg';
+/* Bear Options */
 export { default as CancelLogo } from './Bear/CancelLogo.svg';
 export { default as CloseModal } from './Bear/options/CloseModal.svg';
 export { default as LocalBtn } from './Bear/options/LocalBtn.svg';
 export { default as MoreBtn } from './Bear/options/MoreBtn.svg';
 export { default as RecBtn } from './Bear/options/RecBtn.svg';
 export { default as ShareBtn } from './Bear/options/ShareBtn.svg';
+/* Bear PTY */
+export { default as RainPTY } from './Bear/PTY/RainPTY.png';
+export { default as ShowerPTY } from './Bear/PTY/ShowerPTY.png';
+export { default as SnowPTY } from './Bear/PTY/SnowPTY.png';
+export { default as SnowRainPTY } from './Bear/PTY/SnowRainPTY.png';
+/* Bear Season */
+export { default as SpringSeason } from './Bear/Season/SpringSeason.png';
+export { default as SummerSeason } from './Bear/Season/SummerSeason.png';
+export { default as FallSeason } from './Bear/Season/FallSeason.png';
+export { default as WinterSeason } from './Bear/Season/WinterSeason.png';
+/* Bear Sky */
+export { default as CloudDaySky } from './Bear/Sky/CloudDaySky.png';
+export { default as CloudNightSky } from './Bear/Sky/CloudNightSky.png';
+export { default as FoggyDaySky } from './Bear/Sky/FoggyDaySky.png';
+export { default as FoggyNightSky } from './Bear/Sky/FoggyNightSky.png';
+export { default as SunnyDaySky } from './Bear/Sky/SunnyDaySky.png';
+export { default as SunnyNightSky } from './Bear/Sky/SunnyNightSky.png';
+/* Bear Avater */
+export { default as None10 } from './Bear/BearAvater/None10.png';
+export { default as None20 } from './Bear/BearAvater/None20.png';
+export { default as None30 } from './Bear/BearAvater/None30.png';
+export { default as None40 } from './Bear/BearAvater/None40.png';
+export { default as None50 } from './Bear/BearAvater/None50.png';
+export { default as None60 } from './Bear/BearAvater/None60.png';
+export { default as None70 } from './Bear/BearAvater/None70.png';
+export { default as None80 } from './Bear/BearAvater/None80.png';
+export { default as Rain11 } from './Bear/BearAvater/Rain11.png';
+export { default as Rain21 } from './Bear/BearAvater/Rain21.png';
+export { default as Rain31 } from './Bear/BearAvater/Rain31.png';
+export { default as Rain41 } from './Bear/BearAvater/Rain41.png';
+export { default as Rain51 } from './Bear/BearAvater/Rain51.png';
+export { default as Rain61 } from './Bear/BearAvater/Rain61.png';
+export { default as Rain71 } from './Bear/BearAvater/Rain71.png';
+export { default as Rain81 } from './Bear/BearAvater/Rain81.png';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';
 

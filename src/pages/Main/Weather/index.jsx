@@ -3,8 +3,10 @@
 import React from 'react';
 import html2canvas from 'html2canvas';
 // import { MainBear } from 'assets';
+import { useRecoilValueLoadable } from 'recoil';
 import { BearAvater } from 'components';
 import uploadImgur from 'apis/Imgur/uploadImgur.api';
+import { GetCurrent } from 'state/weather';
 import TempReport from './TempReport';
 import WeatherReport from './WeatherReport';
 import { StyledRoot, BearSection, WeatherSection } from './style';
@@ -73,7 +75,9 @@ function Weather() {
       console.log(ImgUrl);
     });
   }
-
+  // const [{AvaterState,CurrentWeather}, setcurrentState] = useRecoilValueLoadable(GetCurrent);
+  const CurrentLoadable = useRecoilValueLoadable(GetCurrent);
+  // console.log(CurrentWeather);
   /*  async function shareTwitter() {
     const sendText = '트위터 날씨공유'; // 전달할 텍스트
     console.log(sendText);
@@ -87,15 +91,26 @@ function Weather() {
     <StyledRoot>
       <Title>오늘의 이화 날씨</Title>
       <ContentSection>
-        <BearSection>
-          <BearAvater showOptions />
-          {/* <BearAvater showOptions={false} /> */}
-        </BearSection>
+        {CurrentLoadable.state === 'hasValue' ? (
+          <>
+            <BearSection>
+              <BearAvater
+                showOptions
+                avater={CurrentLoadable.contents.AvaterState}
+              />
+            </BearSection>
 
-        <WeatherSection>
-          <WeatherReport />
-          <TempReport />
-        </WeatherSection>
+            <WeatherSection>
+              <WeatherReport
+                weather={CurrentLoadable.contents.CurrentWeather}
+              />
+              <TempReport />
+            </WeatherSection>
+          </>
+        ) : (
+          <div />
+        )}
+
         {/* <button type="button" onClick={postImgurBtn}>
           이미지 url 저장
         </button>

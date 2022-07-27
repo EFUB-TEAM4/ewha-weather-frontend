@@ -2,8 +2,14 @@ import styled from 'styled-components';
 
 const StyledRoot = styled.section`
   background-color: ${({ theme: { color } }) => color.white};
-  padding: 2.5rem 2rem;
+  padding: 2.9rem 2rem 2.4rem 2rem;
+  width: 31.9rem;
+  height: 21.3rem;
   border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 `;
 
 const Header = styled.div`
@@ -11,7 +17,7 @@ const Header = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 1rem 0;
+  // padding: 1rem 0;
   border-bottom: 0.1rem solid ${({ theme: { color } }) => color.greenLightest};
   // font-family: 'Nato Sans Display';
   color: ${({ theme: { color } }) => color.greenDarker};
@@ -42,8 +48,8 @@ const Section = styled.div`
   flex-direction: row;
 
   align-items: center;
-  padding: 2rem;
-  padding-bottom: 0;
+  padding-top: 1.7rem;
+  // padding-bottom: 0;
   color: ${({ theme: { color } }) => color.greenDarker};
   font-weight: ${({ theme: { font } }) => font.weight.semiBold};
   font-size: ${({ theme: { font } }) => font.size.small};
