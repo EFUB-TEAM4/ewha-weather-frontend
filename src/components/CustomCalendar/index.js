@@ -8,7 +8,7 @@ import { StyledRoot, CalendarContainer, Image } from './style';
 
 function CustomCalendar() {
   const [value, onChange] = useState(new Date());
-  const mark = ['2022-07-07', '2022-07-10'];
+  const mark = ['20190707', '20220709', '20220710'];
   return (
     <StyledRoot>
       <CalendarContainer>
@@ -23,7 +23,7 @@ function CustomCalendar() {
           next2Label={null}
           prev2Label={null}
           tileClassName={({ date }) => {
-            if (mark.find(x => x === moment(date).format('YYYY-MM-DD'))) {
+            if (mark.find(x => x === moment(date).format('YYYYMMDD'))) {
               return 'highlight';
             }
             return null;
@@ -31,7 +31,7 @@ function CustomCalendar() {
           /* eslint-disable */
           tileContent={({ date, view }) => {
             const html = [];
-            if (mark.find(x => x === moment(date).format('YYYY-MM-DD'))) {
+            if (mark.find(x => x === moment(date).format('YYYYMMDD'))) {
               html.push(
                 <NavLink key={0} to={`/MyPage/save/${date}`}>
                   <Image src={CalMoonCloud} alt="record" />
