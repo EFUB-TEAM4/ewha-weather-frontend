@@ -23,7 +23,7 @@ function Share({ handle }) {
           <img src={Link} alt="Link" />
           <span>링크 복사</span>
         </ShareBtn>
-        <ShareBtn onClick={PngBear}> 
+        <ShareBtn onClick={PngBear}>
           <img src={Local} alt="Local" />
           <span>이미지 다운로드</span>
         </ShareBtn>

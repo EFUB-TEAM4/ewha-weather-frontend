@@ -76,8 +76,8 @@ const Close = styled.img`
   ${applyMediaQuery('mobile')} {
     width: 2.4rem;
     height: 2.4rem;
-    top:2.0rem;
-    right:2.1rem;
+    top: 2rem;
+    right: 2.1rem;
   }
 `;
 
@@ -88,7 +88,7 @@ const Content = styled.div`
   top: 3.318rem;
 
   ${applyMediaQuery('mobile')} {
-    top:2.2rem;
+    top: 2.2rem;
     left: 2.2rem;
   }
 `;

@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 import { applyMediaQuery } from 'styles/mediaQuery';
 
-
 const Title = styled.p`
   font-size: ${({ theme: { font } }) => font.size.semiMedium};
   font-weight: ${({ theme: { font } }) => font.weight.semiBold};
@@ -14,14 +13,15 @@ const Title = styled.p`
 `;
 
 const Content = styled.div`
-  // border-bottom: 0.1rem solid ${({ theme: { color } }) => color.greenLightest};
+  // border-bottom: 0.1rem solid ${({ theme: { color } }) =>
+    color.greenLightest};
   padding-top: 3.016rem;
   section {
     width: 8.6rem;
     height: 8.6rem;
   }
   ${applyMediaQuery('mobile')} {
-   padding-top: 2rem;
+    padding-top: 2rem;
   }
 `;
 
@@ -41,11 +41,10 @@ const ShareBtn = styled.button`
   ${applyMediaQuery('mobile')} {
     font-size: ${({ theme: { font } }) => font.size.micro};
     img {
-width: 4rem;
-height: 4rem;
+      width: 4rem;
+      height: 4rem;
     }
   }
-  
 `;
 
 export { Title, Content, ShareBtn };
