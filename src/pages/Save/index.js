@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { WhiteLeft, SaveBear, RecSun } from 'assets';
 import { HeaderIcon, PublicButton } from 'components';
@@ -30,6 +31,17 @@ function Save() {
 
   const changeHandler = e => {
     setText(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    const record = await axios({
+      url: 'http://ewhaweather.com/api/v1/eweathers/current',
+      method: 'get',
+      headers: { 'Access-Control-Allow-Origin': '*' },
+      withCredentials: false,
+    });
+    /* eslint-disable-next-line */
+    console.log(record);
   };
 
   return (
@@ -89,6 +101,7 @@ function Save() {
         <ButtonBox>
           <PublicButton
             onClick={() => {
+              handleSubmit();
               navigate('/savecomplete');
             }}
             text="저장하기"
