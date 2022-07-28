@@ -1,14 +1,23 @@
 /* eslint-disable import/no-unresolved */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { GetCalendars } from 'apis/Calendar.apis';
 import { NavLink } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import moment from 'moment';
-import { CalMoonCloud } from 'assets';
 import { StyledRoot, CalendarContainer, Image } from './style';
 
 function CustomCalendar() {
   const [value, onChange] = useState(new Date());
-  const mark = ['20190707', '20220709', '20220710'];
+  const [data, setData] = useState([]);
+  /* eslint-disable-next-line */
+  const [mark, setMark] = useState([]);
+  const getData = async () => {
+    const response = await GetCalendars('76fecba0-3698-4f0f-b74c-bc6650d85921');
+    setData(response);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <StyledRoot>
       <CalendarContainer>
@@ -31,10 +40,15 @@ function CustomCalendar() {
           /* eslint-disable */
           tileContent={({ date, view }) => {
             const html = [];
-            if (mark.find(x => x === moment(date).format('YYYYMMDD'))) {
+            if (
+              data.find(x => x.forecastDate === moment(date).format('YYYYMMDD'))
+            ) {
+              const icon = data.find(
+                x => x.forecastDate === moment(date).format('YYYYMMDD'),
+              );
               html.push(
                 <NavLink key={0} to={`/MyPage/save/${date}`}>
-                  <Image src={CalMoonCloud} alt="record" />
+                  <Image src={icon.iconResponseUrlDto.iconUrl} alt="record" />
                 </NavLink>,
               );
             }

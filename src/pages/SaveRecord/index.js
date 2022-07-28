@@ -1,19 +1,15 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useContext, useEffect } from 'react';
+import { GetDetailCalendars, EditCalendars } from 'apis/Calendar.apis';
 import {
   useNavigate,
   useParams,
   UNSAFE_NavigationContext as NavigationContext,
 } from 'react-router-dom';
 import moment from 'moment';
-import {
-  WhiteLeft,
-  RecSun,
-  NormalPencil,
-  OutlinePencil,
-  NormalTrash,
-} from 'assets';
-import { HeaderIcon, PublicButton, EditModal } from 'components';
+import { WhiteLeft, NormalPencil, OutlinePencil, NormalTrash } from 'assets';
+// eslint-disable-next-line
+import { HeaderIcon, PublicButton, EditModal, BearAvater } from 'components';
 import {
   StyledRoot,
   HeaderIconBox,
@@ -34,6 +30,7 @@ import {
   TemBox,
   Temperature,
   VerticalLine,
+  Bear,
 } from './style';
 
 function SaveRecord() {
@@ -43,6 +40,12 @@ function SaveRecord() {
   const [isEditMode, setIsEditMode] = useState(0);
   const [isSaveVisible, setIsSaveVisible] = useState(0);
   const [isDeleteVisible, setIsDeleteVisible] = useState(0);
+  // eslint-disable-next-line
+  const [data, setData] = useState([]);
+  const [icon, setIcon] = useState('');
+  const [input, setInput] = useState('');
+  const [isFinish, setIsFinish] = useState(0);
+  const onChange = e => setInput(e.target.value);
   function useBlocker(when = true) {
     const { navigator } = useContext(NavigationContext);
     useEffect(() => {
@@ -59,6 +62,30 @@ function SaveRecord() {
     useBlocker(when);
   }
   usePrompt(isEditMode);
+  const getData = async () => {
+    const response = await GetDetailCalendars(
+      moment(date).format('YYYYMMDD'),
+      '76fecba0-3698-4f0f-b74c-bc6650d85921',
+    );
+    setData(response[0]);
+    setIcon(response[0].iconResponseUrlDto.iconUrl);
+    setInput(response[0].description);
+    setIsFinish(1);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  const bearimage = isFinish ? (
+    <BearAvater
+      showOptions={false}
+      avater={{
+        skyResponseDto: { skyName: data.skyResponseDtoWithUrl.skyName },
+        ptyResponseDto: { ptyName: data.ptyResponseDtoWithUrl.ptyName },
+        bearResponseDto: { clothName: data.bearResponseDto.clothName },
+        seasonResponseDto: { seasonName: data.seasonResponseDto.seasonName },
+      }}
+    />
+  ) : null;
   return (
     <StyledRoot>
       <HeaderIconBox>
@@ -96,32 +123,38 @@ function SaveRecord() {
         <HorizonLine width="100%" />
         <ContentBox>
           <MobileWeatherBox>
-            <img src={RecSun} alt="WeatherIcon" />
+            <img className="iconimg" src={icon} alt="WeatherIcon" />
             <TemBox>
-              <Temperature isSmall={0}>20</Temperature>
+              <Temperature isSmall={0}>{data.currentTemperature}</Temperature>
               <Temperature isSmall={1}>°C</Temperature>
             </TemBox>
             <VerticalLine />
             <div className="div">
-              <Temperature isSmall={1}>최고: 24° / 최저: 25°</Temperature>
+              <Temperature isSmall={1}>
+                최고: {data.maxTemperature}° / 최저: {data.minTemperature}°
+              </Temperature>
               <Temperature isSmall={1}>강수확률: 0%</Temperature>
             </div>
           </MobileWeatherBox>
-          <div className="bear" />
+          <Bear>{bearimage}</Bear>
           <RecordBox>
             <DeskTopWeatherBox>
-              <img src={RecSun} alt="WeatherIcon" />
+              <img className="iconimg" src={icon} alt="WeatherIcon" />
               <TemBox>
-                <Temperature isSmall={0}>20</Temperature>
+                <Temperature isSmall={0}>{data.currentTemperature}</Temperature>
                 <Temperature isSmall={1}>°C</Temperature>
               </TemBox>
               <VerticalLine />
-              <Temperature isSmall={1}>최고: 24° / 최저: 25°</Temperature>
+              <Temperature isSmall={1}>
+                최고: {data.maxTemperature}° / 최저: {data.minTemperature}°
+              </Temperature>
               <Temperature isSmall={1}>강수확률: 0%</Temperature>
             </DeskTopWeatherBox>
             <HorizonLine width="100%" isShorter={1} />
             <textarea
               placeholder="내년의 나를 위해, 오늘 하루의 날씨 기록을 남겨보세요."
+              value={input}
+              onChange={onChange}
               disabled={!isEditMode}
             />
             <HorizonLineBottom width="100%" />
@@ -132,7 +165,10 @@ function SaveRecord() {
             <PublicButton
               text="저장하기"
               isDisabled={0}
-              onClick={() => setIsEditMode(0)}
+              onClick={() => {
+                EditCalendars();
+                setIsEditMode(0);
+              }}
             />
           ) : null}
         </ButtonBox>
