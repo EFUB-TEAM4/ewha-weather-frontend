@@ -1,21 +1,28 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { UpGreen, DownGreen, UpWhite, DownWhite } from 'assets';
+import { PostProCon } from 'apis/Vote.apis';
 import ProgressBars from './bar';
 import { StyledRoot, AskSection, PollBtnSection, PollBtn } from './style';
 import { Text } from '../style';
 
-function PollCard() {
+function PollCard({
+  data: { id, userId, building, clothes, approvedCount, disapprovedCount },
+}) {
   const [isHovered, setIsHovered] = useState({ up: 0, down: 0 });
   const [isVoted, setIsVoted] = useState(false);
 
-  const handleUpBtn = () => {
-    console.log('handleUpBtn');
+  const handleUpBtn = async () => {
+    const response = await PostProCon(true, id);
+    console.log('handleUpBtn', response);
     setIsVoted(true);
   };
 
-  const handleDownBtn = () => {
-    console.log('handleDownBtn');
+  const handleDownBtn = async () => {
+    const response = await PostProCon(false, id);
+    console.log('handleDownBtn', response);
     setIsVoted(true);
   };
 
@@ -23,10 +30,10 @@ function PollCard() {
     <StyledRoot>
       <AskSection>
         <Text>
-          오늘 <span>롱코트</span>
+          오늘 <span>{clothes}</span>
         </Text>
         <Text>
-          <span>ECC</span>에서
+          <span>{building}</span>에서
         </Text>
         <Text>허, 불허?</Text>
       </AskSection>

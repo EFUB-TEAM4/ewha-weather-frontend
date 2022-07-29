@@ -9,15 +9,13 @@ import WeatherReport from './WeatherReport';
 import { StyledRoot, BearSection, WeatherSection } from './style';
 import { Title, ContentSection } from '../style';
 
-
-
 function Weather() {
-
-
   // const [{AvaterState,CurrentWeather}, setcurrentState] = useRecoilValueLoadable(GetCurrent);
-  const {state, contents:{AvaterState, CurrentWeather}} = useRecoilValueLoadable(GetCurrent);
-  console.log(AvaterState, CurrentWeather)
-
+  const {
+    state,
+    contents: { AvaterState, CurrentWeather },
+  } = useRecoilValueLoadable(GetCurrent);
+  console.log(AvaterState, CurrentWeather);
 
   return (
     <StyledRoot>
@@ -26,16 +24,11 @@ function Weather() {
         {state === 'hasValue' ? (
           <>
             <BearSection>
-              <BearAvater
-                showOptions
-                avater={AvaterState}
-              />
+              <BearAvater showOptions avater={AvaterState} />
             </BearSection>
 
             <WeatherSection>
-              <WeatherReport
-                weather={CurrentWeather}
-              />
+              <WeatherReport weather={CurrentWeather} />
               <TempReport />
             </WeatherSection>
           </>

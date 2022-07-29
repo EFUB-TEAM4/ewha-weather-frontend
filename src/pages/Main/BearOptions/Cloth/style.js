@@ -20,11 +20,13 @@ const Title = styled.p`
 `;
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  p {
-    padding: 0.3rem 0;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      padding: 0.3rem 0;
+    }
   }
 `;
 

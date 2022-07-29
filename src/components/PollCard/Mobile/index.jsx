@@ -1,14 +1,18 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect, useState } from 'react';
 import Draggable from 'react-draggable';
 import { UpWhite, DownWhite, DownGreen, UpGreen } from 'assets';
+import { PostProCon } from 'apis/Vote.apis';
 import { StyledRoot, AskSection, PollBtnSection, PollBtn } from './style';
 import { Text } from '../style';
 import ProgressBar from './bar';
 
-function MobilePollCard() {
+function MobilePollCard({
+  data: { id, userId, building, clothes, approvedCount, disapprovedCount },
+}) {
   const [isDragged, setIsDragged] = useState({ up: false, down: false });
   const [isVoted, setIsVoted] = useState(false);
 
@@ -23,11 +27,21 @@ function MobilePollCard() {
       y: 0,
     },
   });
-  const onStop = () => {
+  const onStop = async () => {
     // 가장 마지막으로 실행되는 함수임
     const { activeDrags } = state;
     setState({ ...state, activeDrags: activeDrags - 1 });
+    let voteState;
     console.log('onStop');
+    if (isDragged.down) {
+      // Down : 찬성
+      voteState = true;
+    } else if (isDragged.up) {
+      // Up : 반대
+      voteState = false;
+    }
+    const response = await PostProCon(voteState, id);
+    console.log(response);
     setIsVoted(true);
   };
 
@@ -38,7 +52,6 @@ function MobilePollCard() {
   const UpDragged = () => {
     console.log('up');
     setIsDragged({ up: true, down: false });
-    console.log('UP');
   };
 
   const onControlledDrag = (e, position) => {
@@ -91,10 +104,10 @@ function MobilePollCard() {
 
           <AskSection>
             <Text>
-              오늘 <span>롱코트</span>
+              오늘 <span>{clothes}</span>
             </Text>
             <Text>
-              <span>ECC</span>에서 허, 불허?
+              <span>{building}</span>에서 허, 불허?
             </Text>
           </AskSection>
 

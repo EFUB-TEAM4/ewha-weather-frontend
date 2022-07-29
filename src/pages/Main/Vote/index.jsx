@@ -1,23 +1,29 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useWindowWidth } from 'hooks';
 import { deviceBreakPoints } from 'constants/deviceInfo';
+import { GetVotes } from 'apis/Vote.apis';
 import { PCPollReport, MobilePollReport } from './PollReport';
 import { StyledRoot, Button, VoteSection } from './style';
 import { TitleSection, Title } from '../style';
 
 function handleBtnClick() {
-  console.log('Vote handleBtnclick');
+  console.log('Vote Add handleBtnclick');
 }
 
 function Vote({ width }) {
-  // const width = useWindowWidth();
-  // const [width,setWidth]=useState(useWindowWidth())
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    const response = await GetVotes();
+    setData(response);
+  };
 
   useEffect(() => {
-    console.log('Vote', width);
-  }, [width]);
+    getData();
+    console.log('Vote', data);
+  }, []);
 
   return (
     <StyledRoot>
@@ -28,13 +34,16 @@ function Vote({ width }) {
         </div>
         <Button onClick={handleBtnClick}>+</Button>
       </TitleSection>
-      <VoteSection>
-        {width <= deviceBreakPoints.mobile ? (
-          <MobilePollReport />
-        ) : (
-          <PCPollReport />
-        )}
-      </VoteSection>
+
+      {data && (
+        <VoteSection>
+          {width <= deviceBreakPoints.mobile ? (
+            <MobilePollReport data={data} />
+          ) : (
+            <PCPollReport data={data} />
+          )}
+        </VoteSection>
+      )}
     </StyledRoot>
   );
 }
