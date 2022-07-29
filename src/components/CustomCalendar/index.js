@@ -40,18 +40,16 @@ function CustomCalendar() {
           /* eslint-disable */
           tileContent={({ date, view }) => {
             const html = [];
-            if (
-              data.find(x => x.forecastDate === moment(date).format('YYYYMMDD'))
-            ) {
-              const icon = data.find(
-                x => x.forecastDate === moment(date).format('YYYYMMDD'),
-              );
+            const list = data.filter(
+              x => x.forecastDate === moment(date).format('YYYYMMDD'),
+            );
+            list.map((x, i) =>
               html.push(
-                <NavLink key={0} to={`/MyPage/save/${date}`}>
-                  <Image src={icon.iconResponseUrlDto.iconUrl} alt="record" />
+                <NavLink key={i} to={`/MyPage/save`} state={{ id: x.id }}>
+                  <Image src={x.iconResponseUrlDto.iconUrl} alt="record" />
                 </NavLink>,
-              );
-            }
+              ),
+            );
             return (
               <div
                 style={{

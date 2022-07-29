@@ -30,7 +30,7 @@ function AppRouter() {
           element={<VoteComplete />}
         />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/mypage/save/:date" element={<SaveRecord />} />
+        <Route path="/mypage/save" element={<SaveRecord />} />
         <Route path="/" element={<Main />} />
       </Routes>
     </BrowserRouter>

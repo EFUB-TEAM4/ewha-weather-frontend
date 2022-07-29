@@ -1,9 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
 import { GetDetailCalendars, EditCalendars } from 'apis/Calendar.apis';
 import {
   useNavigate,
-  useParams,
+  useLocation,
   UNSAFE_NavigationContext as NavigationContext,
 } from 'react-router-dom';
 import moment from 'moment';
@@ -35,8 +36,7 @@ import {
 
 function SaveRecord() {
   const navigate = useNavigate();
-  const params = useParams();
-  const date = new Date(params.date);
+  const location = useLocation();
   const [isEditMode, setIsEditMode] = useState(0);
   const [isSaveVisible, setIsSaveVisible] = useState(0);
   const [isDeleteVisible, setIsDeleteVisible] = useState(0);
@@ -63,13 +63,10 @@ function SaveRecord() {
   }
   usePrompt(isEditMode);
   const getData = async () => {
-    const response = await GetDetailCalendars(
-      moment(date).format('YYYYMMDD'),
-      '76fecba0-3698-4f0f-b74c-bc6650d85921',
-    );
-    setData(response[0]);
-    setIcon(response[0].iconResponseUrlDto.iconUrl);
-    setInput(response[0].description);
+    const response = await GetDetailCalendars(location.state.id);
+    setData(response);
+    setIcon(response.iconResponseUrlDto.iconUrl);
+    setInput(response.description);
     setIsFinish(1);
   };
   useEffect(() => {
@@ -106,7 +103,9 @@ function SaveRecord() {
       </Text>
       <MainBox className="mainbox">
         <MainHeaderBox>
-          <DateText>{moment(date).format('YYYY년 MM월 DD일')}</DateText>
+          <DateText>
+            {moment(data.forecastDate).format('YYYY년 MM월 DD일')}
+          </DateText>
           <div className="IconBox">
             <button type="button" onClick={() => setIsEditMode(1)}>
               {isEditMode ? (
@@ -133,7 +132,9 @@ function SaveRecord() {
               <Temperature isSmall={1}>
                 최고: {data.maxTemperature}° / 최저: {data.minTemperature}°
               </Temperature>
-              <Temperature isSmall={1}>강수확률: 0%</Temperature>
+              <Temperature isSmall={1}>
+                강수확률: {data.rainfallPercentage}%
+              </Temperature>
             </div>
           </MobileWeatherBox>
           <Bear>{bearimage}</Bear>
@@ -148,7 +149,9 @@ function SaveRecord() {
               <Temperature isSmall={1}>
                 최고: {data.maxTemperature}° / 최저: {data.minTemperature}°
               </Temperature>
-              <Temperature isSmall={1}>강수확률: 0%</Temperature>
+              <Temperature isSmall={1}>
+                강수확률: {data.rainfallPercentage}%
+              </Temperature>
             </DeskTopWeatherBox>
             <HorizonLine width="100%" isShorter={1} />
             <textarea
@@ -166,7 +169,7 @@ function SaveRecord() {
               text="저장하기"
               isDisabled={0}
               onClick={() => {
-                EditCalendars();
+                EditCalendars(data.id, input);
                 setIsEditMode(0);
               }}
             />
@@ -184,8 +187,10 @@ function SaveRecord() {
             navigate(-1);
           }}
           onClick2={() => {
+            EditCalendars(data.id, input);
             setIsSaveVisible(0);
             setIsEditMode(0);
+            navigate(-1);
           }}
         />
       ) : null}
@@ -196,7 +201,9 @@ function SaveRecord() {
           btext1="취소"
           btext2="삭제하기"
           onClick1={() => setIsDeleteVisible(0)}
-          onClick2={() => setIsDeleteVisible(0)}
+          onClick2={() =>
+            axios.get('http://ewhaweather.com/api/v1/users/session')
+          }
         />
       ) : null}
     </StyledRoot>

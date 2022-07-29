@@ -1,5 +1,6 @@
+import axios from 'axios';
+import moment from 'moment';
 import { serverAxios } from './index';
-// import axios from 'axios';
 
 const PREFIX_URL = '/api/v1/calendars';
 
@@ -14,11 +15,9 @@ export const GetCalendars = async id => {
   }
 };
 /* eslint-disable-next-line */
-export const GetDetailCalendars = async (date, id) => {
+export const GetDetailCalendars = async id => {
   try {
-    const { data } = await serverAxios.get(
-      `${PREFIX_URL}?forecastDate=${date}&userId=${id}`,
-    );
+    const { data } = await serverAxios.get(`${PREFIX_URL}/${id}`);
     // console.log(data);
     return data;
   } catch (err) {
@@ -26,12 +25,49 @@ export const GetDetailCalendars = async (date, id) => {
   }
 };
 
-/* eslint-disable-next-line */
-export const EditCalendars = async () => {
+export const EditCalendars = async (id, content) => {
   try {
-    const { data } = await serverAxios.put(
-      `${PREFIX_URL}/bbf893fa-41b4-4e2c-8de3-358ce15aac6e`,
-      { description: '내용 수정' },
+    const { data } = await serverAxios.put(`${PREFIX_URL}/${id}`, {
+      description: content,
+    });
+    return data;
+  } catch (err) {
+    return err;
+  }
+};
+
+export const DeleteCalendars = async id => {
+  try {
+    const { data } = await serverAxios.delete(`${PREFIX_URL}/${id}`);
+    return data;
+  } catch (err) {
+    return err;
+  }
+};
+
+/* eslint-disable-next-line */
+export const PostCalendars = async (Avater, CurrentWeather, text) => {
+  const today = moment().format('YYYYMMDD');
+  try {
+    const { data } = await axios.post(
+      `http://ewhaweather.com/api/v1/calendars`,
+      {
+        bearId: Avater.bearResponseDto.id,
+        currentTemperature: CurrentWeather.currentTemperature,
+        description: text,
+        forecastDate: today,
+        iconId: CurrentWeather.iconResponseDto.id,
+        maxTemperature: CurrentWeather.maxTemperature,
+        minTemperature: CurrentWeather.minTemperature,
+        ptyId: Avater.ptyResponseDto.id,
+        rainfallPercentage: CurrentWeather.rainfallPercentage,
+        seasonId: Avater.seasonResponseDto.id,
+        skyId: Avater.skyResponseDto.id,
+      },
+      {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        withCredentials: false,
+      },
     );
     // console.log(data);
     return data;

@@ -1,9 +1,12 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { WhiteLeft, SaveBear, RecSun } from 'assets';
-import { HeaderIcon, PublicButton } from 'components';
+import moment from 'moment';
+import { PostCalendars } from 'apis/Calendar.apis';
+import { useRecoilValueLoadable } from 'recoil';
+import { GetCurrent } from 'state/weather';
+import { WhiteLeft } from 'assets';
+import { HeaderIcon, PublicButton, BearAvater } from 'components';
 import {
   StyledRoot,
   HeaderIconBox,
@@ -23,9 +26,14 @@ import {
   TemBox,
   Temperature,
   VerticalLine,
+  Bear,
 } from './style';
 
 function Save() {
+  const {
+    state,
+    contents: { AvaterState, CurrentWeather },
+  } = useRecoilValueLoadable(GetCurrent);
   const navigate = useNavigate();
   const [text, setText] = useState('');
 
@@ -33,6 +41,7 @@ function Save() {
     setText(e.target.value);
   };
 
+  /*
   const handleSubmit = async () => {
     const record = await axios({
       url: 'http://ewhaweather.com/api/v1/eweathers/current',
@@ -40,9 +49,8 @@ function Save() {
       headers: { 'Access-Control-Allow-Origin': '*' },
       withCredentials: false,
     });
-    /* eslint-disable-next-line */
     console.log(record);
-  };
+  }; */
 
   return (
     <StyledRoot>
@@ -63,45 +71,73 @@ function Save() {
         <MainText>하루 날씨 기록</MainText>
       </Text>
       <MainBox className="mainbox">
-        <DateText>2022년 7월 16일</DateText>
+        <DateText>{moment().format('YYYY년 MM월 DD일')}</DateText>
         <HorizonLine width="100%" />
-        <ContentBox>
-          <MobileWeatherBox>
-            <img src={RecSun} alt="WeatherIcon" />
-            <TemBox>
-              <Temperature isSmall={0}>20</Temperature>
-              <Temperature isSmall={1}>°C</Temperature>
-            </TemBox>
-            <VerticalLine />
-            <div className="div">
-              <Temperature isSmall={1}>최고: 24° / 최저: 25°</Temperature>
-              <Temperature isSmall={1}>강수확률: 0%</Temperature>
-            </div>
-          </MobileWeatherBox>
-          <img className="bear" src={SaveBear} alt="SaveBear" />
-          <RecordBox>
-            <DeskTopWeatherBox>
-              <img src={RecSun} alt="WeatherIcon" />
+        {state === 'hasValue' ? (
+          <ContentBox>
+            <MobileWeatherBox>
+              <img
+                className="iconimg"
+                src={CurrentWeather.iconResponseDto.iconUrl}
+                alt="WeatherIcon"
+              />
               <TemBox>
-                <Temperature isSmall={0}>20</Temperature>
+                <Temperature isSmall={0}>
+                  {CurrentWeather.currentTemperature}
+                </Temperature>
                 <Temperature isSmall={1}>°C</Temperature>
               </TemBox>
               <VerticalLine />
-              <Temperature isSmall={1}>최고: 24° / 최저: 25°</Temperature>
-              <Temperature isSmall={1}>강수확률: 0%</Temperature>
-            </DeskTopWeatherBox>
-            <HorizonLine width="100%" isShorter={1} />
-            <textarea
-              onChange={changeHandler}
-              placeholder="내년의 나를 위해, 오늘 하루의 날씨 기록을 남겨보세요."
-            />
-            <HorizonLineBottom width="100%" />
-          </RecordBox>
-        </ContentBox>
+              <div className="div">
+                <Temperature isSmall={1}>
+                  최고: {CurrentWeather.maxTemperature}° / 최저:{' '}
+                  {CurrentWeather.minTemperature}°
+                </Temperature>
+                <Temperature isSmall={1}>
+                  강수확률: {CurrentWeather.rainfallPercentage}%
+                </Temperature>
+              </div>
+            </MobileWeatherBox>
+            <Bear>
+              <BearAvater showOptions={false} avater={AvaterState} />
+            </Bear>
+            <RecordBox>
+              <DeskTopWeatherBox>
+                <img
+                  className="iconimg"
+                  src={CurrentWeather.iconResponseDto.iconUrl}
+                  alt="WeatherIcon"
+                />
+                <TemBox>
+                  <Temperature isSmall={0}>
+                    {CurrentWeather.currentTemperature}
+                  </Temperature>
+                  <Temperature isSmall={1}>°C</Temperature>
+                </TemBox>
+                <VerticalLine />
+                <Temperature isSmall={1}>
+                  최고: {CurrentWeather.maxTemperature}° / 최저:
+                  {CurrentWeather.minTemperature}°
+                </Temperature>
+                <Temperature isSmall={1}>
+                  강수확률: {CurrentWeather.rainfallPercentage}%
+                </Temperature>
+              </DeskTopWeatherBox>
+              <HorizonLine width="100%" isShorter={1} />
+              <textarea
+                onChange={changeHandler}
+                placeholder="내년의 나를 위해, 오늘 하루의 날씨 기록을 남겨보세요."
+              />
+              <HorizonLineBottom width="100%" />
+            </RecordBox>
+          </ContentBox>
+        ) : (
+          <ContentBox />
+        )}
         <ButtonBox>
           <PublicButton
             onClick={() => {
-              handleSubmit();
+              PostCalendars(AvaterState, CurrentWeather, text);
               navigate('/savecomplete');
             }}
             text="저장하기"
