@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { SaveBear, WhiteClose } from 'assets';
 import {
   StyledRoot,
@@ -35,7 +35,9 @@ function SaveComplete() {
           navigate('/');
         }}
       >
-        <Text>홈으로 돌아가기</Text>
+        <Link to="/">
+          <Text>홈으로 돌아가기</Text>
+        </Link>
       </HomeButton>
     </StyledRoot>
   );

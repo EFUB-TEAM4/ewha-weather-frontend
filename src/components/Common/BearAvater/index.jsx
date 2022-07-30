@@ -16,8 +16,6 @@ import {
   Cancel,
 } from './style';
 
-
-
 function BearAvater({
   showOptions,
   avater: {

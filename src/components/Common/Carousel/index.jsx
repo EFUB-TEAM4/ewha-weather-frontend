@@ -15,7 +15,7 @@ import { TimeCard, PCPollCard } from 'components';
 import { StyledRoot, StyledSlider } from './style';
 
 function Carousel({ data, type, slideCount, setting }) {
-  console.log(type, data, setting);
+  // console.log(type, data, setting);
   const settings = {
     dots: false,
     infinite: false,
