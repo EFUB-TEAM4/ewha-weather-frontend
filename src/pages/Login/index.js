@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
+import { goOAuthServer as handleLoginBtn } from 'utils';
 import {
   StyledRoot,
   Header,
@@ -12,14 +13,7 @@ import {
   LoginCheck,
 } from './style';
 
-// import handleGoogleBtn from './handleGoogleBtn';
-
 function Login() {
-  const handleLoginBtn = () => {
-    // console.log('hadleLoginBtn');
-    window.location.href = `${process.env.REACT_APP_GOOGLE_OAUTH_SERVER}`;
-  };
-
   return (
     <StyledRoot>
       <Header>

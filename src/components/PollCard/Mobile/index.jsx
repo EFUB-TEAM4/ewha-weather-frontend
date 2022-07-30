@@ -3,19 +3,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import Draggable from 'react-draggable';
+import { usePrivateAxios } from 'hooks';
 import { UpWhite, DownWhite, DownGreen, UpGreen } from 'assets';
-import { PostProCon } from 'apis/Vote.apis';
+import { GetUser } from 'state/user';
+import { PostProCon, GetUserVote } from 'apis/Vote.apis';
 import { StyledRoot, AskSection, PollBtnSection, PollBtn } from './style';
 import { Text } from '../style';
 import ProgressBar from './bar';
 
-function MobilePollCard({
-  data: { id, userId, building, clothes, approvedCount, disapprovedCount },
-}) {
+function MobilePollCard({ data: { id, building, clothes } }) {
   const [isDragged, setIsDragged] = useState({ up: false, down: false });
   const [isVoted, setIsVoted] = useState(false);
-
   const [state, setState] = useState({
     activeDrags: 0,
     deltaPosition: {
@@ -27,61 +27,76 @@ function MobilePollCard({
       y: 0,
     },
   });
-  const onStop = async () => {
+  const [allowPercentage, setAllowPercentage] = useState(0);
+  const privateAxios = usePrivateAxios();
+  const CurrentUser = useRecoilValue(GetUser);
+  const onStop = async voteState => {
     // 가장 마지막으로 실행되는 함수임
     const { activeDrags } = state;
     setState({ ...state, activeDrags: activeDrags - 1 });
-    let voteState;
-    console.log('onStop');
-    if (isDragged.down) {
-      // Down : 찬성
-      voteState = true;
-    } else if (isDragged.up) {
-      // Up : 반대
-      voteState = false;
+  };
+
+  const postVote = async voteState => {
+    if (CurrentUser.id) {
+      const data = { approved: voteState, votePostsId: id };
+      console.log(data);
+      const response = await PostProCon(privateAxios, data);
+      console.log('onStop', response);
+      setIsVoted(true);
     }
-    const response = await PostProCon(voteState, id);
-    console.log(response);
-    setIsVoted(true);
   };
 
   const DownDragged = () => {
-    console.log('down');
-    setIsDragged({ up: false, down: true });
+    if (CurrentUser.id) {
+      console.log('down');
+      setIsDragged({ up: false, down: true });
+    }
   };
   const UpDragged = () => {
-    console.log('up');
-    setIsDragged({ up: true, down: false });
+    if (CurrentUser.id) {
+      console.log('up');
+      setIsDragged({ up: true, down: false });
+    }
   };
 
   const onControlledDrag = (e, position) => {
     const { x, y } = position;
-    console.log(position);
+    // console.log(position);
     setState({ ...state, controlledPosition: { x, y } });
-    if (x < -10) DownDragged();
-    else if (x > 10) UpDragged();
+    if (x < -10) {
+      DownDragged();
+      postVote(true);
+    } else if (x > 10) {
+      UpDragged();
+      postVote(false);
+    }
   };
   const onControlledDragStop = (e, position) => {
     onControlledDrag(e, position);
     onStop();
   };
 
-  /* const onStart = () => {
-    const { activeDrags } = state;
-    console.log("start",state)
-    setState({ ...state, activeDrags: activeDrags + 5 });
-    setIsDragged({ ...isDragged, down: !isDragged.down });
+  const getUserData = async () => {
+    const response = await GetUserVote(CurrentUser.id, id);
+    console.log('getUserData', response);
+    setIsVoted(Boolean(response.length));
+    if (isVoted) {
+      const {
+        voteResponseDto: { disapprovedCount, approvedCount },
+      } = response[0];
+      console.log(disapprovedCount, approvedCount);
+
+      const allowRatio = approvedCount / (approvedCount + disapprovedCount);
+      setAllowPercentage(allowRatio * 100);
+    }
   };
-  /* const onStop = () => {
-    // const { activeDrags } = state;
-    console.log("stop",state)
-    setState({ ...state, activeDrags:0 });
-  };
-  // const dragHandlers = { onStart, onStop };
-  /* const handleDownBtnDrag = () => {
-    console.log('handleDownBtn Dragged', isDragged.down);
-    setIsDragged({ ...isDragged, down: !isDragged.down });
-  }; */
+
+  useEffect(() => {
+    console.log(CurrentUser);
+    if (CurrentUser.id) {
+      getUserData();
+    }
+  }, [isVoted]);
   return (
     <Draggable
       axis="x"
@@ -122,7 +137,9 @@ function MobilePollCard({
               </PollBtn>
             </PollBtnSection>
           )}
-          {isVoted && <ProgressBar />}
+          {CurrentUser.id && isVoted && (
+            <ProgressBar allowPercentage={allowPercentage} />
+          )}
         </StyledRoot>
       </div>
     </Draggable>
