@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 import { WhiteLeft, SaveBear, RecSun } from 'assets';
 import { HeaderIcon, PublicButton } from 'components';
 import {
@@ -25,6 +26,7 @@ import {
 } from './style';
 
 function Save() {
+  const date = moment().format('YYYY년 MM월 DD일');
   const navigate = useNavigate();
   const [text, setText] = useState('');
 
@@ -51,7 +53,7 @@ function Save() {
         <MainText>하루 날씨 기록</MainText>
       </Text>
       <MainBox className="mainbox">
-        <DateText>2022년 7월 16일</DateText>
+        <DateText>{date}</DateText>
         <HorizonLine width="100%" />
         <ContentBox>
           <MobileWeatherBox>
