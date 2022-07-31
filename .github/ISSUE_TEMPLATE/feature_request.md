@@ -4,7 +4,6 @@ about: Suggest an idea for this project
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 ## ✔️ Feature
@@ -17,6 +16,7 @@ assignees: ''
 
 - [x] 완료
 - [ ] 작업 예정
+
 ## 📌 Caution
 
 > 구현 시 살펴볼 사항
