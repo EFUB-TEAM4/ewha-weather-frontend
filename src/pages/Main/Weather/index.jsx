@@ -15,7 +15,7 @@ function Weather() {
     state,
     contents: { AvaterState, CurrentWeather },
   } = useRecoilValueLoadable(GetCurrent);
-  console.log(AvaterState, CurrentWeather);
+  // console.log(AvaterState, CurrentWeather);
 
   return (
     <StyledRoot>
