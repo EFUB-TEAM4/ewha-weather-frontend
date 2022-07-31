@@ -18,7 +18,7 @@ function Vote({ width }) {
 
   useEffect(() => {
     getData();
-    console.log('Vote', data);
+    // console.log('Vote', data);
   }, []);
 
   return (

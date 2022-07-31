@@ -21,7 +21,7 @@ function Main() {
 
   const validateUser = async () => {
     const { email, fullName, id } = await currentUser(privateAxios);
-    console.log('Main Validate User', email, fullName, id);
+    // console.log('Main Validate User', email, fullName, id);
     if (IsEwha(email)) {
       localStorage.setItem('token', token);
     } else {
