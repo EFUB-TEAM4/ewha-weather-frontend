@@ -39,22 +39,22 @@ function MobilePollCard({ data: { id, building, clothes } }) {
   const postVote = async voteState => {
     if (CurrentUser.id) {
       const data = { approved: voteState, votePostsId: id };
-      console.log(data);
+      // console.log(data);
       const response = await PostProCon(privateAxios, data);
-      console.log('onStop', response);
+      // console.log('onStop', response);
       setIsVoted(true);
     }
   };
 
   const DownDragged = () => {
     if (CurrentUser.id) {
-      console.log('down');
+      // console.log('down');
       setIsDragged({ up: false, down: true });
     }
   };
   const UpDragged = () => {
     if (CurrentUser.id) {
-      console.log('up');
+      // console.log('up');
       setIsDragged({ up: true, down: false });
     }
   };
@@ -78,13 +78,13 @@ function MobilePollCard({ data: { id, building, clothes } }) {
 
   const getUserData = async () => {
     const response = await GetUserVote(CurrentUser.id, id);
-    console.log('getUserData', response);
+    // console.log('getUserData', response);
     setIsVoted(Boolean(response.length));
     if (isVoted) {
       const {
         voteResponseDto: { disapprovedCount, approvedCount },
       } = response[0];
-      console.log(disapprovedCount, approvedCount);
+      // console.log(disapprovedCount, approvedCount);
 
       const allowRatio = approvedCount / (approvedCount + disapprovedCount);
       setAllowPercentage(allowRatio * 100);
@@ -92,7 +92,7 @@ function MobilePollCard({ data: { id, building, clothes } }) {
   };
 
   useEffect(() => {
-    console.log(CurrentUser);
+    // console.log(CurrentUser);
     if (CurrentUser.id) {
       getUserData();
     }
