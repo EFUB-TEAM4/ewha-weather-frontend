@@ -41,7 +41,7 @@ function PollCard({ data: { id, building, clothes } }) {
       // console.log(CurrentUser);
       const data = { approved: true, votePostsId: id };
       const response = await PostProCon(privateAxios, data);
-      console.log('handleUpBtn', response);
+      // console.log('handleUpBtn', response);
       setIsVoted(true);
     }
   };
@@ -50,7 +50,7 @@ function PollCard({ data: { id, building, clothes } }) {
     if (CurrentUser.id) {
       const data = { approved: false, votePostsId: id };
       const response = await PostProCon(privateAxios, data);
-      console.log('handleUpBtn', response);
+      // console.log('handleUpBtn', response);
       setIsVoted(true);
     }
   };
