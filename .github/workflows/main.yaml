@@ -11,6 +11,23 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@main
 
+       # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "REACT_APP_IMGUR_URL=$REACT_APP_IMGUR_URL" >> .env.production
+          echo "REACT_APP_IMGUR_CLIENT_ID=$REACT_APP_IMGUR_CLIENT_ID" >> .env.production
+          echo "REACT_APP_IMGUR_CLIENT_PWD=$REACT_APP_IMGUR_CLIENT_PWD" >> .env.production
+          echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> .env.production
+          echo "REACT_APP_GOOGLE_OAUTH_SERVER=$REACT_APP_GOOGLE_OAUTH_SERVER" >> .env.production
+          echo "REACT_APP_GOOGLE_OAUTH_REDIRECT_URL=$REACT_APP_GOOGLE_OAUTH_REDIRECT_URL" >> .env.production
+        env:
+          REACT_APP_IMGUR_URL: ${{ secrets.REACT_APP_IMGUR_URL }}
+          REACT_APP_IMGUR_CLIENT_ID: ${{ secrets.REACT_APP_IMGUR_CLIENT_ID }}
+          REACT_APP_IMGUR_CLIENT_PWD: ${{secrets.REACT_APP_IMGUR_CLIENT_PWD}}
+          REACT_APP_SERVER_URL: ${{secrets.REACT_APP_SERVER_URL}}
+          REACT_APP_GOOGLE_OAUTH_SERVER: ${{secrets.REACT_APP_GOOGLE_OAUTH_SERVER}}
+          REACT_APP_GOOGLE_OAUTH_REDIRECT_URL: ${{secrets.REACT_APP_GOOGLE_OAUTH_REDIRECT_URL}}
+
       - name: Cache node modules
         uses: actions/cache@v1
         with:
