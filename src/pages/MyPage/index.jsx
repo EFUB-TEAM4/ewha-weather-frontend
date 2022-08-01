@@ -1,7 +1,8 @@
 /* eslint-disable import/no-unresolved */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useInput } from 'hooks';
+import { currentUser } from 'apis/User.apis';
+import { useInput, usePrivateAxios, logout } from 'hooks';
 import { CustomCalendar } from 'components';
 import { User, WhiteLeft, WhiteNormalPencil, WhiteOutlinePencil } from 'assets';
 import {
@@ -21,10 +22,19 @@ import {
 function MyPage() {
   const navigate = useNavigate();
   const [isEditMode, setIsEditMode] = useState(1);
+  const [userData, setUserData] = useState({});
+  const privateAxios = usePrivateAxios();
+  const getUser = async () => {
+    const response = await currentUser(privateAxios);
+    setUserData(response);
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
   return (
     <StyledRoot>
       <DesktopHeader>
-        <LogoutButton>로그아웃</LogoutButton>
+        <LogoutButton onClick={logout}>로그아웃</LogoutButton>
       </DesktopHeader>
       <MobileHeader>
         <button
@@ -41,12 +51,12 @@ function MyPage() {
           <UserIcon src={User} alt="UserIcon" />
           <UserTextWrapper>
             <NameText
-              placeholder="이름"
+              placeholder={userData.fullName}
               value={useInput.value}
               disabled={isEditMode}
               onChange={useInput.onChange}
             />
-            <EmailText>이메일</EmailText>
+            <EmailText>{userData.email}</EmailText>
           </UserTextWrapper>
         </div>
         <button
@@ -65,7 +75,7 @@ function MyPage() {
       </UserWrapper>
       <CustomCalendar />
       <MobileFooter>
-        <LogoutButton>로그아웃</LogoutButton>
+        <LogoutButton onClick={logout}>로그아웃</LogoutButton>
       </MobileFooter>
     </StyledRoot>
   );

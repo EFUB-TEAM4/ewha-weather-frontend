@@ -3,7 +3,7 @@
 import React from 'react';
 import { Kakao, Twitter, Link, Local } from 'assets';
 import { ShareModal } from 'components';
-import { PngBear } from 'utils';
+import { PngBear, copyUrl, shareTwit } from 'utils';
 import { Title, Content, ShareBtn } from './style';
 
 function Share({ handle }) {
@@ -15,11 +15,11 @@ function Share({ handle }) {
           <img src={Kakao} alt="Kakao" />
           <span>카카오톡에 공유</span>
         </ShareBtn>
-        <ShareBtn>
+        <ShareBtn onClick={shareTwit}>
           <img src={Twitter} alt="Twitter" />
           <span>트위터에 공유</span>
         </ShareBtn>
-        <ShareBtn>
+        <ShareBtn onClick={copyUrl}>
           <img src={Link} alt="Link" />
           <span>링크 복사</span>
         </ShareBtn>

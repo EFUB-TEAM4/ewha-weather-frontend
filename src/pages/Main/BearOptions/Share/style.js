@@ -34,6 +34,11 @@ const ShareBtn = styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  textarea {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
   img {
     width: 6.033rem;
     height: 6.033rem;

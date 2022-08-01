@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import styled from 'styled-components';
 
 const StyledRoot = styled.section`
@@ -53,6 +54,8 @@ const Options = styled.button`
 
 const Cancel = styled.button`
   position: absolute;
+  // border-top-left-radius: 0.6rem;
+  // border-top-right-radius: 0.6rem;
   border-radius: 0.6rem;
 
   top: 1.6rem;

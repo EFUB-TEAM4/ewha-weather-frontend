@@ -34,7 +34,8 @@ const OverBear = styled.div`
 const OptionsSection = styled.div`
   background-color: ${({ theme: { color } }) => color.white};
   position: absolute;
-  top: 5.1rem;
+  z-index: 1000;
+  top: 4.5rem;
   left: 1.6rem;
   z-index: 100;
   border-bottom-left-radius: 0.6rem;
@@ -43,8 +44,9 @@ const OptionsSection = styled.div`
   height: 9.9rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 0.1rem 0.8rem 0.9rem 0.8rem;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.4rem 0;
 `;
 
 const Options = styled.button`

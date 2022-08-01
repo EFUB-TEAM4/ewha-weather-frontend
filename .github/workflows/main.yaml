@@ -11,7 +11,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@main
 
-       # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
+        # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
       - name: Generate Environment Variables File for Production
         run: |
           echo "REACT_APP_IMGUR_URL=$REACT_APP_IMGUR_URL" >> .env.production
