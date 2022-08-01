@@ -6,13 +6,16 @@ import theme from 'styles/theme';
 import { StyledRoot, Container, Filler, Inner } from './style';
 
 function ProgressBars({ allowPercentage }) {
-  const IsAllowed = {
-    yes: {
+  const disAllowPercentage = 100 - allowPercentage;
+  const IsAllowMax = allowPercentage >= disAllowPercentage;
+
+  const barcolor = {
+    max: {
       allow: `${theme.color.white}`,
       percent: `${theme.color.greenDarker}`,
       barGround: `${theme.color.greenDarker}`,
     },
-    no: {
+    min: {
       allow: `${theme.color.greenDarker}`,
       percent: `${theme.color.greenDarker}`,
       barGround: `${theme.color.greenLightest}`,
@@ -24,25 +27,34 @@ function ProgressBars({ allowPercentage }) {
   return (
     <StyledRoot>
       <Container>
-        <Filler voted={allowPercentage} barGround={IsAllowed.yes.barGround}>
-          <Inner
-            color={
-              allowPercentage ? IsAllowed.yes.allow : IsAllowed.yes.percent
-            }
-          >
+        <Filler
+          voted={allowPercentage}
+          barGround={
+            IsAllowMax ? barcolor.max.barGround : barcolor.min.barGround
+          }
+        >
+          <Inner color={IsAllowMax ? barcolor.max.allow : barcolor.min.allow}>
             허
           </Inner>
         </Filler>
-        <Inner color={IsAllowed.yes.percent}>{allowPercentage}%</Inner>
+        <Inner color={IsAllowMax ? barcolor.max.allow : barcolor.min.allow}>
+          {allowPercentage}%
+        </Inner>
       </Container>
       <Container>
         <Filler
-          voted={100 - allowPercentage}
-          barGround={IsAllowed.no.barGround}
+          voted={disAllowPercentage}
+          barGround={
+            !IsAllowMax ? barcolor.max.barGround : barcolor.min.barGround
+          }
         >
-          <Inner color={IsAllowed.no.allow}>불허</Inner>
+          <Inner color={!IsAllowMax ? barcolor.max.allow : barcolor.min.allow}>
+            불허
+          </Inner>
         </Filler>
-        <Inner color={IsAllowed.no.percent}>{100 - allowPercentage}%</Inner>
+        <Inner color={!IsAllowMax ? barcolor.max.allow : barcolor.min.allow}>
+          {disAllowPercentage}%
+        </Inner>
       </Container>
     </StyledRoot>
   );
