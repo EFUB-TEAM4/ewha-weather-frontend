@@ -8,8 +8,8 @@ const StyledRoot = styled.div`
 
 const Container = styled.div`
   height: 2.4rem;
-  background-color: ${({ theme: { color } }) => color.greenLightest};
-  border-radius: 0.5rem;
+  background-color: ${props => props.color};
+  border-radius: 0.6rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,7 +23,11 @@ const Filler = styled.div`
   height: 100%;
   width: ${props => `${props.voted}%`};
   background-color: ${props => props.barGround};
-  border-radius: 0.5rem;
+  border-top-right-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  border-top-left-radius: ${props => (props.voted === 100 ? '0.6rem' : '0rem')};
+  border-bottom-left-radius: ${props =>
+    props.voted === 100 ? '0.6rem' : '0rem'};
   display: flex;
   flex-direction: row;
   align-items: center;

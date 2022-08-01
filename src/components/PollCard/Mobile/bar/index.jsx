@@ -5,15 +5,17 @@ import theme from 'styles/theme';
 import { StyledRoot, Container, Filler, Inner } from './style';
 
 function ProgressBar({ allowPercentage }) {
-  const notAllowPercent = 100 - allowPercentage;
+  const disAllowPercentage = 100 - allowPercentage;
+  const IsAllowMax = allowPercentage >= disAllowPercentage;
 
-  const IsAllowed = {
-    yes: {
+  const barcolor = {
+    max: {
       allow: `${theme.color.white}`,
       percent: `${theme.color.greenDarker}`,
       barGround: `${theme.color.greenDarker}`,
     },
-    no: {
+    min: {
+      allow: `${theme.color.greenDarker}`,
       percent: `${theme.color.greenDarker}`,
       barGround: `${theme.color.greenLightest}`,
     },
@@ -21,13 +23,24 @@ function ProgressBar({ allowPercentage }) {
 
   return (
     <StyledRoot>
-      <Container>
-        {notAllowPercent && (
-          <Inner color={IsAllowed.no.percent}>불허 {notAllowPercent}%</Inner>
+      <Container
+        color={!IsAllowMax ? barcolor.max.barGround : barcolor.min.barGround}
+      >
+        {Boolean(disAllowPercentage) && (
+          <Inner color={!IsAllowMax ? barcolor.max.allow : barcolor.min.allow}>
+            불허 {disAllowPercentage}%
+          </Inner>
         )}
-        {allowPercentage && (
-          <Filler voted={allowPercentage} barGround={IsAllowed.yes.barGround}>
-            <Inner color={IsAllowed.yes.allow}>허 {allowPercentage}%</Inner>
+        {Boolean(allowPercentage) && (
+          <Filler
+            voted={allowPercentage}
+            barGround={
+              IsAllowMax ? barcolor.max.barGround : barcolor.min.barGround
+            }
+          >
+            <Inner color={IsAllowMax ? barcolor.max.allow : barcolor.min.allow}>
+              허 {allowPercentage}%
+            </Inner>
           </Filler>
         )}
       </Container>

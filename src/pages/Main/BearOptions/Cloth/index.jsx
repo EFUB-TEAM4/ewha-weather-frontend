@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { useRecoilValueLoadable } from 'recoil';
@@ -20,7 +21,9 @@ function ClothRec() {
       <Title>오늘의 추천 옷차림</Title>
       <Content>
         {state === 'hasValue' ? (
-          <div>{cloths && cloths.map(cloth => <p>{cloth}</p>)}</div>
+          <div>
+            {cloths && cloths.map((cloth, idx) => <p key={idx}>{cloth}</p>)}
+          </div>
         ) : (
           <div />
         )}
