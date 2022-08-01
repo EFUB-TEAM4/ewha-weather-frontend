@@ -1,6 +1,8 @@
 /* eslint-disable */
-import React, { useState, useParams } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PostVotes } from 'apis/Vote.apis';
+import { usePrivateAxios } from 'hooks';
 import { WhiteLeft } from 'assets';
 import { HeaderIcon, PublicButton } from 'components';
 import {
@@ -19,6 +21,8 @@ import {
 } from './style';
 
 function Vote() {
+  const privateAxios = usePrivateAxios();
+
   const navigate = useNavigate();
 
   const [clothes, setClothes] = useState('');
@@ -89,6 +93,7 @@ function Vote() {
       <ButtonBox>
         <PublicButton
           onClick={() => {
+            PostVotes(privateAxios, place, clothes);
             navigate(
               `/votecomplete/${clothes}/${place.length > 0 ? place : '학교'}`,
             );
