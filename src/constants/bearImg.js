@@ -56,25 +56,25 @@ const Sky = {
 };
 
 const NoneBear = {
-  '-20_4': { img: None10 },
-  '5_8': { img: None20 },
-  '9_11': { img: None30 },
-  '12_16': { img: None40 },
-  '17_19': { img: None50 },
-  '20_22': { img: None60 },
-  '23_27': { img: None70 },
-  '28_40': { img: None80 },
+  '-20_4': { img: None80 },
+  '5_8': { img: None70 },
+  '9_11': { img: None60 },
+  '12_16': { img: None50 },
+  '17_19': { img: None40 },
+  '20_22': { img: None30 },
+  '23_27': { img: None20 },
+  '28_40': { img: None10 },
 };
 
 const RainBear = {
-  '-20_4': { img: Rain11 },
-  '5_8': { img: Rain21 },
-  '9_11': { img: Rain31 },
-  '12_16': { img: Rain41 },
-  '17_19': { img: Rain51 },
-  '20_22': { img: Rain61 },
-  '23_27': { img: Rain71 },
-  '28_40': { img: Rain81 },
+  '-20_4': { img: Rain81 },
+  '5_8': { img: Rain71 },
+  '9_11': { img: Rain61 },
+  '12_16': { img: Rain51 },
+  '17_19': { img: Rain41 },
+  '20_22': { img: Rain31 },
+  '23_27': { img: Rain21 },
+  '28_40': { img: Rain11 },
 };
 
 export { Pty, Season, Sky, NoneBear, RainBear };
