@@ -1,7 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { SaveBear, WhiteClose } from 'assets';
+import { useNavigate, Link } from 'react-router-dom';
+import { WhiteClose } from 'assets';
+import { useRecoilValueLoadable } from 'recoil';
+import { GetCurrent } from 'state/weather';
+import { BearAvater } from 'components';
 import {
   StyledRoot,
   MainText,
@@ -13,6 +16,10 @@ import {
 } from './style';
 
 function SaveComplete() {
+  const {
+    state,
+    contents: { AvaterState },
+  } = useRecoilValueLoadable(GetCurrent);
   const navigate = useNavigate();
   return (
     <StyledRoot>
@@ -28,14 +35,20 @@ function SaveComplete() {
       </ButtonBox>
       <MainText>날씨 기록이 저장되었어요</MainText>
       <ImgBox>
-        <img src={SaveBear} alt="저장하는 곰돌이 이미지" />
+        {state === 'hasValue' ? (
+          <BearAvater showOptions={false} avater={AvaterState} />
+        ) : (
+          <div />
+        )}
       </ImgBox>
       <HomeButton
         onClick={() => {
           navigate('/');
         }}
       >
-        <Text>홈으로 돌아가기</Text>
+        <Link to="/">
+          <Text>홈으로 돌아가기</Text>
+        </Link>
       </HomeButton>
     </StyledRoot>
   );

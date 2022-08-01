@@ -22,7 +22,7 @@ function TempReport() {
   };
   useEffect(() => {
     getData();
-    console.log('forecast', data);
+    // console.log('forecast', data);
   }, []);
 
   return (

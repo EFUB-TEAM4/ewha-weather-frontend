@@ -1,0 +1,53 @@
+name: S3 Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@main
+
+       # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "REACT_APP_IMGUR_URL=$REACT_APP_IMGUR_URL" >> .env.production
+          echo "REACT_APP_IMGUR_CLIENT_ID=$REACT_APP_IMGUR_CLIENT_ID" >> .env.production
+          echo "REACT_APP_IMGUR_CLIENT_PWD=$REACT_APP_IMGUR_CLIENT_PWD" >> .env.production
+          echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> .env.production
+          echo "REACT_APP_GOOGLE_OAUTH_SERVER=$REACT_APP_GOOGLE_OAUTH_SERVER" >> .env.production
+          echo "REACT_APP_GOOGLE_OAUTH_REDIRECT_URL=$REACT_APP_GOOGLE_OAUTH_REDIRECT_URL" >> .env.production
+        env:
+          REACT_APP_IMGUR_URL: ${{ secrets.REACT_APP_IMGUR_URL }}
+          REACT_APP_IMGUR_CLIENT_ID: ${{ secrets.REACT_APP_IMGUR_CLIENT_ID }}
+          REACT_APP_IMGUR_CLIENT_PWD: ${{secrets.REACT_APP_IMGUR_CLIENT_PWD}}
+          REACT_APP_SERVER_URL: ${{secrets.REACT_APP_SERVER_URL}}
+          REACT_APP_GOOGLE_OAUTH_SERVER: ${{secrets.REACT_APP_GOOGLE_OAUTH_SERVER}}
+          REACT_APP_GOOGLE_OAUTH_REDIRECT_URL: ${{secrets.REACT_APP_GOOGLE_OAUTH_REDIRECT_URL}}
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp \
+            --recursive \
+            --region ap-northeast-2 \
+            build s3://ewha-weather

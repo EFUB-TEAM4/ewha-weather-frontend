@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { PostCalendars } from 'apis/Calendar.apis';
+import { usePrivateAxios } from 'hooks';
 import { useRecoilValueLoadable } from 'recoil';
 import { GetCurrent } from 'state/weather';
 import { WhiteLeft } from 'assets';
@@ -36,7 +37,7 @@ function Save() {
   } = useRecoilValueLoadable(GetCurrent);
   const navigate = useNavigate();
   const [text, setText] = useState('');
-
+  const privateAxios = usePrivateAxios();
   const changeHandler = e => {
     setText(e.target.value);
   };
@@ -137,7 +138,7 @@ function Save() {
         <ButtonBox>
           <PublicButton
             onClick={() => {
-              PostCalendars(AvaterState, CurrentWeather, text);
+              PostCalendars(privateAxios, AvaterState, CurrentWeather, text);
               navigate('/savecomplete');
             }}
             text="저장하기"

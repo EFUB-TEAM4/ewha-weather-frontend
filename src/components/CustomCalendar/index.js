@@ -1,6 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import { GetCalendars } from 'apis/Calendar.apis';
+import { currentUser } from 'apis/User.apis';
+import { usePrivateAxios } from 'hooks';
 import { NavLink } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import moment from 'moment';
@@ -11,9 +13,11 @@ function CustomCalendar() {
   const [data, setData] = useState([]);
   /* eslint-disable-next-line */
   const [mark, setMark] = useState([]);
+  const privateAxios = usePrivateAxios();
   const getData = async () => {
-    const response = await GetCalendars('76fecba0-3698-4f0f-b74c-bc6650d85921');
-    setData(response);
+    const responseId = await currentUser(privateAxios);
+    const response = await GetCalendars(responseId.id);
+    setData(response.body.calendar);
   };
   useEffect(() => {
     getData();

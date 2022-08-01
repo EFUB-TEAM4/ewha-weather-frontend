@@ -1,4 +1,3 @@
-import axios from 'axios';
 import moment from 'moment';
 import { serverAxios } from './index';
 
@@ -25,9 +24,9 @@ export const GetDetailCalendars = async id => {
   }
 };
 
-export const EditCalendars = async (id, content) => {
+export const EditCalendars = async (privateAxios, id, content) => {
   try {
-    const { data } = await serverAxios.put(`${PREFIX_URL}/${id}`, {
+    const { data } = await privateAxios.put(`${PREFIX_URL}/${id}`, {
       description: content,
     });
     return data;
@@ -36,9 +35,9 @@ export const EditCalendars = async (id, content) => {
   }
 };
 
-export const DeleteCalendars = async id => {
+export const DeleteCalendars = async (privateAxios, id) => {
   try {
-    const { data } = await serverAxios.delete(`${PREFIX_URL}/${id}`);
+    const { data } = await privateAxios.delete(`${PREFIX_URL}/${id}`);
     return data;
   } catch (err) {
     return err;
@@ -46,29 +45,27 @@ export const DeleteCalendars = async id => {
 };
 
 /* eslint-disable-next-line */
-export const PostCalendars = async (Avater, CurrentWeather, text) => {
+export const PostCalendars = async (
+  privateAxios,
+  Avater,
+  CurrentWeather,
+  text,
+) => {
   const today = moment().format('YYYYMMDD');
   try {
-    const { data } = await axios.post(
-      `http://ewhaweather.com/api/v1/calendars`,
-      {
-        bearId: Avater.bearResponseDto.id,
-        currentTemperature: CurrentWeather.currentTemperature,
-        description: text,
-        forecastDate: today,
-        iconId: CurrentWeather.iconResponseDto.id,
-        maxTemperature: CurrentWeather.maxTemperature,
-        minTemperature: CurrentWeather.minTemperature,
-        ptyId: Avater.ptyResponseDto.id,
-        rainfallPercentage: CurrentWeather.rainfallPercentage,
-        seasonId: Avater.seasonResponseDto.id,
-        skyId: Avater.skyResponseDto.id,
-      },
-      {
-        headers: { 'Access-Control-Allow-Origin': '*' },
-        withCredentials: false,
-      },
-    );
+    const { data } = await privateAxios.post(`${PREFIX_URL}`, {
+      bearId: Avater.bearResponseDto.id,
+      currentTemperature: CurrentWeather.currentTemperature,
+      description: text,
+      forecastDate: today,
+      iconId: CurrentWeather.iconResponseDto.id,
+      maxTemperature: CurrentWeather.maxTemperature,
+      minTemperature: CurrentWeather.minTemperature,
+      ptyId: Avater.ptyResponseDto.id,
+      rainfallPercentage: CurrentWeather.rainfallPercentage,
+      seasonId: Avater.seasonResponseDto.id,
+      skyId: Avater.skyResponseDto.id,
+    });
     // console.log(data);
     return data;
   } catch (err) {

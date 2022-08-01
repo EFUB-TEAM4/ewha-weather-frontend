@@ -1,7 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
-import { GetDetailCalendars, EditCalendars } from 'apis/Calendar.apis';
+import {
+  GetDetailCalendars,
+  EditCalendars,
+  DeleteCalendars,
+} from 'apis/Calendar.apis';
+import { usePrivateAxios } from 'hooks';
 import {
   useNavigate,
   useLocation,
@@ -64,11 +68,12 @@ function SaveRecord() {
   usePrompt(isEditMode);
   const getData = async () => {
     const response = await GetDetailCalendars(location.state.id);
-    setData(response);
-    setIcon(response.iconResponseUrlDto.iconUrl);
-    setInput(response.description);
+    setData(response.body.calender);
+    setIcon(response.body.calender.iconResponseUrlDto.iconUrl);
+    setInput(response.body.calender.description);
     setIsFinish(1);
   };
+  const privateAxios = usePrivateAxios();
   useEffect(() => {
     getData();
   }, []);
@@ -169,7 +174,7 @@ function SaveRecord() {
               text="저장하기"
               isDisabled={0}
               onClick={() => {
-                EditCalendars(data.id, input);
+                EditCalendars(privateAxios, data.id, input);
                 setIsEditMode(0);
               }}
             />
@@ -187,7 +192,7 @@ function SaveRecord() {
             navigate(-1);
           }}
           onClick2={() => {
-            EditCalendars(data.id, input);
+            EditCalendars(privateAxios, data.id, input);
             setIsSaveVisible(0);
             setIsEditMode(0);
             navigate(-1);
@@ -201,9 +206,10 @@ function SaveRecord() {
           btext1="취소"
           btext2="삭제하기"
           onClick1={() => setIsDeleteVisible(0)}
-          onClick2={() =>
-            axios.get('http://ewhaweather.com/api/v1/users/session')
-          }
+          onClick2={() => {
+            DeleteCalendars(privateAxios, data.id);
+            navigate(-1);
+          }}
         />
       ) : null}
     </StyledRoot>

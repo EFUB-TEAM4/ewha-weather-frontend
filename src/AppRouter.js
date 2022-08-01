@@ -11,6 +11,7 @@ import {
   SaveRecord,
   SaveComplete,
 } from 'pages';
+import { RequiredAuth } from 'components';
 
 function AppRouter() {
   return (
@@ -21,16 +22,17 @@ function AppRouter() {
 
         {/* Private Route */}
         {/* 추후 로그인 여부 확인 로직 필요 */}
-
-        <Route path="/save" element={<Save />} />
-        <Route path="/savecomplete" element={<SaveComplete />} />
-        <Route path="/vote" element={<Vote />} />
-        <Route
-          path="/votecomplete/:clothes/:place"
-          element={<VoteComplete />}
-        />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/mypage/save" element={<SaveRecord />} />
+        <Route element={<RequiredAuth />}>
+          <Route path="/save" element={<Save />} />
+          <Route path="/savecomplete" element={<SaveComplete />} />
+          <Route path="/vote" element={<Vote />} />
+          <Route
+            path="/votecomplete/:clothes/:place"
+            element={<VoteComplete />}
+          />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/mypage/save" element={<SaveRecord />} />
+        </Route>
         <Route path="/" element={<Main />} />
       </Routes>
     </BrowserRouter>

@@ -74,7 +74,7 @@ function Vote() {
         </FormBox>
         <FormBox>
           <SubjectText>어디에서</SubjectText>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <input
               type="text"
               name="place"
@@ -89,7 +89,9 @@ function Vote() {
       <ButtonBox>
         <PublicButton
           onClick={() => {
-            navigate(`/votecomplete/${clothes}/${place}`);
+            navigate(
+              `/votecomplete/${clothes}/${place.length > 0 ? place : '학교'}`,
+            );
           }}
           text="투표 만들기"
           isDisabled={clothes.length > 0 ? 0 : 1}

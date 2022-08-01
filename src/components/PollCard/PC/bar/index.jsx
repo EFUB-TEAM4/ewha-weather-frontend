@@ -1,12 +1,11 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
 
 import React from 'react';
 import theme from 'styles/theme';
 import { StyledRoot, Container, Filler, Inner } from './style';
 
-function ProgressBars() {
-  const voted = 60;
-
+function ProgressBars({ allowPercentage }) {
   const IsAllowed = {
     yes: {
       allow: `${theme.color.white}`,
@@ -20,21 +19,30 @@ function ProgressBars() {
     },
   };
 
-  console.log(theme.color.white);
+  // console.log(theme.color.white);
 
   return (
     <StyledRoot>
       <Container>
-        <Filler voted={voted} barGround={IsAllowed.yes.barGround}>
-          <Inner color={IsAllowed.yes.allow}>허</Inner>
+        <Filler voted={allowPercentage} barGround={IsAllowed.yes.barGround}>
+          <Inner
+            color={
+              allowPercentage ? IsAllowed.yes.allow : IsAllowed.yes.percent
+            }
+          >
+            허
+          </Inner>
         </Filler>
-        <Inner color={IsAllowed.yes.percent}>{voted}%</Inner>
+        <Inner color={IsAllowed.yes.percent}>{allowPercentage}%</Inner>
       </Container>
       <Container>
-        <Filler voted={voted} barGround={IsAllowed.no.barGround}>
+        <Filler
+          voted={100 - allowPercentage}
+          barGround={IsAllowed.no.barGround}
+        >
           <Inner color={IsAllowed.no.allow}>불허</Inner>
         </Filler>
-        <Inner color={IsAllowed.no.percent}>{voted}%</Inner>
+        <Inner color={IsAllowed.no.percent}>{100 - allowPercentage}%</Inner>
       </Container>
     </StyledRoot>
   );

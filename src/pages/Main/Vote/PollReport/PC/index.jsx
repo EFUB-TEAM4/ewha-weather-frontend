@@ -7,14 +7,12 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'components/Common/Carousel';
 
-const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 const setting = {
   width: '100%',
   padding: '1.5rem 0',
   backgroundColor: 'transparent',
 };
-function PCPollReport() {
+function PCPollReport({ data }) {
   return <Carousel data={data} type="vote" slideCount={3} setting={setting} />;
 }
 
