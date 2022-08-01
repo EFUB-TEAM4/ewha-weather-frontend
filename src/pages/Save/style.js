@@ -59,6 +59,7 @@ const Text = styled.div`
     padding-bottom: 2rem;
     position: fixed;
     flex-direction: row;
+    z-index: 1;
     .backbutton {
       display: flex;
       position: absolute;
@@ -193,6 +194,10 @@ const DeskTopWeatherBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .iconimg {
+    width: 6rem;
+    height: 6rem;
+  }
   ${applyMediaQuery('mobile')} {
     display: none;
   }
@@ -208,6 +213,10 @@ const MobileWeatherBox = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    .iconimg {
+      width: 6rem;
+      height: 6rem;
+    }
     .div {
       height: 3rem;
       display: flex;
@@ -257,6 +266,13 @@ const ButtonBox = styled.div`
   }
 `;
 
+const Bear = styled.div`
+  width: 25rem;
+  height: 25rem;
+  position: relative;
+  z-index: 0;
+`;
+
 export {
   StyledRoot,
   HeaderIconBox,
@@ -276,4 +292,5 @@ export {
   TemBox,
   Temperature,
   VerticalLine,
+  Bear,
 };

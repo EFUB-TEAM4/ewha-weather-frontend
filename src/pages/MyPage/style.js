@@ -93,6 +93,7 @@ const NameText = styled.input`
   font-weight: ${({ theme: { font } }) => font.weight.medium};
   background: transparent;
   border: none;
+  width: 30rem;
   ::placeholder {
     color: ${({ theme: { color } }) => color.white};
   }

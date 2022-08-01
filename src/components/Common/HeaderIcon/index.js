@@ -1,6 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useRef, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { User } from 'assets';
+import { logout } from 'hooks';
 import {
   StyledRoot,
   ToolTipArrow,
@@ -40,7 +42,13 @@ function HeaderIcon() {
           <ToolTip>
             <StyledLink to="/MyPage">마이페이지</StyledLink>
             <Line />
-            <LogoutButton>로그아웃</LogoutButton>
+            {localStorage.getItem('token') ? (
+              <LogoutButton onClick={logout}>로그아웃</LogoutButton>
+            ) : (
+              <NavLink to="/login">
+                <LogoutButton>로그인</LogoutButton>
+              </NavLink>
+            )}
           </ToolTip>
         </div>
       ) : null}

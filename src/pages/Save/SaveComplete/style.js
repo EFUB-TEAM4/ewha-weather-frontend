@@ -53,15 +53,11 @@ const ImgBox = styled.div`
   background-color: ${({ theme: { color } }) => color.white};
   border-radius: 0.6rem;
   margin: 0rem;
+  padding: 2.5rem 0rem 0rem 2.5rem;
 
   img {
     width: 92%;
     height: 92%;
-  }
-
-  ${applyMediaQuery('mobile')} {
-    width: 40rem;
-    height: 40rem;
   }
 `;
 
