@@ -37,7 +37,7 @@ export default async function shareKakao(tem, rain) {
     objectType: 'feed',
     content: {
       title: '이상청',
-      description: `지금 이화는 ${tem}°C, 강수확률은 ${rain}%입니다. 지금 이화인들의 추천 옷차림은?`,
+      description: `지금 이화는 ${tem}°C, 강수확률은 ${rain}%입니다. 실시간 이화인 추천 옷차림은?`,
       imageUrl: imageUrl,
       link: {
         webUrl: process.env.REACT_APP_GOOGLE_OAUTH_REDIRECT_URL,

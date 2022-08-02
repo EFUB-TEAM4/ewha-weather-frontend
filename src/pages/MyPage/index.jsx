@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { currentUser } from 'apis/User.apis';
-import { useInput, usePrivateAxios, logout } from 'hooks';
+import { usePrivateAxios, logout } from 'hooks';
 import { CustomCalendar } from 'components';
-import { User, WhiteLeft, WhiteNormalPencil, WhiteOutlinePencil } from 'assets';
+import { User, WhiteLeft } from 'assets';
 import {
   StyledRoot,
   DesktopHeader,
@@ -21,7 +21,7 @@ import {
 
 function MyPage() {
   const navigate = useNavigate();
-  const [isEditMode, setIsEditMode] = useState(1);
+  // const [isEditMode, setIsEditMode] = useState(1);
   const [userData, setUserData] = useState({});
   const privateAxios = usePrivateAxios();
   const getUser = async () => {
@@ -52,13 +52,14 @@ function MyPage() {
           <UserTextWrapper>
             <NameText
               placeholder={userData.fullName}
-              value={useInput.value}
-              disabled={isEditMode}
-              onChange={useInput.onChange}
+              // value={useInput.value}
+              disabled={1}
+              // onChange={useInput.onChange}
             />
             <EmailText>{userData.email}</EmailText>
           </UserTextWrapper>
         </div>
+        {/*
         <button
           type="button"
           className="EditButton"
@@ -72,6 +73,7 @@ function MyPage() {
             <img src={WhiteOutlinePencil} alt="EditButton" />
           )}
         </button>
+        */}
       </UserWrapper>
       <CustomCalendar />
       <MobileFooter>
