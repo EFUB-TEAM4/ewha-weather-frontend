@@ -12,7 +12,7 @@ function createOAuthUri() {
 }
 
 // 로그인 버튼 실행시 OAuth 서버로 연결
-export default function goOAuthServer() {
+export default function OAuthLogin() {
   const loginUrl = createOAuthUri();
   // console.log('hadleLoginBtn', loginUrl);
   window.location.replace(loginUrl);

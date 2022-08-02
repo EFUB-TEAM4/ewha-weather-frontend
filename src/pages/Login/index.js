@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
-import { goOAuthServer as handleLoginBtn } from 'utils';
+import { OAuthLogin as handleLoginBtn } from 'utils';
 import {
   StyledRoot,
   Header,
@@ -36,6 +36,7 @@ function Login() {
               type="checkbox"
               name="KeepLoggedIn"
               value="false"
+              checked
             />
             로그인 상태 유지
           </LoginLabel>

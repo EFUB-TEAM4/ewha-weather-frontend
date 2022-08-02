@@ -24,6 +24,7 @@ function Main() {
     // console.log('Main Validate User', email, fullName, id);
     if (IsEwha(email)) {
       localStorage.setItem('token', token);
+      setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
     }
