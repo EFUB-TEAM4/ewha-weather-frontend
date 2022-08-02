@@ -48,12 +48,12 @@ const BackButton = styled.img`
 `;
 
 const Text = styled.div`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 9rem;
+  padding-bottom: 12rem;
 
   ${applyMediaQuery('mobile')} {
     top: 0;
@@ -76,8 +76,8 @@ const MainText = styled.p`
 `;
 
 const ContentBox = styled.div`
-  margin-top: 4rem;
-  margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 7rem;
 
   ${applyMediaQuery('mobile')} {
     margin-top: 20rem;

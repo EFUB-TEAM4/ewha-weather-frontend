@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
 
 // JWT를 axios intercepter에 붙이는 hook
@@ -6,13 +7,15 @@ import { privateAxios } from 'apis';
 import { getRefreshToken } from 'apis/Auth.apis';
 
 const usePrivateAxios = token => {
-  const auth = token || localStorage.getItem('token');
+  const auth = localStorage.getItem('token') || token;
   // console.log(auth);
+  // const auth="3u89u309u40293"
   useEffect(() => {
     // console.log(auth);
     const requestIntercept = privateAxios.interceptors.request.use(
       config => {
         const tempConfig = config;
+        // console.log('config', config);
         if (!config.headers.Authorization) {
           tempConfig.headers.Authorization = `Bearer ${auth}`;
         }
@@ -23,8 +26,9 @@ const usePrivateAxios = token => {
     const responseIntercept = privateAxios.interceptors.response.use(
       response => response,
       async error => {
+        // console.log('response Error', error);
         const prevRequest = error?.config;
-        if (error?.response?.status === 403 && !prevRequest?.sent) {
+        if (error?.response?.status === 403 || (401 && !prevRequest?.sent)) {
           prevRequest.sent = true;
           const newAcessToken = await getRefreshToken();
           //
@@ -36,7 +40,7 @@ const usePrivateAxios = token => {
     );
 
     return () => {
-      privateAxios.interceptors.response.eject(requestIntercept);
+      privateAxios.interceptors.request.eject(requestIntercept);
       privateAxios.interceptors.response.eject(responseIntercept);
     };
   }, [auth]);

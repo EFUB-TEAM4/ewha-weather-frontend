@@ -10,6 +10,7 @@ const StyledRoot = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 1.2rem;
 `;
 
 const StyledSlider = styled(Slider)`
@@ -19,6 +20,7 @@ const StyledSlider = styled(Slider)`
 
   .slick-list {
     background-color: ${props => props.backgroundColor || 'transparent'};
+    border-radius: 0.6rem;
   }
 
   .slick-next,

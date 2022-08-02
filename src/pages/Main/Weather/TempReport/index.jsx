@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -16,13 +17,29 @@ const setting = {
 function TempReport() {
   const [data, setData] = useState([]);
 
+  function getSliceData(response) {
+    const currHour = new Date().getHours();
+    console.log(currHour);
+    let slicedResponse;
+
+    for (let i = 0; i < response.length; i++) {
+      // 배열 arr의 모든 요소의 인덱스(index)를 출력함.
+      if (Number(response[i].forecastTime.substring(0, 2)) === currHour) {
+        console.log('set idx', i, response[i]);
+        slicedResponse = response.slice(i);
+        break;
+      }
+    }
+    return slicedResponse || response;
+  }
+
   const getData = async () => {
     const response = await GetForecastWeather();
-    setData(response);
+    const slicedData = getSliceData(response);
+    setData(slicedData);
   };
   useEffect(() => {
     getData();
-    // console.log('forecast', data);
   }, []);
 
   return (
