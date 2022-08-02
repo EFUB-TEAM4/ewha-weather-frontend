@@ -6,7 +6,7 @@ const StyledRoot = styled.div`
   align-items: center;
   justify-content: space-between;
   width: fit-content;
-  height:9.3rem;
+  height: 9.3rem;
   padding: 1rem 1.2rem;
   background-color: ${({ theme: { color } }) => color.white};
   img {

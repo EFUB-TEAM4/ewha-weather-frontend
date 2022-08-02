@@ -26,7 +26,9 @@ function PollCard({ data: { id, building, clothes } }) {
         voteResponseDto: { approvedCount, disapprovedCount },
       } = response[0];
       const allowRatio = (
-        approvedCount / (approvedCount + disapprovedCount)).toPrecision(2);;
+        approvedCount /
+        (approvedCount + disapprovedCount)
+      ).toPrecision(2);
 
       setAllowPercentage(allowRatio * 100);
     }

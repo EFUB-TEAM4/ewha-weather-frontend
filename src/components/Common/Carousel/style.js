@@ -10,7 +10,7 @@ const StyledRoot = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top:1.2rem ;
+  margin-top: 1.2rem;
 `;
 
 const StyledSlider = styled(Slider)`

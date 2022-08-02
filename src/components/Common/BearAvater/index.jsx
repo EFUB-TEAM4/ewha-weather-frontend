@@ -27,6 +27,7 @@ function BearAvater({
 }) {
   const [bearOption, setBearOption] = useState(false);
 
+
   return (
     <StyledRoot>
       <BearAvaterSection id="BearAvater">

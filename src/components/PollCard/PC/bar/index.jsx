@@ -38,7 +38,15 @@ function ProgressBars({ allowPercentage }) {
             허
           </Inner>
         </Filler>
-        <Inner color={IsAllowMax ? (allowPercentage===100?barcolor.max.allow:barcolor.max.barGround) : barcolor.min.allow}>
+        <Inner
+          color={
+            IsAllowMax
+              ? allowPercentage === 100
+                ? barcolor.max.allow
+                : barcolor.max.barGround
+              : barcolor.min.allow
+          }
+        >
           {allowPercentage}%
         </Inner>
       </Container>
@@ -53,7 +61,15 @@ function ProgressBars({ allowPercentage }) {
             불허
           </Inner>
         </Filler>
-        <Inner color={!IsAllowMax ? (disAllowPercentage===100?barcolor.max.allow:barcolor.max.barGround ): barcolor.min.allow}>
+        <Inner
+          color={
+            !IsAllowMax
+              ? disAllowPercentage === 100
+                ? barcolor.max.allow
+                : barcolor.max.barGround
+              : barcolor.min.allow
+          }
+        >
           {disAllowPercentage}%
         </Inner>
       </Container>

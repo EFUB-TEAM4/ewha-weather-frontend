@@ -5,3 +5,4 @@ export { default as shareTwit } from './shareTwit';
 export { default as getUrl } from './getUrl';
 export { default as copyUrl } from './copyUrl';
 export { default as formatTime } from './formatTime';
+export { default as UrlBear } from './UrlBear';
