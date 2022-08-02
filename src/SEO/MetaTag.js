@@ -19,7 +19,7 @@ export default function MetaTag({ title, description, keywords, imgsrc, url }) {
         data-react-helmet="true"
       />
       <meta property="og:image" content={imgsrc} data-react-helmet="true" />
-      <meta property="og:url" content={url} data-react-helmet="true"/> 
+      <meta property="og:url" content={url} data-react-helmet="true" />
 
       <meta name="twitter:title" content={title} data-react-helmet="true" />
       <meta
