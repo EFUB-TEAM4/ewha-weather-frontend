@@ -84,6 +84,7 @@ const MainText = styled.p`
 const MainBox = styled.div`
   width: 100rem;
   height: 55rem;
+  margin-bottom: 2.5rem;
   background-color: ${({ theme: { color } }) => color.white};
   border-radius: 1.4rem;
   ${applyMediaQuery('mobile')} {
@@ -269,6 +270,7 @@ const ButtonBox = styled.div`
 const Bear = styled.div`
   width: 25rem;
   height: 25rem;
+  margin-bottom: 1.5rem;
   position: relative;
   z-index: 0;
 `;
