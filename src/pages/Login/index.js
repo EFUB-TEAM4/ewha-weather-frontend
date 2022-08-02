@@ -36,6 +36,7 @@ function Login() {
               type="checkbox"
               name="KeepLoggedIn"
               value="false"
+            checked
             />
             로그인 상태 유지
           </LoginLabel>
