@@ -30,7 +30,7 @@ function Weather() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log('running');
+      // console.log('running');
       refetchGetCurrent(new Date());
     }, 900000);
     return () => clearInterval(interval);
