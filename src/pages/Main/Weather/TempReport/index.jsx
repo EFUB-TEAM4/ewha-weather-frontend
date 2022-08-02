@@ -19,13 +19,13 @@ function TempReport() {
 
   function getSliceData(response) {
     const currHour = new Date().getHours();
-    console.log(currHour);
+    // console.log(currHour);
     let slicedResponse;
 
     for (let i = 0; i < response.length; i++) {
       // 배열 arr의 모든 요소의 인덱스(index)를 출력함.
       if (Number(response[i].forecastTime.substring(0, 2)) === currHour) {
-        console.log('set idx', i, response[i]);
+        // console.log('set idx', i, response[i]);
         slicedResponse = response.slice(i);
         break;
       }
