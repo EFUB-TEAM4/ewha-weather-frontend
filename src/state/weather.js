@@ -11,7 +11,7 @@ export const CurrentState = atom({
 export const GetCurrent = selector({
   key: 'CurrentState/get',
   get: async ({ get }) => {
-    get(CurrentState)
+    get(CurrentState);
     const {
       ptyResponseDto,
       skyResponseDto,

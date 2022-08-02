@@ -13,29 +13,32 @@ import { Title, ContentSection } from '../style';
 
 function Weather() {
   // const [{AvaterState,CurrentWeather}, setcurrentState] = useRecoilValueLoadable(GetCurrent);
- /* const {
+  /* const {
     getCurrent:{state,
     contents: { AvaterState, CurrentWeather }},refetchGetCurrent
   } = useRecoilValueLoadable(GetCurrent);
   // console.log(AvaterState, CurrentWeather); */
-  const [{state, contents:{AvaterState, CurrentWeather}}, refetchGetCurrent]=useRecoilStateLoadable(GetCurrent)
-  
+  const [
+    {
+      state,
+      contents: { AvaterState, CurrentWeather },
+    },
+    refetchGetCurrent,
+  ] = useRecoilStateLoadable(GetCurrent);
+
   // console.log(state, AvaterState, CurrentWeather, refetchGetCurrent)
 
-
-  useEffect(()=>{
-    const interval=setInterval(()=>{
-      console.log("running")
-      refetchGetCurrent(new Date())
-      
-    },900000);
-    return ()=>clearInterval(interval)
-
-  },[CurrentWeather, AvaterState])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log('running');
+      refetchGetCurrent(new Date());
+    }, 900000);
+    return () => clearInterval(interval);
+  }, [CurrentWeather, AvaterState]);
 
   return (
     <StyledRoot>
-     {CurrentWeather && (
+      {CurrentWeather && (
         <MetaTag
           title="이상청"
           description={`지금 이화는 ${CurrentWeather.currentTemperature}도 강수확률은 ${CurrentWeather.rainfallPercentage}%입니다. 실시간 이화인들의 추천 옷차림은?`}
