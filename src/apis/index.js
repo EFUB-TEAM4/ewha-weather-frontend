@@ -8,7 +8,9 @@ const serverAxios = axios.create({
 
 const privateAxios = axios.create({
   baseURL: `${process.env.REACT_APP_SERVER_URL}`,
-  /* withCredentials: true, */
+  /* headers: {
+    'Access-Control-Allow-Origin': `${process.env.REACT_APP_SERVER_URL}`,},
+  withCredentials: true, */
 });
 
 // "https://api.imgur.com/3"
