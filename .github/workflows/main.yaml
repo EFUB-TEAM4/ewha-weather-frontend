@@ -20,6 +20,7 @@ jobs:
           echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> .env.production
           echo "REACT_APP_GOOGLE_OAUTH_SERVER=$REACT_APP_GOOGLE_OAUTH_SERVER" >> .env.production
           echo "REACT_APP_GOOGLE_OAUTH_REDIRECT_URL=$REACT_APP_GOOGLE_OAUTH_REDIRECT_URL" >> .env.production
+          echo "REACT_APP_KAKAO_TOKEN=$REACT_APP_KAKAO_TOKEN" >> .env.production
         env:
           REACT_APP_IMGUR_URL: ${{ secrets.REACT_APP_IMGUR_URL }}
           REACT_APP_IMGUR_CLIENT_ID: ${{ secrets.REACT_APP_IMGUR_CLIENT_ID }}
@@ -27,6 +28,7 @@ jobs:
           REACT_APP_SERVER_URL: ${{secrets.REACT_APP_SERVER_URL}}
           REACT_APP_GOOGLE_OAUTH_SERVER: ${{secrets.REACT_APP_GOOGLE_OAUTH_SERVER}}
           REACT_APP_GOOGLE_OAUTH_REDIRECT_URL: ${{secrets.REACT_APP_GOOGLE_OAUTH_REDIRECT_URL}}
+          REACT_APP_KAKAO_TOKEN: ${{secrets.REACT_APP_KAKAO_TOKEN}}
 
       - name: Cache node modules
         uses: actions/cache@v1
