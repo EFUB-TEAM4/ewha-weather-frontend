@@ -11,7 +11,7 @@ const usePrivateAxios = token => {
   // console.log(auth);
   // const auth="3u89u309u40293"
   useEffect(() => {
-    // console.log(auth);
+    // console.log(auth, auth);
     const requestIntercept = privateAxios.interceptors.request.use(
       config => {
         const tempConfig = config;
