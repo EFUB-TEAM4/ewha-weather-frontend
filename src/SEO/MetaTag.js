@@ -20,7 +20,7 @@ export default function MetaTag({ title, description, keywords, imgsrc, url }) {
       />
       <meta property="og:image" content={imgsrc} />
       <meta property="og:url" content={url} />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image"/>
       <meta name="twitter:title" content={title} />
       <meta
         name="twitter:description"
