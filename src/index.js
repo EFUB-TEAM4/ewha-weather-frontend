@@ -7,7 +7,6 @@ import GlobalFonts from 'styles/styleOptions/fonts/fonts';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/global-style';
 import { RecoilRoot } from 'recoil';
-import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,9 +15,7 @@ root.render(
       <GlobalFonts />
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <HelmetProvider>
-          <App />
-        </HelmetProvider>
+        <App />
       </ThemeProvider>
     </Suspense>
   </RecoilRoot>,

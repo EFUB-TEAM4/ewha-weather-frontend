@@ -37,7 +37,7 @@ function Weather() {
   }, [CurrentWeather, AvaterState]);
 
   return (
-    <StyledRoot>
+    <>
       {CurrentWeather && (
         <MetaTag
           title="이상청"
@@ -47,24 +47,26 @@ function Weather() {
           imgsrc={MainBear}
         />
       )}
-      <Title>오늘의 이화 날씨</Title>
-      <ContentSection>
-        {state === 'hasValue' ? (
-          <>
-            <BearSection>
-              <BearAvater showOptions avater={AvaterState} />
-            </BearSection>
+      <StyledRoot>
+        <Title>오늘의 이화 날씨</Title>
+        <ContentSection>
+          {state === 'hasValue' ? (
+            <>
+              <BearSection>
+                <BearAvater showOptions avater={AvaterState} />
+              </BearSection>
 
-            <WeatherSection>
-              <WeatherReport weather={CurrentWeather} />
-              <TempReport />
-            </WeatherSection>
-          </>
-        ) : (
-          <div />
-        )}
-      </ContentSection>
-    </StyledRoot>
+              <WeatherSection>
+                <WeatherReport weather={CurrentWeather} />
+                <TempReport />
+              </WeatherSection>
+            </>
+          ) : (
+            <div />
+          )}
+        </ContentSection>
+      </StyledRoot>
+    </>
   );
 }
 
