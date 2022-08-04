@@ -5,7 +5,7 @@ function createOAuthUri() {
   const loginQueryString = qs.stringify({
     redirect_uri: `${process.env.REACT_APP_GOOGLE_OAUTH_REDIRECT_URL}`,
     /* response_type:"code", */
-    flowName: 'GeneralOAuthFlow', 
+    flowName: 'GeneralOAuthFlow',
   });
   const AUTHORIZE_URI = `${process.env.REACT_APP_GOOGLE_OAUTH_SERVER}`;
   const OAuthRequestUri = `${AUTHORIZE_URI}?${loginQueryString}`;
