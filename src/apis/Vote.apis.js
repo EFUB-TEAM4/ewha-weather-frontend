@@ -48,7 +48,7 @@ export const PostVotes = async (privateAxios, place, clothes) => {
       building: place.length > 0 ? place : '학교',
       clothes: clothes,
     });
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (err) {
     return err;

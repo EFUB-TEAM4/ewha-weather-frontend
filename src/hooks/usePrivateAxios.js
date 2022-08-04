@@ -18,13 +18,14 @@ const usePrivateAxios = token => {
         // console.log('config', config);
         if (!config.headers.Authorization) {
           tempConfig.headers.Authorization = `Bearer ${auth}`;
+          // console.log(tempConfig.headers)
         }
         return tempConfig;
       },
       error => Promise.reject(error),
     );
     const responseIntercept = privateAxios.interceptors.response.use(
-      response => response,
+      async response => response,
       async error => {
         // console.log('response Error', error);
         const prevRequest = error?.config;
