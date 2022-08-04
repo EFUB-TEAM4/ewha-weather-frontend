@@ -23,6 +23,7 @@ function Main() {
     const { email, fullName, id } = await currentUser(privateAxios);
     // console.log('Main Validate User', email, fullName, id);
     if (IsEwha(email)) {
+      console.log(token)
       localStorage.setItem('token', token);
       setIsLoggedIn(true);
     } else {
