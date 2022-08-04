@@ -36,24 +36,24 @@ function Weather() {
 
   return (
     <StyledRoot>
-        <Title>오늘의 이화 날씨</Title>
-        <ContentSection>
-          {state === 'hasValue' ? (
-            <>
-              <BearSection>
-                <BearAvater showOptions avater={AvaterState} />
-              </BearSection>
+      <Title>오늘의 이화 날씨</Title>
+      <ContentSection>
+        {state === 'hasValue' ? (
+          <>
+            <BearSection>
+              <BearAvater showOptions avater={AvaterState} />
+            </BearSection>
 
-              <WeatherSection>
-                <WeatherReport weather={CurrentWeather} />
-                <TempReport />
-              </WeatherSection>
-            </>
-          ) : (
-            <div />
-          )}
-        </ContentSection>
-      </StyledRoot>
+            <WeatherSection>
+              <WeatherReport weather={CurrentWeather} />
+              <TempReport />
+            </WeatherSection>
+          </>
+        ) : (
+          <div />
+        )}
+      </ContentSection>
+    </StyledRoot>
   );
 }
 
