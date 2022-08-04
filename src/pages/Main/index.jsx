@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { IsEwha } from 'utils';
 import LoginState from 'state/loginState';
@@ -14,8 +15,8 @@ import { StyledRoot, MainRoot, MainContainer } from './style';
 
 function Main() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
-
-  const token = useQueryString('token');
+  const navigation = useNavigate();
+  const token = useQueryString('token') || localStorage.getItem('token');
   const width = useWindowWidth();
   const privateAxios = usePrivateAxios(token);
 
@@ -24,17 +25,22 @@ function Main() {
     // console.log('Main Validate User', email, fullName, id);
     if (IsEwha(email)) {
       // console.log(token);
-      localStorage.setItem('token', token);
+      // console.log("Ewha people")
       setIsLoggedIn(true);
+      navigation('/');
     } else {
+      localStorage.clear('token');
       setIsLoggedIn(false);
     }
   };
 
   useEffect(() => {
     if (token) {
+      // console.log("token validation start")
+      localStorage.setItem('token', token);
       validateUser();
     } else {
+      localStorage.clear('token');
       setIsLoggedIn(false);
     }
   }, []);

@@ -16,5 +16,5 @@ function createOAuthUri() {
 export default function OAuthLogin() {
   const loginUrl = createOAuthUri();
   // console.log('hadleLoginBtn', loginUrl);
-  window.location.replace(loginUrl);
+  window.location.href = loginUrl;
 }
