@@ -1,15 +1,15 @@
-// import qs from 'qs';
+import qs from 'qs';
 
 // OAuth 서버 연결 Uri 및 Redirect uri 파라미터 설정
 export default function createOAuthUri() {
-  /* const loginQueryString = qs.stringify({
+  const loginQueryString = qs.stringify({
     redirect_uri: `${process.env.REACT_APP_GOOGLE_OAUTH_REDIRECT_URL}`,
-    /* response_type:"code", */
-  /* flowName: 'GeneralOAuthFlow',
-  }); */
+    /* response_type:"code", 
+  flowName: 'GeneralOAuthFlow', */
+  });
   const AUTHORIZE_URI = `${process.env.REACT_APP_GOOGLE_OAUTH_SERVER}`;
-  // const OAuthRequestUri = `${AUTHORIZE_URI}?${loginQueryString}`;
-  const OAuthRequestUri = `${AUTHORIZE_URI}`;
+  const OAuthRequestUri = `${AUTHORIZE_URI}?${loginQueryString}`;
+  // const OAuthRequestUri = `${AUTHORIZE_URI}`;
   return OAuthRequestUri;
 }
 
@@ -19,3 +19,5 @@ export default function createOAuthUri() {
   // console.log('hadleLoginBtn', loginUrl);
   window.location.href = loginUrl;
 } */
+
+// https://api.eweather.site/oauth2/authorization/google?redirect_uri=%22https://www.eweather.site%22

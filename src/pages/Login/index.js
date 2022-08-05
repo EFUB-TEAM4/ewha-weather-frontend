@@ -2,7 +2,7 @@
 import React from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
 // import { OAuthLogin as handleLoginBtn } from 'utils';
-import { useGoogle } from 'hooks';
+import { createOAuthUri } from 'components';
 import {
   StyledRoot,
   Header,
@@ -15,7 +15,7 @@ import {
 } from './style';
 
 function Login() {
-  const { loginUrl } = useGoogle();
+  // const { loginUrl } = useGoogle();
   return (
     <StyledRoot>
       <Header>
@@ -23,7 +23,7 @@ function Login() {
       </Header>
       <Article>
         <BtnSection>
-          <LoginBtn href={loginUrl}>
+          <LoginBtn href={createOAuthUri}>
             <img src={GoogleBtn} alt="GoogleBtn" />
             <span>구글 계정으로 로그인</span>
 
