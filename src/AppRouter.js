@@ -13,17 +13,16 @@ import {
 } from 'pages';
 import { RequiredAuth } from 'components';
 
-
 function AppRouter() {
   return (
     <BrowserRouter>
-    <Routes>
-      {/* Default Route */}
-      <Route path="/login" element={<Login />} />
+      <Routes>
+        {/* Default Route */}
+        <Route path="/login" element={<Login />} />
 
-      {/* Private Route : 로그인 된 경우에만 접근 가능한 페이지 */}
-      <Route element={<RequiredAuth />}>
-      <Route path="/save" element={<Save />} />
+        {/* Private Route : 로그인 된 경우에만 접근 가능한 페이지 */}
+        <Route element={<RequiredAuth />}>
+          <Route path="/save" element={<Save />} />
           <Route path="/savecomplete" element={<SaveComplete />} />
           <Route path="/vote" element={<Vote />} />
           <Route
@@ -32,16 +31,11 @@ function AppRouter() {
           />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/mypage/save" element={<SaveRecord />} />
-       
-       
-      </Route>
-      <Route path="/" element={<Main />} />
-    </Routes>
-  </BrowserRouter>
-
-
-)
-};
-
+        </Route>
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default AppRouter;

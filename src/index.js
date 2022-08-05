@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
+import { Spinner } from 'assets';
 import App from 'App';
 import theme from 'styles/theme';
 import GlobalFonts from 'styles/styleOptions/fonts/fonts';
@@ -11,7 +12,7 @@ import { RecoilRoot } from 'recoil';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <RecoilRoot>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<img src={Spinner} alt="Spinner"/>}>
       <GlobalFonts />
       <GlobalStyle />
       <ThemeProvider theme={theme}>
