@@ -19,8 +19,9 @@ function useGoogle() {
     localStorage.setItem('useEffect', 'useEffect');
     (async () => {
       localStorage.setItem('async', 'async');
+      localStorage.setItem('async', window.location.search.split('?'));
       if (window.location.search.split('?').length > 1) {
-        localStorage.setItem('async', window.location.search.split('?')[1]);
+        
         const { token } = qs.parse(window.location.search.split('?')[1]);
 
         localStorage.setItem('token', token);
