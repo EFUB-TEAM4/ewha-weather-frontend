@@ -24,11 +24,14 @@ function AppRouter() {
         <Route element={<RequiredAuth />}>
           {/* 착장 저장하기 */}
           <Route path="/save" element={<Save />}>
-            <Route path="/complete" element={<SaveComplete />} />
+            <Route path="complete" element={<SaveComplete />} />
           </Route>
           {/* 옷 차림 투표 생성하기 */}
           <Route path="/vote" element={<Vote />}>
-            <Route path="complete/:clothes/:place" element={<VoteComplete />} />
+            <Route
+              path="complete/:clothes/:place"
+              element={<VoteComplete />}
+            />
           </Route>
 
           {/* 마이페이지 저장하기 */}
