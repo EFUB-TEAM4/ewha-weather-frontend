@@ -16,7 +16,16 @@ const StyledRoot = styled.div`
     ${({ theme: { color } }) => color.greenDarker} 30%
   );
 `;
-
+const HeaderBox = styled.div`
+  width: 100%;
+  ${applyMediaQuery('mobile')} {
+    position: fixed;
+    top: 0;
+    padding-top: 11rem;
+    padding-bottom: 3.6rem;
+    background-color: ${({ theme: { color } }) => color.greenDarker};
+  }
+`;
 const HeaderIconBox = styled.div`
   width: 100%;
   display: flex;
@@ -54,11 +63,8 @@ const Text = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 12rem;
-
   ${applyMediaQuery('mobile')} {
-    top: 0;
-    padding-top: 11.7rem;
-    position: fixed;
+    padding-bottom: 0;
   }
 `;
 
@@ -139,6 +145,7 @@ const ButtonBox = styled.div`
 
 export {
   StyledRoot,
+  HeaderBox,
   HeaderIconBox,
   Text,
   BackButton,
