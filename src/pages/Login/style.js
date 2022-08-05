@@ -52,7 +52,7 @@ const BtnSection = styled.section`
   }
 `;
 
-const LoginBtn = styled.a`
+const LoginBtn = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
