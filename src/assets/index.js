@@ -76,6 +76,7 @@ export { default as Rain71 } from './Bear/BearAvater/Rain71.png';
 export { default as Rain81 } from './Bear/BearAvater/Rain81.png';
 /* Login Button Google Logo */
 export { default as GoogleBtn } from './Icon/Google.svg';
+export { default as Spinner } from './Icon/Spinner.gif';
 
 /* Save Page tmp icon - Bear / WeatherInfo */
 export { default as SaveBear } from './Tmp/SaveBear.svg';

@@ -2,6 +2,7 @@
 /* eslint-disable import/no-unresolved */
 import React, { useEffect } from 'react';
 import { useRecoilStateLoadable } from 'recoil';
+import { Spinner } from 'assets';
 import { BearAvater } from 'components';
 import { GetCurrent } from 'state/weather';
 import TempReport from './TempReport';
@@ -50,7 +51,17 @@ function Weather() {
             </WeatherSection>
           </>
         ) : (
-          <div />
+          <>
+          <BearSection>
+          <img src={Spinner} alt="Loading"/>
+          </BearSection>
+
+          <WeatherSection>
+          <img src={Spinner} alt="Loading"/>
+            <TempReport />
+          </WeatherSection>
+        </>
+         
         )}
       </ContentSection>
     </StyledRoot>
