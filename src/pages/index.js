@@ -6,3 +6,4 @@ export { default as SaveComplete } from './Save/SaveComplete';
 export { default as Vote } from './Vote';
 export { default as VoteComplete } from './Vote/VoteComplete';
 export { default as SaveRecord } from './SaveRecord';
+export { default as Redirect } from './Redirect';

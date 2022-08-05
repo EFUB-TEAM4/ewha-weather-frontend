@@ -10,6 +10,7 @@ import {
   MyPage,
   SaveRecord,
   SaveComplete,
+  Redirect
 } from 'pages';
 import { RequiredAuth } from 'components';
 
@@ -37,6 +38,10 @@ function AppRouter() {
           </Route>
         </Route>
         <Route path="/" element={<Main />} />
+        <Route path="/redirect" element={<Redirect />} />
+
+        
+        
       </Routes>
     </BrowserRouter>
   );
