@@ -20,6 +20,7 @@ import {
   Form,
   ButtonBox,
 } from './style';
+import {Outlet} from "react-router-dom"
 
 function Vote() {
   const privateAxios = usePrivateAxios();
@@ -42,7 +43,9 @@ function Vote() {
   };
 
   return (
-    <StyledRoot>
+
+    <>
+        <StyledRoot>
       <HeaderBox>
         <HeaderIconBox>
           <HeaderIcon />
@@ -106,6 +109,10 @@ function Vote() {
         />
       </ButtonBox>
     </StyledRoot>
+    <Outlet/>
+    
+    </>
+
   );
 }
 
