@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-unresolved */
@@ -15,9 +14,6 @@ import { TimeCard, PCPollCard } from 'components';
 import { StyledRoot, StyledSlider } from './style';
 
 function Carousel({ data, type, slideCount, setting }) {
-  // console.log(type, data);
-
-  // const [index, setIndex]=useState(0);
   const settings = {
     dots: false,
     infinite: false,

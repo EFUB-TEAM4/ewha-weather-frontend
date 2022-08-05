@@ -20,18 +20,21 @@ function AppRouter() {
         {/* Default Route */}
         <Route path="/login" element={<Login />} />
 
-        {/* Private Route */}
-        {/* 추후 로그인 여부 확인 로직 필요 */}
+        {/* Private Route : 로그인 된 경우에만 접근 가능한 페이지 */}
         <Route element={<RequiredAuth />}>
-          <Route path="/save" element={<Save />} />
-          <Route path="/savecomplete" element={<SaveComplete />} />
-          <Route path="/vote" element={<Vote />} />
-          <Route
-            path="/votecomplete/:clothes/:place"
-            element={<VoteComplete />}
-          />
-          <Route path="/mypage" element={<MyPage />} />
-          <Route path="/mypage/save" element={<SaveRecord />} />
+          {/* 착장 저장하기 */}
+          <Route path="/save" element={<Save />}>
+            <Route path="complete" element={<SaveComplete />} />
+          </Route>
+          {/* 옷 차림 투표 생성하기 */}
+          <Route path="/vote" element={<Vote />}>
+            <Route path="complete/:clothes/:place" element={<VoteComplete />} />
+          </Route>
+
+          {/* 마이페이지 저장하기 */}
+          <Route path="/mypage" element={<MyPage />}>
+            <Route path="save" element={<SaveRecord />} />
+          </Route>
         </Route>
         <Route path="/" element={<Main />} />
       </Routes>

@@ -3,21 +3,20 @@ import { serverAxios } from './index';
 
 const PREFIX_URL = '/api/v1/calendars';
 
-/* eslint-disable-next-line */
 export const GetCalendars = async id => {
   try {
     const { data } = await serverAxios.get(`${PREFIX_URL}?userId=${id}`);
-    // console.log(data);
+
     return data;
   } catch (err) {
     return err;
   }
 };
-/* eslint-disable-next-line */
+
 export const GetDetailCalendars = async id => {
   try {
     const { data } = await serverAxios.get(`${PREFIX_URL}/${id}`);
-    // console.log(data);
+
     return data;
   } catch (err) {
     return err;
@@ -44,7 +43,6 @@ export const DeleteCalendars = async (privateAxios, id) => {
   }
 };
 
-/* eslint-disable-next-line */
 export const PostCalendars = async (
   privateAxios,
   Avater,
@@ -66,7 +64,6 @@ export const PostCalendars = async (
       seasonId: Avater.seasonResponseDto.id,
       skyId: Avater.skyResponseDto.id,
     });
-    // console.log(data);
     return data;
   } catch (err) {
     return err;
