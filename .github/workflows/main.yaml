@@ -54,5 +54,3 @@ jobs:
             --recursive \
             --region ap-northeast-2 \
             build s3://${{ secrets.AWS_S3_Bucket_Name }}
-      - name: Invalidate CloudFront Cache
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
