@@ -1,7 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
-import { OAuthLogin as handleLoginBtn } from 'utils';
+// import { OAuthLogin as handleLoginBtn } from 'utils';
+import { useGoogle } from 'hooks';
 import {
   StyledRoot,
   Header,
@@ -13,7 +14,9 @@ import {
   LoginCheck,
 } from './style';
 
+
 function Login() {
+  const {loginUrl}=useGoogle();
   return (
     <StyledRoot>
       <Header>
@@ -21,7 +24,7 @@ function Login() {
       </Header>
       <Article>
         <BtnSection>
-          <LoginBtn onClick={handleLoginBtn}>
+          <LoginBtn href={loginUrl}>
             <img src={GoogleBtn} alt="GoogleBtn" />
             <span>구글 계정으로 로그인</span>
 
