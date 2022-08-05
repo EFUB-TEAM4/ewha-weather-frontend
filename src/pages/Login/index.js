@@ -2,7 +2,7 @@
 import React from 'react';
 import { LoginBear, GoogleBtn } from 'assets';
 // import { OAuthLogin as handleLoginBtn } from 'utils';
-import { createOAuthUri } from 'components';
+import { createOAuthUri } from 'utils';
 import {
   StyledRoot,
   Header,
