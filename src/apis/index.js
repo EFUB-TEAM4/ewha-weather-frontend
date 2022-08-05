@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const serverAxios = axios.create({
   baseURL: `${process.env.REACT_APP_SERVER_URL}`,
-  headers: { 'Access-Control-Allow-Origin': '*' },
+  headers: { 'Access-Control-Allow-Origin':`${process.env.REACT_APP_SERVER_URL}` },
   withCredentials: false,
 });
 
