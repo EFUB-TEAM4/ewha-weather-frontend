@@ -7,6 +7,7 @@ import { WhiteLeft } from 'assets';
 import { HeaderIcon, PublicButton } from 'components';
 import {
   StyledRoot,
+  HeaderBox,
   HeaderIconBox,
   Text,
   BackButton,
@@ -42,24 +43,26 @@ function Vote() {
 
   return (
     <StyledRoot>
-      <HeaderIconBox>
-        <HeaderIcon />
-      </HeaderIconBox>
-      <BackButtonBox>
-        <button
-          className="backbutton"
-          type="button"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          <BackButton src={WhiteLeft} alt="BackButton" />
-        </button>
-      </BackButtonBox>
-      <Text>
-        <SubText>오늘 옷차림이 고민될 땐,</SubText>
-        <MainText>벗들에게 물어봐!</MainText>
-      </Text>
+      <HeaderBox>
+        <HeaderIconBox>
+          <HeaderIcon />
+        </HeaderIconBox>
+        <BackButtonBox>
+          <button
+            className="backbutton"
+            type="button"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <BackButton src={WhiteLeft} alt="BackButton" />
+          </button>
+        </BackButtonBox>
+        <Text>
+          <SubText>오늘 옷차림이 고민될 땐,</SubText>
+          <MainText>벗들에게 물어봐!</MainText>
+        </Text>
+      </HeaderBox>
       <ContentBox>
         <FormBox>
           <SubjectText>

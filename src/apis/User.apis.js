@@ -1,9 +1,7 @@
-/* eslint-disable import/prefer-default-export */
-
 const PREFIX_URL = '/api/v1/users';
 
 // /api/v1/users/currentUser
-export const currentUser = async privateAxios => {
+const currentUser = async privateAxios => {
   try {
     const {
       data: {
@@ -16,3 +14,5 @@ export const currentUser = async privateAxios => {
     return err;
   }
 };
+
+export default currentUser;

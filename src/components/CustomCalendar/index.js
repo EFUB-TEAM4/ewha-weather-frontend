@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import { GetCalendars } from 'apis/Calendar.apis';
-import { currentUser } from 'apis/User.apis';
+import currentUser from 'apis/User.apis';
 import { usePrivateAxios } from 'hooks';
 import { NavLink } from 'react-router-dom';
 import Calendar from 'react-calendar';
@@ -11,7 +12,6 @@ import { StyledRoot, CalendarContainer, Image } from './style';
 function CustomCalendar() {
   const [value, onChange] = useState(new Date());
   const [data, setData] = useState([]);
-  /* eslint-disable-next-line */
   const [mark, setMark] = useState([]);
   const privateAxios = usePrivateAxios();
   const getData = async () => {

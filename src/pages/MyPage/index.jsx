@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { currentUser } from 'apis/User.apis';
+import currentUser from 'apis/User.apis';
 import { usePrivateAxios, logout } from 'hooks';
 import { CustomCalendar } from 'components';
 import { User, WhiteLeft } from 'assets';
