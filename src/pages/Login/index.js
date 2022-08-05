@@ -14,9 +14,8 @@ import {
   LoginCheck,
 } from './style';
 
-
 function Login() {
-  const {loginUrl}=useGoogle();
+  const { loginUrl } = useGoogle();
   return (
     <StyledRoot>
       <Header>
