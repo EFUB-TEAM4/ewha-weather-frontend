@@ -3,14 +3,16 @@
 
 // JWT를 axios intercepter에 붙이는 hook
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { privateAxios } from 'apis';
-import { getRefreshToken } from 'apis/Auth.apis';
+import checkToken from 'apis/Auth.apis';
 import LoginState from 'state/loginState';
 
 const usePrivateAxios = token => {
   const auth = localStorage.getItem('token') || token;
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const navigation = useNavigate();
   // const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   // console.log(auth);
   // 💙 항상 ACCESS_TOKEN 붙여 요청 보내기
@@ -41,15 +43,21 @@ const usePrivateAxios = token => {
       async response => /* 💙 응답 데이터 반환 */ response,
       async error => {
         // console.log('response Error', error);
-        const prevRequest = error?.config;
-        if (error?.response?.status === 403 || (401 && !prevRequest?.sent)) {
-          prevRequest.sent = true;
-          privateAxios.headers.Authorization = `Bearer ${auth}`;
-          const newAcessToken = await getRefreshToken(privateAxios);
+        const originalRequest = error?.config;
+        if (
+          error?.response?.status === 403 ||
+          (401 && !originalRequest?.sent)
+        ) {
+          originalRequest.sent = true;
+          // privateAxios.headers.Authorization[`Bearer ${auth}`];
+          const newAcessToken = await checkToken(
+            privateAxios.headers.Authorization[`Bearer ${auth}`],
+          );
           // console.log(newAcessToken);
-          prevRequest.headers.Authorization = `Bearer ${newAcessToken}`;
-          return privateAxios(prevRequest);
+          originalRequest.headers.Authorization = `Bearer ${newAcessToken}`;
+          return privateAxios(originalRequest);
         }
+        navigation('/');
         return Promise.reject(error);
       },
     );
@@ -58,7 +66,7 @@ const usePrivateAxios = token => {
       privateAxios.interceptors.request.eject(requestIntercept);
       privateAxios.interceptors.response.eject(responseIntercept);
     };
-  }, [auth]);
+  }, []);
   return privateAxios;
 };
 

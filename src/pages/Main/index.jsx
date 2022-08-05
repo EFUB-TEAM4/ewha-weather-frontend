@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable import/no-unresolved */
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { IsEwha } from 'utils';
 import LoginState from 'state/loginState';
-import { currentUser } from 'apis/User.apis';
+import currentUser from 'apis/User.apis';
 import { HeaderIcon as UserIcon } from 'components';
 import { useWindowWidth, useQueryString, usePrivateAxios } from 'hooks';
 import Weather from './Weather';
@@ -21,11 +20,9 @@ function Main() {
   const privateAxios = usePrivateAxios(token);
 
   const validateUser = async () => {
-    const { email, fullName, id } = await currentUser(privateAxios);
-    // console.log('Main Validate User', email, fullName, id);
+    const { email } = await currentUser(privateAxios);
+
     if (IsEwha(email)) {
-      // console.log(token);
-      // console.log("Ewha people")
       setIsLoggedIn(true);
       navigation('/');
     } else {
@@ -36,7 +33,6 @@ function Main() {
 
   useEffect(() => {
     if (token) {
-      // console.log("token validation start")
       localStorage.setItem('token', token);
       validateUser();
     } else {

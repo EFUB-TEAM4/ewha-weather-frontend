@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 import { atom, selector } from 'recoil';
 import { usePrivateAxios } from 'hooks';
-import { currentUser } from 'apis/User.apis';
+import currentUser from 'apis/User.apis';
 
 const DEFAULT_USER_STATE = {
   email: '',

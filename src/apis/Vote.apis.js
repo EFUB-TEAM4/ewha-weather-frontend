@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { serverAxios } from './index';
 
 const PREFIX_URL = 'api/v1/votes';
@@ -8,7 +7,7 @@ export const GetVotes = async () => {
     const {
       data: { body },
     } = await serverAxios.get(`${PREFIX_URL}`);
-    // console.log('GetVotes', body['vote list']);
+
     return body['vote list'];
   } catch (err) {
     return err;
@@ -16,10 +15,9 @@ export const GetVotes = async () => {
 };
 
 export const PostProCon = async (privateAxios, data) => {
-  // console.log(approved, votePostsId, JSON.stringify(data));
   try {
     const response = await privateAxios.post(`${PREFIX_URL}/yesorno`, data);
-    // console.log('PostProCon', response);
+
     return response;
   } catch (err) {
     return err;
@@ -46,7 +44,7 @@ export const PostVotes = async (privateAxios, place, clothes) => {
   try {
     const { data } = await privateAxios.post(`${PREFIX_URL}`, {
       building: place.length > 0 ? place : '학교',
-      clothes: clothes,
+      clothes,
     });
     // console.log(data);
     return data;
