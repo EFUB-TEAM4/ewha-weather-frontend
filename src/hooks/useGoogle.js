@@ -14,13 +14,14 @@ function useGoogle() {
       response_type: 'code', // code, token
       scope: 'https://www.googleapis.com/auth/userinfo.email'
     }) */
-    localStorage.setItem('useGoogle', "useGoogle");
+  localStorage.setItem('useGoogle', 'useGoogle');
   useEffect(() => {
-    localStorage.setItem('useEffect', "useEffect");
+    localStorage.setItem('useEffect', 'useEffect');
     (async () => {
+    localStorage.setItem('async', 'async');
       if (window.location.search.split('?').length > 1) {
         const { token } = qs.parse(window.location.search.split('?')[1]);
-    
+
         localStorage.setItem('token', token);
         // console.log(token)
         // console.log(code)
