@@ -36,7 +36,7 @@ const ContentBox = styled.div`
 `;
 
 const Clothes = styled.p`
-  font-family: 'Noto';
+  font-family: 'Noto', [monospace];
   font-size: ${({ theme: { font } }) => font.size.semiMedium};
   color: ${({ theme: { color } }) => color.greenDarker};
   margin-bottom: 2rem;
@@ -48,7 +48,7 @@ const Clothes = styled.p`
 `;
 
 const Place = styled.p`
-  font-family: 'Noto';
+  font-family: 'Noto', [monospace];
   font-size: ${({ theme: { font } }) => font.size.semiMedium};
   color: ${({ theme: { color } }) => color.greenDarker};
 
