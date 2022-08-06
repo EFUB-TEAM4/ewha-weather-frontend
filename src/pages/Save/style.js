@@ -284,6 +284,9 @@ const MobileButtonBox = styled.div`
   ${applyMediaQuery('tablet')} {
     display: none;
   }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
+  }
 `;
 
 const Bear = styled.div`
