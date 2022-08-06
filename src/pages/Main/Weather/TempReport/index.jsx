@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-unresolved */
 
-import React, { useEffect, useState , Suspense} from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { Spinner } from 'assets';
 import Carousel from 'components/Common/Carousel';
 import theme from 'styles/theme';
@@ -44,14 +44,12 @@ function TempReport() {
   }, []);
 
   return (
-    <Suspense fallback={<img src={Spinner} alt="Spinner"/>}>
-         { data && (
-      <Carousel data={data} type="time" slideCount={4} setting={setting} />
-    )}
-  
-
-    </Suspense>)
- 
+    <Suspense fallback={<img src={Spinner} alt="Spinner" />}>
+      {data && (
+        <Carousel data={data} type="time" slideCount={4} setting={setting} />
+      )}
+    </Suspense>
+  );
 }
 
 export default TempReport;

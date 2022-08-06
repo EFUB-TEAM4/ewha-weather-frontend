@@ -52,16 +52,15 @@ function Weather() {
           </>
         ) : (
           <>
-          <BearSection>
-          <img src={Spinner} alt="Loading"/>
-          </BearSection>
+            <BearSection>
+              <img src={Spinner} alt="Loading" />
+            </BearSection>
 
-          <WeatherSection>
-          <img src={Spinner} alt="Loading"/>
-            <TempReport />
-          </WeatherSection>
-        </>
-         
+            <WeatherSection>
+              <img src={Spinner} alt="Loading" />
+              <TempReport />
+            </WeatherSection>
+          </>
         )}
       </ContentSection>
     </StyledRoot>
