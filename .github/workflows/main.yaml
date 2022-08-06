@@ -1,5 +1,5 @@
 # 메인 브랜치에 푸시 발생 시 실행됨
-name: S3 Deploy
+name: Publish
 on:
   push:
     branches:
@@ -48,7 +48,7 @@ jobs:
       - name: Build
         run: npm run build
 
-       # AWS S3 버킷 내 빌드 파일 업로드
+        # AWS S3 버킷 내 빌드 파일 업로드
       - name: Deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
