@@ -25,6 +25,11 @@ const StyledRoot = styled.div`
       height: 90%;
     }
   }
+  ${applyMediaQuery('tablet')} {
+    .mainbox {
+      width: 95vw;
+    }
+  }
 `;
 
 const HeaderIconBox = styled.div`
@@ -88,7 +93,7 @@ const MainBox = styled.div`
   background-color: ${({ theme: { color } }) => color.white};
   border-radius: 1.4rem;
   ${applyMediaQuery('mobile')} {
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
 `;
 
@@ -98,7 +103,7 @@ const DateText = styled.p`
   font-size: ${({ theme: { font } }) => font.size.semiMedium};
   color: ${({ theme: { color } }) => color.greenDarker};
   ${applyMediaQuery('mobile')} {
-    font-family: 'Noto';
+    font-family: 'Noto', [monospace];
     font-size: ${({ theme: { font } }) => font.size.regular};
     font-weight: ${({ theme: { font } }) => font.weight.semiBold};
     padding: 2.6rem 0rem 2rem 2rem;
@@ -176,7 +181,7 @@ const RecordBox = styled.div`
   }
 
   textarea::placeholder {
-    font-family: 'Noto';
+    font-family: 'Noto', [monospace];
     font-weight: ${({ theme: font }) => font.light};
     color: ${({ theme: { color } }) => color.grey};
   }
@@ -257,13 +262,27 @@ const VerticalLine = styled.hr`
   background: ${({ theme: { color } }) => color.greenLighter};
 `;
 
-const ButtonBox = styled.div`
+const DeskTopButtonBox = styled.div`
   width: 100rem;
   display: flex;
   justify-content: center;
   margin-bottom: 4rem;
   ${applyMediaQuery('mobile')} {
-    width: 80vw;
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
+  }
+`;
+const MobileButtonBox = styled.div`
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  ${applyMediaQuery('desktop')} {
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    display: none;
   }
 `;
 
@@ -290,7 +309,8 @@ export {
   MobileWeatherBox,
   ContentBox,
   RecordBox,
-  ButtonBox,
+  DeskTopButtonBox,
+  MobileButtonBox,
   TemBox,
   Temperature,
   VerticalLine,

@@ -12,6 +12,7 @@ import {
   StyledLink,
   Line,
   LogoutButton,
+  LoginButton,
 } from './style';
 
 function HeaderIcon() {
@@ -33,22 +34,22 @@ function HeaderIcon() {
   useClickOutside(Ref);
   return (
     <StyledRoot ref={Ref}>
-      <IconButton type="button" onClick={() => setIsClicked(prev => !prev)}>
-        <Image src={User} alt="HeaderIcon" />
-      </IconButton>
+      {localStorage.getItem('token') ? (
+        <IconButton type="button" onClick={() => setIsClicked(prev => !prev)}>
+          <Image src={User} alt="HeaderIcon" />
+        </IconButton>
+      ) : (
+        <NavLink to="/login">
+          <LoginButton>로그인</LoginButton>
+        </NavLink>
+      )}
       {isClicked ? (
         <div>
           <ToolTipArrow />
           <ToolTip>
             <StyledLink to="/MyPage">마이페이지</StyledLink>
             <Line />
-            {localStorage.getItem('token') ? (
-              <LogoutButton onClick={logout}>로그아웃</LogoutButton>
-            ) : (
-              <NavLink to="/login">
-                <LogoutButton>로그인</LogoutButton>
-              </NavLink>
-            )}
+            <LogoutButton onClick={logout}>로그아웃</LogoutButton>
           </ToolTip>
         </div>
       ) : null}

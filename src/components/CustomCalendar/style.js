@@ -64,6 +64,10 @@ const CalendarContainer = styled.div`
     line-height: 2rem;
     text-align: center;
   }
+  .react-calendar__tile {
+    margin: 0;
+    border: 0;
+  }
   button {
     background-color: ${({ theme: { color } }) => color.white};
     height: 7rem;

@@ -31,7 +31,8 @@ import {
   MobileWeatherBox,
   ContentBox,
   RecordBox,
-  ButtonBox,
+  DeskTopButtonBox,
+  MobileButtonBox,
   TemBox,
   Temperature,
   VerticalLine,
@@ -168,7 +169,7 @@ function SaveRecord() {
             <HorizonLineBottom width="100%" />
           </RecordBox>
         </ContentBox>
-        <ButtonBox>
+        <DeskTopButtonBox>
           {isEditMode ? (
             <PublicButton
               text="저장하기"
@@ -179,8 +180,20 @@ function SaveRecord() {
               }}
             />
           ) : null}
-        </ButtonBox>
+        </DeskTopButtonBox>
       </MainBox>
+      <MobileButtonBox>
+        {isEditMode ? (
+          <PublicButton
+            text="저장하기"
+            isDisabled={0}
+            onClick={() => {
+              EditCalendars(privateAxios, data.id, input);
+              setIsEditMode(0);
+            }}
+          />
+        ) : null}
+      </MobileButtonBox>
       {isSaveVisible ? (
         <EditModal
           ctext1="아직 기록이 저장되지 않았어요."
