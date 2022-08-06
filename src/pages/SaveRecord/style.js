@@ -23,6 +23,11 @@ const StyledRoot = styled.div`
       height: 90%;
     }
   }
+  ${applyMediaQuery('tablet')} {
+    .mainbox {
+      width: 95vw;
+    }
+  }
 `;
 
 const HeaderIconBox = styled.div`
@@ -50,6 +55,11 @@ const Text = styled.div`
   background-color: ${({ theme: { color } }) => color.greenDarker};
   .backbutton {
     display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    .backbutton {
+      display: none;
+    }
   }
   ${applyMediaQuery('mobile')} {
     top: 0;
@@ -108,6 +118,9 @@ const MainHeaderBox = styled.div`
       width: 8rem;
       margin-right: 2rem;
     }
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
   }
 `;
 
@@ -192,6 +205,9 @@ const RecordBox = styled.div`
       height: 30rem;
     }
   }
+  ${applyMediaQuery('tablet')} {
+    width: 45vw;
+  }
 `;
 
 const DeskTopWeatherBox = styled.div`
@@ -206,6 +222,9 @@ const DeskTopWeatherBox = styled.div`
   }
   ${applyMediaQuery('mobile')} {
     display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 45vw;
   }
 `;
 
@@ -227,6 +246,9 @@ const MobileWeatherBox = styled.div`
     height: 6rem;
   }
   ${applyMediaQuery('desktop')} {
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
     display: none;
   }
 `;
@@ -268,6 +290,9 @@ const ButtonBox = styled.div`
   margin-bottom: 1rem;
   ${applyMediaQuery('mobile')} {
     width: 80vw;
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
   }
 `;
 

@@ -77,6 +77,17 @@ const LogoutButton = styled.button`
   font-weight: ${({ theme: { font } }) => font.weight.bold};
 `;
 
+const LoginButton = styled.button`
+  width: 9rem;
+  height: 3rem;
+  border-radius: 2rem;
+  background-color: ${({ theme: { color } }) => color.white};
+  color: #3b3829;
+  font-family: 'Cafe24Ssurround';
+  font-size: ${({ theme: { font } }) => font.size.micro};
+  font-weight: ${({ theme: { font } }) => font.weight.bold};
+`;
+
 export {
   StyledRoot,
   ToolTipArrow,
@@ -86,4 +97,5 @@ export {
   StyledLink,
   Line,
   LogoutButton,
+  LoginButton,
 };

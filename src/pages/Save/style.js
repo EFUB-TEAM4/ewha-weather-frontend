@@ -25,6 +25,11 @@ const StyledRoot = styled.div`
       height: 90%;
     }
   }
+  ${applyMediaQuery('tablet')} {
+    .mainbox {
+      width: 95vw;
+    }
+  }
 `;
 
 const HeaderIconBox = styled.div`
@@ -98,7 +103,7 @@ const DateText = styled.p`
   font-size: ${({ theme: { font } }) => font.size.semiMedium};
   color: ${({ theme: { color } }) => color.greenDarker};
   ${applyMediaQuery('mobile')} {
-    font-family: 'Noto';
+    font-family: 'Noto', [monospace];
     font-size: ${({ theme: { font } }) => font.size.regular};
     font-weight: ${({ theme: { font } }) => font.weight.semiBold};
     padding: 2.6rem 0rem 2rem 2rem;
@@ -176,7 +181,7 @@ const RecordBox = styled.div`
   }
 
   textarea::placeholder {
-    font-family: 'Noto';
+    font-family: 'Noto', [monospace];
     font-weight: ${({ theme: font }) => font.light};
     color: ${({ theme: { color } }) => color.grey};
   }
@@ -264,6 +269,9 @@ const ButtonBox = styled.div`
   margin-bottom: 4rem;
   ${applyMediaQuery('mobile')} {
     width: 80vw;
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
   }
 `;
 

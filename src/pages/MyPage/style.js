@@ -44,6 +44,9 @@ const MobileHeader = styled.div`
   ${applyMediaQuery('desktop')} {
     display: none;
   }
+  ${applyMediaQuery('tablet')} {
+    display: none;
+  }
 `;
 
 const BackButton = styled.img`
@@ -117,6 +120,9 @@ const MobileFooter = styled.div`
   width: 100%;
   display: flex;
   ${applyMediaQuery('desktop')} {
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
     display: none;
   }
   justify-content: center;
