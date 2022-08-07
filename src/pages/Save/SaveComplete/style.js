@@ -16,7 +16,7 @@ const ButtonBox = styled.div`
   ${applyMediaQuery('mobile')} {
     button {
       margin-bottom: 3rem;
-      margin-left: 37rem;
+      margin-left: 26.4rem;
     }
   }
 `;
@@ -39,7 +39,7 @@ const MainText = styled.p`
   margin-bottom: 5rem;
 
   ${applyMediaQuery('mobile')} {
-    font-size: ${({ theme: { font } }) => font.size.semiLarge};
+    font-size: ${({ theme: { font } }) => font.size.semiMedium};
     margin-bottom: 4rem;
   }
 `;
@@ -56,8 +56,17 @@ const ImgBox = styled.div`
   padding: 2.5rem 0rem 0rem 2.5rem;
 
   img {
-    width: 92%;
-    height: 92%;
+    width: 93%;
+    height: 93%;
+  }
+
+  ${applyMediaQuery('mobile')} {
+    width: 27.8rem;
+    height: 27.8rem;
+    img {
+      width: 93%;
+      height: 93%;
+    }
   }
 `;
 
@@ -70,7 +79,7 @@ const HomeButton = styled.button`
 
   ${applyMediaQuery('mobile')} {
     margin-top: 3rem;
-    width: 40rem;
+    width: 27.8rem;
     height: 5rem;
   }
 `;

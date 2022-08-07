@@ -23,7 +23,8 @@ import {
   MobileWeatherBox,
   ContentBox,
   RecordBox,
-  ButtonBox,
+  DeskTopButtonBox,
+  MobileButtonBox,
   TemBox,
   Temperature,
   VerticalLine,
@@ -63,7 +64,7 @@ function Save() {
           className="backbutton"
           type="button"
           onClick={() => {
-            navigate(-1);
+            navigate('/');
           }}
         >
           <BackButton src={WhiteLeft} alt="BackButton" />
@@ -135,7 +136,7 @@ function Save() {
         ) : (
           <ContentBox />
         )}
-        <ButtonBox>
+        <DeskTopButtonBox>
           <PublicButton
             onClick={() => {
               PostCalendars(privateAxios, AvaterState, CurrentWeather, text);
@@ -144,8 +145,18 @@ function Save() {
             text="저장하기"
             isDisabled={text.length > 0 ? 0 : 1}
           />
-        </ButtonBox>
+        </DeskTopButtonBox>
       </MainBox>
+      <MobileButtonBox>
+        <PublicButton
+          onClick={() => {
+            PostCalendars(privateAxios, AvaterState, CurrentWeather, text);
+            navigate('/savecomplete');
+          }}
+          text="저장하기"
+          isDisabled={text.length > 0 ? 0 : 1}
+        />
+      </MobileButtonBox>
     </StyledRoot>
   );
 }
