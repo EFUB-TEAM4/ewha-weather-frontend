@@ -125,14 +125,14 @@ const Form = styled.form`
   }
 
   input::placeholder {
-    font-family: 'Noto';
+    font-family: 'Noto', [monospace];
     font-weight: ${({ theme: font }) => font.light};
     color: ${({ theme: { color } }) => color.grey};
   }
 
   ${applyMediaQuery('mobile')} {
     input {
-      width: 43rem;
+      width: 80vw;
     }
   }
 `;
