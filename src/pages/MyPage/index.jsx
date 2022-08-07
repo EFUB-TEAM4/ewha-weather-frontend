@@ -40,7 +40,7 @@ function MyPage() {
         <button
           type="button"
           onClick={() => {
-            navigate(-1);
+            navigate('/');
           }}
         >
           <BackButton src={WhiteLeft} alt="BackButton" />

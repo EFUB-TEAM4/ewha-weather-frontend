@@ -23,6 +23,11 @@ const StyledRoot = styled.div`
       height: 90%;
     }
   }
+  ${applyMediaQuery('tablet')} {
+    .mainbox {
+      width: 95vw;
+    }
+  }
 `;
 
 const HeaderIconBox = styled.div`
@@ -50,6 +55,11 @@ const Text = styled.div`
   background-color: ${({ theme: { color } }) => color.greenDarker};
   .backbutton {
     display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    .backbutton {
+      display: none;
+    }
   }
   ${applyMediaQuery('mobile')} {
     top: 0;
@@ -85,7 +95,7 @@ const MainBox = styled.div`
   background-color: ${({ theme: { color } }) => color.white};
   border-radius: 1.4rem;
   ${applyMediaQuery('mobile')} {
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
 `;
 
@@ -108,6 +118,9 @@ const MainHeaderBox = styled.div`
       width: 8rem;
       margin-right: 2rem;
     }
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
   }
 `;
 
@@ -192,6 +205,9 @@ const RecordBox = styled.div`
       height: 30rem;
     }
   }
+  ${applyMediaQuery('tablet')} {
+    width: 45vw;
+  }
 `;
 
 const DeskTopWeatherBox = styled.div`
@@ -206,6 +222,9 @@ const DeskTopWeatherBox = styled.div`
   }
   ${applyMediaQuery('mobile')} {
     display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 45vw;
   }
 `;
 
@@ -227,6 +246,9 @@ const MobileWeatherBox = styled.div`
     height: 6rem;
   }
   ${applyMediaQuery('desktop')} {
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
     display: none;
   }
 `;
@@ -261,13 +283,31 @@ const VerticalLine = styled.hr`
   background: ${({ theme: { color } }) => color.greenLighter};
 `;
 
-const ButtonBox = styled.div`
+const DeskTopButtonBox = styled.div`
   width: 100rem;
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
   ${applyMediaQuery('mobile')} {
-    width: 80vw;
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
+  }
+`;
+const MobileButtonBox = styled.div`
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  ${applyMediaQuery('desktop')} {
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    display: none;
+  }
+  ${applyMediaQuery('tablet')} {
+    width: 95vw;
   }
 `;
 
@@ -294,7 +334,8 @@ export {
   MobileWeatherBox,
   ContentBox,
   RecordBox,
-  ButtonBox,
+  DeskTopButtonBox,
+  MobileButtonBox,
   TemBox,
   Temperature,
   VerticalLine,

@@ -1,4 +1,5 @@
 # 梨상청 Frontend
+[![Publish](https://github.com/EFUB-TEAM4/ewha-weather-frontend/actions/workflows/main.yaml/badge.svg)](https://github.com/EFUB-TEAM4/ewha-weather-frontend/actions/workflows/main.yaml)
 
 # 📚디렉토리 구조
 
