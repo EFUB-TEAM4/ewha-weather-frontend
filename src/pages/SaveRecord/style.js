@@ -131,7 +131,7 @@ const DateText = styled.p`
   font-size: ${({ theme: { font } }) => font.size.semiMedium};
   color: ${({ theme: { color } }) => color.greenDarker};
   ${applyMediaQuery('mobile')} {
-    font-family: 'Noto';
+    font-family: 'Noto', [monospace];
     font-size: ${({ theme: { font } }) => font.size.regular};
     font-weight: ${({ theme: { font } }) => font.weight.semiBold};
     padding: 2.6rem 0rem 2rem 2rem;
