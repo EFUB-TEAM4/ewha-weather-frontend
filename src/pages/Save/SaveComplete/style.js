@@ -56,16 +56,16 @@ const ImgBox = styled.div`
   padding: 2.5rem 0rem 0rem 2.5rem;
 
   img {
-    width: 93%;
-    height: 93%;
+    width: 92%;
+    height: 92%;
   }
 
   ${applyMediaQuery('mobile')} {
     width: 27.8rem;
     height: 27.8rem;
     img {
-      width: 93%;
-      height: 93%;
+      width: 92%;
+      height: 92%;
     }
   }
 `;

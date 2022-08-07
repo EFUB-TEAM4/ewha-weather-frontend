@@ -18,6 +18,7 @@ const StyledRoot = styled.div`
 `;
 const HeaderBox = styled.div`
   width: 100%;
+
   ${applyMediaQuery('mobile')} {
     position: fixed;
     top: 0;
@@ -25,12 +26,20 @@ const HeaderBox = styled.div`
     padding-bottom: 3.6rem;
     background-color: ${({ theme: { color } }) => color.greenDarker};
   }
+
+  ${applyMediaQuery('tablet')} {
+    position: fixed;
+    top: 0;
+    padding-top: 14rem;
+    padding-bottom: 4.3rem;
+  }
 `;
 const HeaderIconBox = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
   ${applyMediaQuery('mobile')} {
     display: none;
   }
@@ -87,6 +96,10 @@ const ContentBox = styled.div`
 
   ${applyMediaQuery('mobile')} {
     margin-top: 20rem;
+  }
+
+  ${applyMediaQuery('tablet')} {
+    padding-top: 20rem;
   }
 `;
 
