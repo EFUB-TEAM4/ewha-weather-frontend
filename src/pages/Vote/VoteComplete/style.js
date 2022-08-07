@@ -17,6 +17,10 @@ const MainText = styled.p`
   font-size: ${({ theme: { font } }) => font.size.semiLarge};
   color: ${({ theme: { color } }) => color.white};
   margin-bottom: 10.2rem;
+
+  ${applyMediaQuery('mobile')} {
+    font-size: 2.8rem;
+  }
 `;
 
 const ContentBox = styled.div`
@@ -30,7 +34,7 @@ const ContentBox = styled.div`
   background-color: ${({ theme: { color } }) => color.greenLighter};
 
   ${applyMediaQuery('mobile')} {
-    width: 40rem;
+    width: 80vw;
     height: 15rem;
   }
 `;
@@ -74,7 +78,7 @@ const HomeButton = styled.button`
 
   ${applyMediaQuery('mobile')} {
     margin-top: 3rem;
-    width: 40rem;
+    width: 80vw;
     height: 5rem;
   }
 `;
