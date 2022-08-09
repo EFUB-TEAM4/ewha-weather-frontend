@@ -44,6 +44,14 @@ const usePrivateAxios = token => {
       async error => {
         // console.log('response Error', error);
         const originalRequest = error?.config;
+        if (window.location.pathname === '/savecomplete') {
+          if (originalRequest.url === '/api/v1/calendars') {
+            /* eslint-disable-next-line */
+            alert(
+              '이미 해당 날짜에 게시글이 등록되었거나 등록에 실패하였습니다!',
+            );
+          }
+        }
         if (
           error?.response?.status === 403 ||
           (401 && !originalRequest?.sent)
