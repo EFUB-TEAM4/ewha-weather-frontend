@@ -86,10 +86,9 @@ function MobilePollCard({ data: { id, building, clothes } }) {
       } = response[0];
       // console.log(disapprovedCount, approvedCount);
 
-      const allowRatio = Math.floor(
-        approvedCount /
-        (approvedCount + disapprovedCount)
-      );
+      const allowRatio =(
+        approvedCount / (approvedCount + disapprovedCount)
+      ).toFixed(1);
       setAllowPercentage(allowRatio * 100);
     }
   };
