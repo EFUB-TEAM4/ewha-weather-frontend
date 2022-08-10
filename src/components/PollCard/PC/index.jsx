@@ -16,6 +16,7 @@ function PollCard({ data: { id, building, clothes } }) {
   const [isVoted, setIsVoted] = useState(false);
   const [allowPercentage, setAllowPercentage] = useState(0);
   const privateAxios = usePrivateAxios();
+  
   const CurrentUser = useRecoilValue(GetUser);
 
   const getUserData = async () => {
@@ -25,10 +26,10 @@ function PollCard({ data: { id, building, clothes } }) {
       const {
         voteResponseDto: { approvedCount, disapprovedCount },
       } = response[0];
-      const allowRatio = (
+      const allowRatio = Math.floor(
         approvedCount /
         (approvedCount + disapprovedCount)
-      ).toPrecision(2);
+      );
 
       setAllowPercentage(allowRatio * 100);
     }
