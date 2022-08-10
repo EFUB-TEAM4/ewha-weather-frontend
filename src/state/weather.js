@@ -41,7 +41,6 @@ export const GetCurrent = selector({
     return response;
   },
   set: ({ set }, newValue) => {
-    // console.log("GetCurrent",newValue)
     set(CurrentState, newValue);
   },
 });
