@@ -66,6 +66,35 @@
     </tr>
 </table>
 
+<table><tr width="100%"><td width="30%" align="center"> 옷차림 추천 받기</td></tr><tr width="100%"><td width="50%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736302-31ce5c7a-1236-41f8-9ca0-ed83578fb18d.gif"></td></tr>	</table>
+
+<table>
+	    <tr width="100%">
+        <td width="30%" align="center"> 카카오톡 공유하기
+</td>
+        <td width="30%" align="center"> 트위터 공유하기</td>
+    </tr>
+    <tr width="100%">
+        <td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736920-45e4e7a9-662f-435f-99e2-e483cf6ff182.gif">
+</td>
+        <td width="30%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185736925-737027e2-6c7e-4080-a660-700f20614c45.gif"></td>
+    </tr>
+</table>
+
+<table>
+		    <tr width="100%">
+        <td width="30%" align="center"> 링크 복사하기
+</td>
+        <td width="30%" align="center"> 로컬에 곰돌이 아바타 이미지 저장</td>
+    </tr>
+    <tr width="100%">
+        <td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736927-36168305-2074-4750-9bd3-5eb99f422131.gif">
+</td>
+        <td width="30%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185736931-ed5313c6-1883-4338-9283-3b3d1774e536.gif"></td>
+    </tr>
+</table>
+
+
 ## 📚디렉토리 구조
 
 ```
