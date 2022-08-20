@@ -50,48 +50,54 @@
 * SaveRecord 페이지 
 
 ## 📋 페이지 소개
+
+### 1. 로그인 페이지
 <table>
-    <tr width="100%">
-        <td width="50%" align="center"><img width="997" alt="스크린샷 2022-08-20 오후 5 07 12" src="https://user-images.githubusercontent.com/67853616/185735604-228d8957-ca64-4b58-9196-cda14fa1d72f.png">
-</td>
-        <td width="50%" align="center"><img width="584" alt="스크린샷 2022-08-20 오후 5 08 20" src="https://user-images.githubusercontent.com/67853616/185735630-3c5d0078-374b-4bd0-933a-08fe018c92a4.png"></td>
-    </tr>
+<tr width="100%"><td width="30%" align="center"> PC</td><td width="30%" align="center"> MOBILE</td></tr><tr width="100%"><td width="50%" align="center"><img width="997" alt="스크린샷 2022-08-20 오후 5 07 12" src="https://user-images.githubusercontent.com/67853616/185735604-228d8957-ca64-4b58-9196-cda14fa1d72f.png">
+</td><td width="50%" align="center"><img width="584" alt="스크린샷 2022-08-20 오후 5 08 20" src="https://user-images.githubusercontent.com/67853616/185735630-3c5d0078-374b-4bd0-933a-08fe018c92a4.png"></td></tr>
+</table>
+
+### 2. 메인 페이지
+<table>
+<tr width="100%"><td width="30%" align="center"> PC</td><td width="30%" align="center"> MOBILE</td></tr><tr width="100%"><td width="50%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185735791-37eb4f54-9119-44ef-bc0e-32beb51d3968.png"></td><td width="50%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185735824-56d41ef5-3069-4240-b576-e31747a6b967.png"></td></tr>
+</table>
+* 실시간 날씨 정보 <br>
+* carousel 이용한 일기예보 <br>
+* 날씨 정보에 맞는 png 파일 layered하여 곰돌이 아바타 구현 <br>
+
+#### 2-1. 곰돌이 옵션 모달창 : 옷차림 추천 받기
+<table>
+<tr width="100%"><td width="30%" align="center"> 옷차림 추천 받기</td></tr><tr width="100%"><td width="50%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736302-31ce5c7a-1236-41f8-9ca0-ed83578fb18d.gif"></td></tr>	</table>
+
+#### 2-2. 곰돌이 옵션 모달창 : 공유하기
+<table>
+<tr width="100%"><td width="30%" align="center"> 카카오톡 공유하기</td><td width="30%" align="center"> 트위터 공유하기</td></tr>
+<tr width="100%"><td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736920-45e4e7a9-662f-435f-99e2-e483cf6ff182.gif"></td><td width="30%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185736925-737027e2-6c7e-4080-a660-700f20614c45.gif"></td></tr>
 </table>
 
 <table>
-    <tr width="100%">
-        <td width="50%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185735791-37eb4f54-9119-44ef-bc0e-32beb51d3968.png">
-</td>
-        <td width="50%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185735824-56d41ef5-3069-4240-b576-e31747a6b967.png"></td>
-    </tr>
+<tr width="100%"><td width="30%" align="center"> 링크 복사하기</td><td width="30%" align="center"> 로컬에 곰돌이 아바타 이미지 저장</td></tr>
+<tr width="100%"><td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736927-36168305-2074-4750-9bd3-5eb99f422131.gif"></td><td width="30%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185736931-ed5313c6-1883-4338-9283-3b3d1774e536.gif"></td></tr>
 </table>
 
-<table><tr width="100%"><td width="30%" align="center"> 옷차림 추천 받기</td></tr><tr width="100%"><td width="50%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736302-31ce5c7a-1236-41f8-9ca0-ed83578fb18d.gif"></td></tr>	</table>
-
+#### 2-3. 투표하기 (로그인된 경우에만!)
 <table>
-	    <tr width="100%">
-        <td width="30%" align="center"> 카카오톡 공유하기
-</td>
-        <td width="30%" align="center"> 트위터 공유하기</td>
-    </tr>
-    <tr width="100%">
-        <td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736920-45e4e7a9-662f-435f-99e2-e483cf6ff182.gif">
-</td>
-        <td width="30%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185736925-737027e2-6c7e-4080-a660-700f20614c45.gif"></td>
-    </tr>
+<tr width="100%"><td width="30%" align="center"> PC : 투표하기</td><td width="30%" align="center"> MOBILE : 투표하기</td></tr><tr width="100%">
+<td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185738013-1cf8a6a9-2982-4ddf-82db-667dc95dbb15.gif"></td><td width="30%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185738018-8496c7a2-91aa-40b3-8ffa-671dde89bcb2.gif"></td></tr>
 </table>
 
+#### 2-4. 향상된 유저 경험을 위한 suspense 이용한 비동기 통신 splash
+
 <table>
-		    <tr width="100%">
-        <td width="30%" align="center"> 링크 복사하기
-</td>
-        <td width="30%" align="center"> 로컬에 곰돌이 아바타 이미지 저장</td>
-    </tr>
-    <tr width="100%">
-        <td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185736927-36168305-2074-4750-9bd3-5eb99f422131.gif">
-</td>
-        <td width="30%" align="center"><img width="590" alt="스크린샷 2022-08-20 오후 5 09 41" src="https://user-images.githubusercontent.com/67853616/185736931-ed5313c6-1883-4338-9283-3b3d1774e536.gif"></td>
-    </tr>
+<tr width="100%"><td width="30%" align="center"> 로딩 스플래시</td></tr>
+<tr width="100%"><td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185738128-ccbd6e88-c352-4dd9-a0ff-48dd3181d84e.gif"></td></tr>
+</table>
+
+#### 2-5. 로그인 X 일 때 로그인 필수 기능 사용한 경우
+* 투표 목록만 볼 수 있고 클릭 시에도 투표가 불가능함 <br> 
+* 로그인인된 유저만 사용가능한 페이지로 이동하려고 하면 강제적으로 로그인 페이지로 이동함 <br>
+<table>
+<tr width="100%"><td width="30%" align="center"><img width="593" alt="스크린샷 2022-08-20 오후 5 09 54" src="https://user-images.githubusercontent.com/67853616/185738267-e6384120-ea84-486e-878a-f2dc466f41d6.gif"></td></tr>
 </table>
 
 
