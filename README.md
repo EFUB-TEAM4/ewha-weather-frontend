@@ -1,7 +1,7 @@
 # 🌈 이상청
 
 ### 이화인을 위한 기상 정보 및 옷차림 정보 제공 서비스
-https://www.eweather.site/
+[https://www.eweather.site/](https://site.ewhaweather.com/)
 
 <br>
 
