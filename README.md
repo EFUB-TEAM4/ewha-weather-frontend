@@ -10,10 +10,21 @@
 
 <table>
     <tr width="100%">
-        <td width="50%" align="center"><img src="https://eweather-bucket.s3.ap-northeast-2.amazonaws.com/share/readme/intro1.png"></td>
-        <td width="50%" align="center"><img src="https://eweather-bucket.s3.ap-northeast-2.amazonaws.com/share/readme/intro2.png"></td>
+        <td width="50%" align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpLGja%2FbtszzFIDm8o%2FQMrpPKDWWFNb3rRVRkmrd0%2Fimg.png"></td>
+<td width="25%" align="center">
+
+ <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcer3Ml%2FbtszyTmSbcR%2FU0K54Z9tLiIkgLhRZDC3m1%2Fimg.png"/>
+</td>
+<td width="25%" align="center">
+
+ <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmIMkQ%2Fbtszy7yH5uA%2FiPktkj6jZgyTGZsbmLNTb1%2Fimg.png"/>
+</td>
     </tr>
+    </tr>
+    
 </table>
+
+
 
 
 > 💡 기존 교내 커뮤니티 날씨 게시판의 시각 정보 부족과, 기상정보를 종합적으로 파악할 수 없다는 문제점에서 시작하여 고안한, 이화인을 위한 기상정보 서비스입니다. 오픈 API를 활용해 매일의 기상정보를 제공하며, 옷에 대한 투표를 통해 교내 커뮤니티  날씨게시판의 기능을 시각적으로 확장합니다. 이화그린 색의 야잠, 뽀글이후드 등을 입은 이화 곰돌이를 통해 기온과 강수상태를 파악할 수 있습니다.
